@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   
   get 'qnas/index'
   get 'qnas/new'
-  get 'qnas/show'
-
+  get 'qnas/show/:qna_id' => 'qnas#show'
+  get 'qnas/create'
+  get 'qnas/destroy/:qna_id' => 'qnas#destroy'
+   get 'qnas/edit/:qna_id' => 'qnas#edit'
 
   get 'offlines/index'
   get 'offlines/career'

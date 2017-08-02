@@ -6,8 +6,19 @@
      <%= qna.title %></br>
      <%= qna.category %></br>
      <%= qna.content %></br>
-     <%= qna.code_content %></br>
+   <pre class="brush: cpp"><%= qna.code_content %></pre></br>
      <%= qna.img %></br>
-     <%= qna.user_id %></br>
-     <%= qna.user.email.split("@").first %></br>
+     <%= qna.user_id %></br> <!--유져아이디지롱-->
+     
+     <%= link_to "/qnas/show/#{qna.id}" do %>show..?<%end%></br>
+      <%= link_to "/qnas/edit/#{qna.id}" do %>edit<%end%></br>
+      <%= link_to "/qnas/destroy/#{qna.id}" do %>destroy..?<%end%></br>
+     
+   
 <% end %>
+
+
+
+  <script type="text/javascript">
+       SyntaxHighlighter.all()
+  </script>

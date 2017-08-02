@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require syntax-highlighter-rails/shCore
+//= require syntax-highlighter-rails/shBrushCpp
+//= require syntax-highlighter-rails/shBrushJava
+//= require syntax-highlighter-rails/shBrushPython
+//= require syntax-highlighter-rails/shBrushXml
+//= require syntax-highlighter-rails/shBrushCss
