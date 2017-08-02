@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802021050) do
+ActiveRecord::Schema.define(version: 20170802135437) do
 
   create_table "offlines", force: :cascade do |t|
     t.string   "category"
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(version: 20170802021050) do
   end
 
   add_index "offlines", ["user_id"], name: "index_offlines_on_user_id"
+
+  create_table "qna_replies", force: :cascade do |t|
+    t.string   "qna_reply_user"
+    t.text     "content"
+    t.text     "code_content"
+    t.string   "img"
+    t.integer  "qna_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "qna_replies", ["qna_id"], name: "index_qna_replies_on_qna_id"
 
   create_table "qnas", force: :cascade do |t|
     t.string   "title"
@@ -67,8 +79,11 @@ ActiveRecord::Schema.define(version: 20170802021050) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "name"
+    t.string   "birthday"
+    t.string   "phone"
+    t.string   "part"
+    t.string   "nickname"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

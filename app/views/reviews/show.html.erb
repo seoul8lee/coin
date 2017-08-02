@@ -1,2 +1,27 @@
-<h1>Reviews#show</h1>
-<p>Find me in app/views/reviews/show.html.erb</p>
+<h2>코인 그 후의 이야기를 들려주세요.</h2>
+
+
+<% if @review.user == current_user %>
+    
+        <p>제목 <%= @review.title %></p>
+        <p>카테고리 <%= @review.category %></p>
+        <p>내용</p><p> <%= @review.content %></p>
+        <%= link_to "/reviews/edit/#{@review.id}" do%>수정<%end%></td>
+
+<% else %>
+        
+        <% if @review.secret == true %>
+    
+            <p>제목 <%= @review.title %> </p>
+            <p>비밀글입니다.</p>
+            
+        <% else %>
+        
+            <p>제목 <%= @review.title %></p>
+            <p>카테고리 <%= @review.category %></p>
+            <p>내용</p><p> <%= @review.content %></p>
+            
+        <% end %>
+            
+<% end %>
+

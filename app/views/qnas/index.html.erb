@@ -1,6 +1,14 @@
 <h1>Qnas#index</h1>
 <p>Find me in app/views/qnas/index.html.erb</p>
 
+
+
+  <script type="text/javascript">
+       SyntaxHighlighter.all()
+  </script>
+
+
+
  <% @qnas.each do |qna| %>
      
      <%= qna.title %></br>
@@ -10,15 +18,9 @@
      <%= qna.img %></br>
      <%= qna.user_id %></br> <!--유져아이디지롱-->
      
-     <%= link_to "/qnas/show/#{qna.id}" do %>show..?<%end%></br>
+     <%= link_to "/qnas/show/#{qna.id}" do %>show<%end%></br>
       <%= link_to "/qnas/edit/#{qna.id}" do %>edit<%end%></br>
-      <%= link_to "/qnas/destroy/#{qna.id}" do %>destroy..?<%end%></br>
+      <%= link_to "/qnas/destroy/#{qna.id}" do %>destroy<%end%></br>
      
    
 <% end %>
-
-
-
-  <script type="text/javascript">
-       SyntaxHighlighter.all()
-  </script>

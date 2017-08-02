@@ -1,6 +1,7 @@
 <h1>Qnas#show</h1>
 <p>Find me in app/views/qnas/show.html.erb</p>
 
+<script type="text/javascript">SyntaxHighlighter.all()</script>
 
 <%= @qna.title %>
 <%= @qna.category %>
@@ -8,4 +9,71 @@
  <pre class="brush: cpp"><%= @qna.code_content%> </pre>
 <%= @qna.img %>
 
-<script type="text/javascript">SyntaxHighlighter.all()</script>
+<hr>
+<hr>
+<button class="btn btn-default" data-target="#layerpop" data-toggle="modal" >댓글쓰기</button>
+<div class="modal fade" id="layerpop" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- header -->
+      <div class="modal-header">
+       
+        <!-- header title -->
+        <h4 class="modal-title">댓글쓰기</h4>
+         <!-- 닫기(x) 버튼 -->
+        <button type="button" class="close" data-dismiss="modal">×</button>
+      </div>
+      <!-- body -->
+      <div class="modal-body">
+                    <form action="/qna_replies/create/<%= @qna.id %>" > 
+                <p>작성자</p>
+                <input type="string" name="input_qna_reply_user">
+                
+                <p>내용</p>
+              
+                <input type="text" name="input_content">
+                
+                <p>코드 내용</p>
+                  <textarea name="input_code_content"></textarea>
+               
+                <p>이미지</p>
+                <input type="string" name="input_img">    
+                
+                <p>제출</p>
+                <input class="btn btn-default" type="submit">
+            </form>
+                
+      </div>
+      <!-- Footer -->
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+
+
+<h2>Replies</h2>
+<% @qna.qna_replies.each do |reply| %>
+<p>
+  <strong>User:</strong>
+  <%= reply.qna_reply_user %>
+</p>
+
+<p>
+  <strong>content:</strong>
+  <%= reply.content %>
+</p>
+<p>
+  <strong>code_content:</strong>
+   <pre class="brush: cpp"><%= reply.code_content %> </pre>
+</p>
+<p>
+  <strong>img:</strong>
+  <%= reply.img %>
+</p>
+ <%= link_to "/qna_replies/destroy/#{@qna.id}/#{reply.id}" do %>destroy<%end%></br>
+<hr />
+<% end %>

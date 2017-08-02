@@ -47,3 +47,5 @@ group :development do
   gem 'spring'
 end
 
+gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'rails-assets-tether', '~> 1.1', '>= 1.1.1'

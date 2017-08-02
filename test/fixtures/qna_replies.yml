@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  qna_reply_user: MyString
+  content: MyText
+  code_content: MyText
+  img: MyString
+  qna_id: 
+
+two:
+  qna_reply_user: MyString
+  content: MyText
+  code_content: MyText
+  img: MyString
+  qna_id: 

@@ -1,0 +1,20 @@
+<h2>Reply:</h2>
+
+ <form action="/qna_replies/create/<%= @qna.id %>" > 
+    <p>작성자</p>
+    <input type="string" name="input_qna_reply_user">
+    
+    <p>내용</p>
+  
+    <input type="text" name="input_content">
+    
+    <p>코드 내용</p>
+      <textarea name="input_code_content"></textarea>
+   
+    <p>이미지</p>
+    <input type="string" name="input_img">    
+    
+    <p>제출</p>
+    <input class="btn btn-default" type="submit">
+</form>
+    
