@@ -1,6 +1,6 @@
 class OfflinesController < ApplicationController
+  
   def index
-
   end
 
   def career
@@ -14,4 +14,11 @@ class OfflinesController < ApplicationController
 
   def coding_new
   end
+  
+  def career_create
+  end
+  
+  def coding_create
+  end
+  
 end
