@@ -1,0 +1,13 @@
+<h1>Qnas#index</h1>
+<p>Find me in app/views/qnas/index.html.erb</p>
+
+ <% @qnas.each do |qna| %>
+     
+     <%= qna.title %></br>
+     <%= qna.category %></br>
+     <%= qna.content %></br>
+     <%= qna.code_content %></br>
+     <%= qna.img %></br>
+     <%= qna.user_id %></br>
+     <%= qna.user.email.split("@").first %></br>
+<% end %>
