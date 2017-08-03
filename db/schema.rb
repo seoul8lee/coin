@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802135437) do
+ActiveRecord::Schema.define(version: 20170802171359) do
 
   create_table "offlines", force: :cascade do |t|
     t.string   "category"
@@ -49,9 +49,21 @@ ActiveRecord::Schema.define(version: 20170802135437) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "user_id"
+    t.integer  "choice"
   end
 
   add_index "qnas", ["user_id"], name: "index_qnas_on_user_id"
+
+  create_table "review_replies", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "review_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "review_replies", ["review_id"], name: "index_review_replies_on_review_id"
+  add_index "review_replies", ["user_id"], name: "index_review_replies_on_user_id"
 
   create_table "reviews", force: :cascade do |t|
     t.string   "title"

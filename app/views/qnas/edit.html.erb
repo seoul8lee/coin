@@ -2,20 +2,25 @@
 <p>Find me in app/views/qnas/new.html.erb</p>
 
 <form action="/qnas/create"> 
-    <p>제목</p>
-    
-    <input type="string" name="input_title" value="<%= @qna.title %>" >
+     <p>제목</p>
+    <input type="string" name="input_title" value="<%= @qna.title %>">
     
     <p>카테고리</p>
-    <input type="string" name="input_category" value="<%= @qna.category %>"  >
-    
+    <label for="radio-1"> <input type="radio" name="input_category" value="c">C/C++</label>
+    <label for="radio-1">  <input type="radio" name="input_category" value="python">Python</label>
+    <label for="radio-1"> <input type="radio" name="input_category" value="java">Java</label>
+    <label for="radio-1"> <input type="radio" name="input_category" value="scratch">Scratch/Entry</label>
+    <label for="radio-1"> <input type="radio" name="input_category" value="html">Html/Css</label>
+    <label for="radio-1"> <input type="radio" name="input_category" value="etc">기타</label>
+  
     <p>내용</p>
-    <input type="text" name="input_content" value="<%= @qna.content %>" >
+     <textarea name="input_content" ><%= @qna.content %></textarea>
     
     <p>코드 내용</p>
-    <input type="text" name="input_code_content" value="<%= @qna.code_content %>" >
+      <textarea name="input_code_content" ><%= @qna.code_content %></textarea>
+   
     <p>이미지</p>
-    <input type="string" name="input_img" value="<%= @qna.img %>" >    
+    <input type="string" name="input_img"  value="<%= @qna.img %>">    
     <p>제출</p>
-    <input class="btn btn-default" type="submit"  >
+    <input class="btn btn-default" type="submit">
 </form>

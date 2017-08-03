@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :qnas
   has_many :offlines
   has_many :reviews
+  has_many :review_replies
   
 
 

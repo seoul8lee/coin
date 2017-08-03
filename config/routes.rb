@@ -17,19 +17,27 @@ Rails.application.routes.draw do
   get 'qna_replies/create/:qna_id' =>'qna_replies#create'
   get 'qna_replies/destroy/:qna_id/:qna_reply_id' => 'qna_replies#destroy'
   get 'qna_replies/new/:qna_id' =>'qna_replies#new'
+  get 'qna_replies/choose/:qna_id/:qna_reply_id' => 'qna_replies#choose'
   
   get 'offlines/index'
   get 'offlines/career'
   get 'offlines/coding'
   get 'offlines/career_new'
   get 'offlines/coding_new'
-
+  get 'offlines/create'
+  
 
    get 'reviews' => 'reviews#index'
+   get 'reviews/teacher'
+   get 'reviews/student'
+   get 'reviews/review_career'
+   get 'reviews/review_coding'
    get 'reviews/new'
    get 'reviews/create'
-   get 'reviews/show/:id' => 'reviews#show'
-   get 'reviews/show/:id/edit' => 'reviews#edit'
+   get 'reviews/show/:review_id' => 'reviews#show'
+   get 'reviews/show/:review_id/edit' => 'reviews#edit'
 
-
+   get 'review_replies/create/:review_id' =>'review_replies#create'
+   get 'review_replies/destroy/:review_id/:review_reply_id' => 'review_replies#destroy'
+   
 end

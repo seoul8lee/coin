@@ -2,25 +2,46 @@
 
 
 <% if @review.user == current_user %>
-    
+
         <p>제목 <%= @review.title %></p>
-        <p>카테고리 <%= @review.category %></p>
+        <p>카테고리 
+        <% if @review.category == 'career' %> 진로
+        <% else %> 코딩
+        <% end %>
+        </p>
         <p>내용</p><p> <%= @review.content %></p>
         <%= link_to "/reviews/edit/#{@review.id}" do%>수정<%end%></td>
+        <%= render 'replylist', post: @review %>
 
+<% elsif @review.user.id == '1' %>
+    
+        <p>제목 <%= @review.title %></p>
+        <p>카테고리 
+        <% if @review.category == 'career' %> 진로
+        <% else %> 코딩
+        <% end %>
+        </p>
+        <p>내용</p><p> <%= @review.content %></p>
+        <%= link_to "/reviews/edit/#{@review.id}" do%>수정<%end%></td>
+        <%= render 'replylist', post: @review %>
+        
 <% else %>
         
         <% if @review.secret == true %>
-    
-            <p>제목 <%= @review.title %> </p>
-            <p>비밀글입니다.</p>
             
+                <p>제목 <%= @review.title %> </p>
+                <p>비밀글입니다.</p>
+  
         <% else %>
         
             <p>제목 <%= @review.title %></p>
-            <p>카테고리 <%= @review.category %></p>
+            <p>카테고리 
+            <% if @review.category == 'career' %> 진로
+            <% else %> 코딩
+            <% end %>
+            </p>
             <p>내용</p><p> <%= @review.content %></p>
-            
+    
         <% end %>
             
 <% end %>

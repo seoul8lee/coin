@@ -1,0 +1,25 @@
+<p>댓글</p>
+
+    <% @review.review_replies.each do |reply| %>
+        <% if reply.user.id == 1 %>
+            <p><%= reply.user.nickname %></p>
+            <p><%= reply.body %></p>
+
+        <% else %>
+            <p>익명</p>
+            <p><%= reply.body %></p>
+            
+        <% end %>
+        
+        
+      <% if reply.user == current_user %>
+      <%= link_to "/review_replies/destroy/#{@review.id}/#{reply.id}" do%>삭제<%end%></td>
+      <% end %>
+
+    <% end %>
+    
+<p>댓글 작성</p>
+<form action="/review_replies/create/<%= @review.id %>"> 
+    <textarea name="input_body" rows="10" cols="70"></textarea>
+    <input class="btn btn-default" type="submit">
+</p>

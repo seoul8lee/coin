@@ -1,2 +1,38 @@
 <h1>Offlines#coding_new</h1>
-<p>Find me in app/views/offlines/coding_new.html.erb</p>
+
+<h2>코딩 특강 신청</h2>
+<div>
+    <form action="/offlines/create">
+        <p class="offline_form">
+            <label for="team_name"><span class="offline_new_title">단 체 명</span></label>
+            <input type="text" id="team_name" name="team_name">
+        </p>
+        <p class="offline_form">
+            <label for="address"><span class="offline_new_title">주 소</span></label>
+            <input type="text" id="address" name="address">
+        </p>
+        <p class="offline_form">
+            <label for="name"><span class="offline_new_title">대표자 이름</span></label>
+            <input type="text" id="name" name="name">
+        </p>
+        <p class="offline_form">
+            <label for="phone"><span class="offline_new_title">대표자 연락처</span></label>
+            <input type="text" id="phone" name="phone">
+        </p>
+        <p class="offline_form">
+            <label for="date"><span class="offline_new_title">희 망 일 시</span></label>
+            <textarea id="date" name="date" rows="10"></textarea>
+        </p>
+        <p class="offline_form">
+            <label for="content"><span class="offline_new_title">신 청 계 기</span></label>
+            <textarea id="content" name="content" rows="10"></textarea>
+        </p>
+        <p class="offline_form">
+            <span class="offline_new_title"></span>
+            <input type="hidden" id="category" name="category" value="코딩">
+        </p>
+        <p>
+            <input type="submit">
+        </p>
+    </form>
+</div>

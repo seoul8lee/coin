@@ -5,11 +5,11 @@ class ReviewsController < ApplicationController
   end
 
   def teacher
-    @reviews = Review.where("user_id = '2'")
+    @reviews = Review.where("user_id = '1'")
   end
   
   def student
-    @reviews = Review.where.not("user_id = '2'")
+    @reviews = Review.where.not("user_id = '1'")
   end
   
   def review_career
@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
   end
   
   def edit
-        @review = Review.find(params[:review_id])
+        @review = Review.find(params[:id])
   end
   
   def create

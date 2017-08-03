@@ -7,8 +7,6 @@
        SyntaxHighlighter.all()
   </script>
 
-
-
  <% @qnas.each do |qna| %>
      
      <%= qna.title %></br>
@@ -17,10 +15,11 @@
    <pre class="brush: cpp"><%= qna.code_content %></pre></br>
      <%= qna.img %></br>
      <%= qna.user_id %></br> <!--유져아이디지롱-->
-     
+      <% if qna.choice != NIL %> <h1>답변채택완료</h1> <%end %>
      <%= link_to "/qnas/show/#{qna.id}" do %>show<%end%></br>
       <%= link_to "/qnas/edit/#{qna.id}" do %>edit<%end%></br>
       <%= link_to "/qnas/destroy/#{qna.id}" do %>destroy<%end%></br>
-     
+     <hr>
+    
    
 <% end %>

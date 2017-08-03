@@ -23,5 +23,10 @@ class QnaRepliesController < ApplicationController
     redirect_to "/qnas/show/#{@qna.id}"
   end
   
-  
+  def choose
+    @qna = Qna.find(params[:qna_id])
+    @qna.choice=params[:qna_reply_id]
+    @qna.save
+    redirect_to "/qnas/show/#{@qna.id}"
+  end
 end

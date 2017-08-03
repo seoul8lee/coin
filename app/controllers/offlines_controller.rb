@@ -15,10 +15,18 @@ class OfflinesController < ApplicationController
   def coding_new
   end
   
-  def career_create
+  def create
+    @offline = Offline.new
+    @offline.category = params[:category]
+    @offline.team_name = params[:team_name]
+    @offline.address = params[:address]
+    @offline.name = params[:name]
+    @offline.phone = params[:phone]
+    @offline.date = params[:date]
+    @offline.content = params[:content]
+    @offline.save
+    redirect_to "/offlines/index"
   end
   
-  def coding_create
-  end
   
 end
