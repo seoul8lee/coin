@@ -1,7 +1,7 @@
 <h1>Qnas#new</h1>
 <p>Find me in app/views/qnas/new.html.erb</p>
 
-<form action="/qnas/create"> 
+<form action="/qnas/edit/<%= @qna.id %>"> 
      <p>제목</p>
     <input type="string" name="input_title" value="<%= @qna.title %>">
     

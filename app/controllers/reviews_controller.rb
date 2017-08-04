@@ -1,8 +1,23 @@
 class ReviewsController < ApplicationController
  
   def index
-    @reviews = Review.all
+    
+     @reviews = Review.all
+      
+          # if params[:option] == "all"
+          #     @reviews = Review.all
+          # elsif params[:option] == "teacher"
+          #     @reviews = Review.where("user_id = '1'")
+          # elsif params[:option] == "student"
+          #     @reviews = Review.where.not("user_id = '1'")
+          # elsif params[:option] == "review_career"
+          #     @reviews = Review.where("category = 'career'")
+          # elsif params[:option] == "review_coding"
+          #     @reviews = Review.where("category = 'coding")
+          # end
+        
   end
+  
 
   def teacher
     @reviews = Review.where("user_id = '1'")
@@ -30,8 +45,10 @@ class ReviewsController < ApplicationController
   end
   
   def edit
-        @review = Review.find(params[:id])
+        @review = Review.find(params[:review_id])
+
   end
+  
   
   def create
         @review = Review.new 
@@ -42,13 +59,19 @@ class ReviewsController < ApplicationController
         @review.secret = params[:input_secret]
         @review.user = current_user
         @review.save
-        redirect_to "/reviews"
+        redirect_to "/reviews/show/#{@review.id}"
   end
   
   def update
         @review = Review.find(params[:review_id])
-        @review.update(params.require(:review).permit(:title, :category, :team_name, :content, :secret))
-        redirect_to @review
+        @review.title = params[:input_title]
+        @review.category = params[:input_category]
+        @review.team_name = params[:input_team_name]
+        @review.content = params[:input_content]
+        @review.secret = params[:input_secret]
+        @review.user = current_user
+        @review.save
+        redirect_to "/reviews/show/#{@review.id}"
   end
     
 end

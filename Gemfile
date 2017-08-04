@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'carrierwave', '~> 1.1'
+gem 'fog'
+gem 'figaro'
 
 gem 'syntax-highlighter-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

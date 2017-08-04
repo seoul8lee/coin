@@ -2,6 +2,8 @@
 <p>Find me in app/views/qnas/show.html.erb</p>
 
 <script type="text/javascript">SyntaxHighlighter.all()</script>
+  <h1><%= link_to "/qnas/index" do %>index<%end%></h1>
+
 
 <%= @qna.title %>
 <%= @qna.category %>
@@ -27,9 +29,7 @@
       <!-- body -->
       <div class="modal-body">
                     <form action="/qna_replies/create/<%= @qna.id %>" > 
-                <p>작성자</p>
-                <input type="string" name="input_qna_reply_user">
-                
+               
                 <p>내용</p>
               
                 <textarea name="input_content"></textarea>
@@ -77,7 +77,7 @@
         <strong>img:</strong>
         <%= reply.img %>
       </p>
-       <%= link_to "/qna_replies/destroy/#{@qna.id}/#{reply.id}" do %>destroy<%end%></br>
+       <% if current_user %> <%if reply.user_id == current_user.id %>  <%= link_to "/qna_replies/destroy/#{@qna.id}/#{reply.id}" do %>destroy<%end%></br><%end%><%end%>
       <hr /> 
    
  </div>
@@ -101,8 +101,8 @@
   <strong>img:</strong>
   <%= reply.img %>
 </p>
-<% if @qna.choice ==NIL %> <%= link_to "/qna_replies/choose/#{@qna.id}/#{reply.id}" do %>choice<%end%></br> <%end %>
- <%= link_to "/qna_replies/destroy/#{@qna.id}/#{reply.id}" do %>destroy<%end%></br>
+<% if @qna.choice ==NIL %> <% if current_user.id==@qna.user_id %> <%= link_to "/qna_replies/choose/#{@qna.id}/#{reply.id}" do %>choice<%end%></br> <%end %> <%end %>
+ <% if current_user %> <%if reply.user_id == current_user.id %> <%= link_to "/qna_replies/destroy/#{@qna.id}/#{reply.id}" do %>destroy<%end%></br><%end%><%end%>
 <hr />
 <% end %>
 

@@ -3,7 +3,7 @@
 
 <p>수정</p>
 
-<form action="/reviews/create"> 
+<form action="/reviews/update/<%= @review.id %>" method="post"> 
     <p>제목 <input type="string" name="input_title"></p>
 
     

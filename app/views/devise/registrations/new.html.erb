@@ -1,49 +1,27 @@
-<h2>Sign up</h2>
+<h2>회원 가입</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
-    <%= f.input :nickname, required: true, autofocus: true %>
+    <%= f.input :email, required: true, autofocus: true , :label => "메일 주소"  %>
+    <p>메일 주소는 아이디로 사용됩니다.</p>
+    <%= f.input :password, required: true, hint: ("(#{@minimum_password_length} 자리 이상 입력해주세요.)" if @minimum_password_length), :label => "비밀번호"  %>
+      <%= f.input :password_confirmation, required: true , :label => "비밀번호 확인"%>
+    <%= f.input :nickname, required: true, autofocus: true, :label => "닉네임" %>
+      <%= f.input  :name, required: true, autofocus: true, :label => "이름 ex)홍길동" %>
+        <%= f.input :birthday, required: true, autofocus: true, :label =>  "생년월일 ex)950321" %>
+          <%= f.input :phone, required: true, autofocus: true, :label => "핸드폰 번호 ex)01012345678" %>
+            <%= f.input :part, required: true, autofocus: true, :label => "소속 ex)고려대학교" %>
     
-  
+ 
   </div>
 
 
 
 
-
-<div class="field">
-  <%= f.label :name %><br />
-  <%= f.text_field :name %>
-</div>
-
-
-<div class="field">
-  <%= f.label :birthday %><br />
-  <%= f.text_field :birthday %>
-</div>
-
-<div class="field">
-  <%= f.label :phone %><br />
-  <%= f.text_field :phone %>
-</div>
-
-
-
-<div class="field">
-  <%= f.label :part %><br />
-  <%= f.text_field :part %>
-</div>
-
-
-
-
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "가입하기" %>
   </div>
   <% end %>
 

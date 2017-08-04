@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   
   
   get 'qnas/index'
+  get 'qnas/index_c' 
+  get 'qnas/index_py'
+  get 'qnas/index_java'
+  get 'qnas/index_scratch'
+  get 'qnas/index_html'
+  get 'qnas/index_etc' 
   get 'qnas/new'
   get 'qnas/show/:qna_id' => 'qnas#show'
   get 'qnas/create'
@@ -35,7 +41,11 @@ Rails.application.routes.draw do
    get 'reviews/new'
    get 'reviews/create'
    get 'reviews/show/:review_id' => 'reviews#show'
-   get 'reviews/show/:review_id/edit' => 'reviews#edit'
+   get 'reviews/edit/:review_id/' => 'reviews#edit'
+   get 'reviews/update/:review_id/' => 'reviews#update'
+
+   post 'reviews/update/:review_id/' => 'reviews#update'
+
 
    get 'review_replies/create/:review_id' =>'review_replies#create'
    get 'review_replies/destroy/:review_id/:review_reply_id' => 'review_replies#destroy'

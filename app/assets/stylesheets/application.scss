@@ -37,3 +37,7 @@
 .margin{
     height: 100px;
 }
+
+abbr[title="required"] {
+  display: none;
+}
