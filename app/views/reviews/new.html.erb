@@ -1,30 +1,89 @@
-<h2>코인 그 후의 이야기를 들려주세요.</h2>
-<p>코인을 만나고 난 후, 어떤 게 달라졌나요?</p>
-<p>익명 게시판이니 자유롭게 질문하거나 후기를 남겨주세요.</p>
+<%=render 'nav'%>
 
-<form action="/reviews/create"> 
-    <p>제목 <input type="string" name="input_title"></p>
+<div class="container">
+    <div class="review_intro_hs">
+        <h1 class="jua">코인 그 후의 이야기를 들려주세요.</h1>
+        <br>
+        <p>코인을 만나고 난 후, 어떤 게 달라졌나요?</p>
+        <p>익명 게시판이니 자유롭게 질문하거나 후기를 남겨주세요.</p>
+    </div>
+    
+    <div class="new_hyun">
+    <%= form_tag '/reviews', method: 'post' do %>
+    
+        <p class="new_form">
+        <label for="title"><span>제 목</span></label>
+        <%= text_field_tag 'title', nil, size: 100 %>
+        </p>
+        
+        <p class="new_form">
+        <label for="category"><span>카테고리</span></label>
+        <span class="radio_inline">
+        <%= radio_button_tag(:category, "career") %>
+        <%= label_tag(:category_career, "진로") %>
+        <%= radio_button_tag(:category, "coding") %>
+        <%= label_tag(:category_coding, "코딩") %>
+        </span>
+        </p>
+        
+        
+        <p class="new_form">
+        <label for="team_name"><span>학 교</span></label>
+        <%= text_field_tag 'team_name', nil, size: 100 %>
+        </p>
+        
+        <p class="new_form">
+        <label for="content"><span>내 용</span></label>
+        <%= text_area_tag 'content', nil, cols: 100, rows: 15 %>
+        </p>
+        
+
+            
+        <p class="new_form">
+        <%= check_box_tag(:secret, "true") %>
+        <%= label_tag(:secret, "비밀글") %>
+         <span>(비밀글 선택 시 작성자만 내용과 답변을 확인할 수 있습니다.)</span></p>
+    
+
+        <div class="new_form form_margin_hs">
+        <%= submit_tag '', class: "submit_hs" %>
+        <%= link_to '','/reviews' , class: "back_hs" %> 
+        </div>
+        
+    <% end %>
+    </div>
+ 
+</div>
+
+
+
+
+
+<!--<form action="/reviews/create"> -->
+<!--    <p>제목 <input type="string" name="input_title"></p>-->
 
     
-    <p>카테고리 
-    <input type="radio" name="input_category" value="career">진로
-    <input type="radio" name="input_category" value="coding">코딩
-    </p>
+<!--    <p>카테고리 -->
+<!--    <input type="radio" name="input_category" value="career">진로-->
+<!--    <input type="radio" name="input_category" value="coding">코딩-->
+<!--    </p>-->
 
   
-    <p>학교 이름 <input type="text" name="input_team_name"></p>
+<!--    <p>학교 이름 <input type="text" name="input_team_name"></p>-->
 
     
-    <p>내용</p>
-    <textarea name="input_content" rows="10" cols="70"></textarea>
+<!--    <p>내용</p>-->
+<!--    <textarea name="input_content" rows="10" cols="70"></textarea>-->
  
    
-    <p>비밀글  <input type="checkbox" name="input_secret" value="true">  
-    </br>
-    (비밀글 선택 시 작성자만 내용과 답변을 확인할 수 있습니다.)</p>
+<!--    <p>비밀글  <input type="checkbox" name="input_secret" value="true">  -->
+<!--    </br>-->
+<!--    (비밀글 선택 시 작성자만 내용과 답변을 확인할 수 있습니다.)</p>-->
 
     
-    <input class="btn btn-default" type="submit">
+<!--    <input class="btn btn-default" type="submit">-->
     
-</form>
+<!--</form>-->
+
+
 

@@ -1,49 +1,72 @@
-<h1>Qnas#show</h1>
-<p>Find me in app/views/qnas/show.html.erb</p>
+ <%= render 'nav' %>
 
 <script type="text/javascript">SyntaxHighlighter.all()</script>
-  <h1><%= link_to "/qnas/index" do %>index<%end%></h1>
+<div class="container">
+  
+  <h2 class="jua offline_apply_hs center_hs">질문 보기</h2>
+
+    <div class="row qna_title_box_hk">
+        <div class="col-11 qna_title_btn_hk"><p class="review_title_y">| <%= @qna.title %></p></div>
+        <div class="col-1 text-uppercase qna_category_hk"><strong style="m-0 p-0"><%= @qna.category %></strong></div>
+    </div>
+    <hr>
+    <p>
+    <%= @qna.content %>
+    </p>
+     <pre class="brush: cpp"><%= @qna.code_content%> </pre>
+    
+    <img src="<%= @qna.img.url %>" alt="image" width="150" height="120">
 
 
-<%= @qna.title %>
-<%= @qna.category %>
-<%= @qna.content %>
- <pre class="brush: cpp"><%= @qna.code_content%> </pre>
-<%= @qna.img %>
 
 <!--댓글용 모달입니다 -->
 <hr>
-<hr>
-<button class="btn btn-default" data-target="#layerpop" data-toggle="modal" >댓글쓰기</button>
-<div class="modal fade" id="layerpop" >
+
+<div>
+<button class="reply_hs p-0" data-target="#layerpop" data-toggle="modal" ></button>
+<%= link_to "/qnas/index", class: "index_hs" do %><%end%>
+</div>
+
+<div class="mymodal modal fade" id="layerpop" >
   <div class="modal-dialog">
     <div class="modal-content">
       <!-- header -->
-      <div class="modal-header">
-       
+      <div class="modal-header" style="text-align: center;">
+      <div class="container"> 
         <!-- header title -->
-        <h4 class="modal-title">댓글쓰기</h4>
-         <!-- 닫기(x) 버튼 -->
-        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3 class="modal-title jua center_hs m-0 p-0">댓글쓰기</h3>
+          
+          <!-- 닫기(x) 버튼 -->
+        <button type="button" class="close m-0 p-0" data-dismiss="modal">×</button>
+        </div>
       </div>
       <!-- body -->
       <div class="modal-body">
-                    <form action="/qna_replies/create/<%= @qna.id %>" > 
+        <div class="new-form center_hs">
+             <form action="/qna_replies/create/<%= @qna.id %>" > 
                
-                <p>내용</p>
+                <p class="new_form">
+                  <label for="input_content"><span>내 용</span></label>
+                  <textarea name="input_content" cols="40" rows="5"></textarea>
+                </p>
+                
+                <p class="new_form">
+                  <label for="input_code_content"><span>코 드</span></label>
+                  <textarea name="input_code_content" cols="40" rows="5"></textarea>
+                </p>
+                
+                <p class="new_form">
+                  <label for="input_img"><span>이미지</span></label>
+                  <input type="text" name="input_img" size="40">
+                </p>
+               
+                <div>
+                  <input class="submit_hs" type="submit" value="">
+                  <button type="button" class="back_hs p-0" data-dismiss="modal"></button>
               
-                <textarea name="input_content"></textarea>
-                
-                <p>코드 내용</p>
-                  <textarea name="input_code_content"></textarea>
-               
-                <p>이미지</p>
-                <input type="string" name="input_img">    
-                
-                <p>제출</p>
-                <input class="btn btn-default" type="submit">
+                </div>
             </form>
-                
+          </div>
       </div>
       <!-- Footer -->
       <div class="modal-footer">
@@ -56,54 +79,69 @@
 
 
 
-<h2>Replies</h2>
+<p class="jua offline_apply_hs center_hs qna_reply_hs">댓글 보기</p>
+<!--선택된댓글용 -->
 <% @qna.qna_replies.each do |reply| %>
+<hr class="m-0 p-0">
  <% if reply.id == @qna.choice %>
- <div style="border: 2px solid black; border-radius: 5px;">
-    <p>
-        <strong>User:</strong>
-        <%= reply.qna_reply_user %>
-      </p>
+ <div style="">
+   <div class="reply_box_hs">
+    <!--<p class="qna_nickname_hk text-info">-->
+    <!--    <%= reply.qna_reply_user %>님의 댓글-->
+    <!--  </p>-->
+      <div class="qna_check_hk">
+        <span class="qna_reply_choice_hs text-info"><%= reply.qna_reply_user %>의 질문</span>
+        <%= image_tag("check-blue.png", class: "right_hs") %>
+      </div>
+      
       
       <p>
-        <strong>content:</strong>
+        <strong>내용 : </strong>
         <%= reply.content %>
       </p>
       <p>
-        <strong>code_content:</strong>
+        <strong>코드 : </strong>
          <pre class="brush: cpp"><%= reply.code_content %> </pre>
       </p>
       <p>
-        <strong>img:</strong>
+        <strong>이미지 : </strong>
         <%= reply.img %>
       </p>
-       <% if current_user %> <%if reply.user_id == current_user.id %>  <%= link_to "/qna_replies/destroy/#{@qna.id}/#{reply.id}" do %>destroy<%end%></br><%end%><%end%>
-      <hr /> 
-   
+       <% if current_user %> <%if reply.user_id == current_user.id %>  <%= link_to "/qna_replies/destroy/#{@qna.id}/#{reply.id}", class: "delete_hs" do %> destroy<%end%></br><%end%><%end%>
+      
+   </div>
  </div>
+    <%end%>
+    <%end%>
     
+    <!--선택안된댓글-->
+<% @qna.qna_replies.each do |reply| %>
+ <% if reply.id != @qna.choice %>
+   <div class="reply_box_hs">
+      <p class="qna_nickname_hk text-info">
+        <%= reply.qna_reply_user %>님의 댓글
+      </p>
 
-<% else %>
-<p>
-  <strong>User:</strong>
-  <%= reply.qna_reply_user %>
-</p>
-
-<p>
-  <strong>content:</strong>
-  <%= reply.content %>
-</p>
-<p>
-  <strong>code_content:</strong>
-   <pre class="brush: cpp"><%= reply.code_content %> </pre>
-</p>
-<p>
-  <strong>img:</strong>
-  <%= reply.img %>
-</p>
-<% if @qna.choice ==NIL %> <% if current_user.id==@qna.user_id %> <%= link_to "/qna_replies/choose/#{@qna.id}/#{reply.id}" do %>choice<%end%></br> <%end %> <%end %>
- <% if current_user %> <%if reply.user_id == current_user.id %> <%= link_to "/qna_replies/destroy/#{@qna.id}/#{reply.id}" do %>destroy<%end%></br><%end%><%end%>
+    <p>
+      <strong>내용 : </strong>
+      <%= reply.content %>
+    </p>
+    <p>
+      <strong>코드 : </strong>
+       <pre class="brush: cpp"><%= reply.code_content %> </pre>
+    </p>
+    <p>
+      <strong>이미지 : </strong>
+      <%= reply.img %>
+    </p>
+    <hr>
+    </div>
+      
+<% if @qna.choice ==NIL %> <% if current_user.id==@qna.user_id %> <%= link_to "/qna_replies/choose/#{@qna.id}/#{reply.id}", class: "choice_hs" do %><%end%> <%end %><%end %>
+  <%if current_user %> <%if reply.user_id == current_user.id %> <%= link_to "/qna_replies/destroy/#{@qna.id}/#{reply.id}", class: "delete_hs" do %><%end%></br><%end%><%end%>
 <hr />
 <% end %>
 
 <%end %>
+
+</div>

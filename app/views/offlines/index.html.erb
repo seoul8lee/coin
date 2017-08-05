@@ -1,13 +1,34 @@
-<h1>Offlines#index</h1>
+<%= render 'nav'%>
 
-<div class="offline_intro">
-    [저희는요 이런 특강을 해요...ㅎㅎ.해해해해히ㅣㅣ]
-</div>
-<div class="offline_top">
-    <p>진로특강</p>
-    <%= link_to '더 알아보기', offlines_career_path, class: "more_top" %>
-</div>
-<div class="offline_bottom">
-    <p>코딩특강</p>
-    <%= link_to '더 알아보기', offlines_coding_path, class: "more_bottom" %>
+<div class="container">
+  
+  <div class="col-3 pl-0">
+     <div class="question_hk justify-content-center align-items-center mb-4">
+         <h2 class="title_hk jua text_white_hk">오프라인 특강</h2>
+     </div>
+  </div>
+   
+     
+    <div class="img_box">
+        <%= image_tag("career_img.png", :class=>"career_top", :onclick=>"fnMove('1')") %>
+      <%= image_tag("coding_img.png",  :class=>"coding_top", :onclick=>"fnMove('2')") %>
+    </div>
+    
+     <div>
+       <%= link_to "/offlines/career_new" do %> <%= image_tag("apply_blue.png", :class=>"career_apply") %><% end %>
+         <%= link_to "/offlines/coding_new" do %> <%= image_tag("apply_red.png",  :class=>"coding_apply")%> <%end%>
+    </div>
+    
+    
+
+    <div id="div1">
+        <div class="blank"></div>
+        <div class="career_intro"></div>
+    </div>
+    
+    <div id="div2">
+        <div class="blank"></div>
+        <div class="coding_intro"></div>
+    </div>
+
 </div>

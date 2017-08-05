@@ -1,0 +1,30 @@
+ <nav class="fixed-nav-bar">
+     <div class="container">
+   <a class="sitename navbar-brand pl-0" href="/mains/index"> <%= image_tag("logo.png", size: "50x50") %> </a> 
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="mynav nav-link text-info jua" href="/qnas/index">질문</a>
+      </li>
+      <li class="nav-item">
+        <a class="mynav nav-link text-danger active jua" href="/offlines/index">특강</a>
+      </li>
+      <li class="nav-item">
+        <a class="mynav nav-link text-info jua" href="/reviews">후기</a>
+      </li>
+      <li class="nav-item">
+        <a class="mynav nav-link text-info jua" href="#">스터디</a>
+      </li>
+        <li class="nav-item">
+      <% if current_user %>
+        <%= link_to '로그아웃', destroy_user_session_path, method: :delete ,class: "mynav text-muted jua"%>
+      <% else %>
+        <%= link_to '회원가입', new_user_registration_path,class: "mynav text-muted jua" %>
+        <%= link_to '로그인', new_user_session_path,class: "mynav text-muted jua" %>
+      <% end %>
+      </li>
+</ul>
+  
+</div>
+  </nav>
+  
+  <div class="margin"></div>

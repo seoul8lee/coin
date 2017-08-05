@@ -1,32 +1,65 @@
-<h2>코인 그 후의 이야기를 들려주세요.</h2>
-<p>코인을 만나고 난 후, 어떤 게 달라졌나요?</p>
-<p>익명 게시판이니 자유롭게 질문하거나 후기를 남겨주세요.</p>
+<%=render 'nav'%>
+    <div class="container">
+  <div class="col-3 pl-0">
+     <div class="question_hk justify-content-center align-items-center mb-4">
+         <h2 class="title_hk jua text_white_hk">특강 후기</h2>
+     </div>
+  </div>
 
-<a href="/reviews/new">글쓰기</a>
-
-
-<div class = "col-md-10">
-    <ul class="nav nav-pills">
-        <li><a href = "/reviews">전체</a></li>
-        <li><a href = "/reviews/teacher">선생님</a></li>
-        <li><a href = "/reviews/student">학생</a></li>
-        <li class="active"><a href = "/reviews/review_career">진로</a></li>
-        <li><a href = "/reviews/review_coding">코딩</a></li>
-    </ul>
-</div>
-
-
-<table class = "table table-striped">
-    <tr>
-    <th>제목</th>
-    </tr>
-    <% @reviews.each do |review| %>
-    <tr>
-    <td><%= link_to "/reviews/show/#{review.id}" do%><%= review.title %><%end%></td>
-    </tr>
-    <% end %>
-</table>
-
-
-
-
+  <div class="row">
+    <div class="col-12">
+     <p class="review_info_hk">코인을 만나고 난 후의 이야기를 들려주세요.</p>
+      <p class="review_info_hk">익명 게시판이니 자유롭게 궁금한 내용을 질문하거나 전하고 싶은 후기를 남겨주세요.</p>
+      <p class="jua qna_intro_coin_hs">
+                    :코-인</p>
+                    <hr style="border: solid 1px #D5D5D5;">  
+    </div>
+  </div>
+  
+                <div >
+                    <ul class="nav nav-tabs">
+                        <li ><a class="review_button_hk" href = "/reviews">전체</a></li>
+                        <li ><a class="review_button_hk" href = "/reviews/teacher">공지</a></li>
+                        <li class="active"><a class="review_button_hk" href = "/reviews/review_career">진로</a></li>
+                        <li><a class="review_button_hk" href = "/reviews/review_coding">코딩</a></li>
+                     
+                    </ul>
+                </div>
+                 
+        <div class="row">
+             <div class="col-9">
+                <div class="justify-content-center">
+                    <table class = "table table-hover">
+                        <tr>
+                        <!--<th>제목</th>-->
+                        <!--<th>날짜</th>-->
+                        </tr>
+                        
+                        <% @reviews.each do |review| %>
+                        <tr>
+                        <td class="table_hk">
+                            <% if review.secret == true %>
+                                <span><%= image_tag("lock.png", size: "10") %></span>
+                                <%= link_to "/reviews/#{review.id}", class: "review_table_hk" do%><%= review.title %><%end%>
+                            <% elsif review.user_id == 1 %>
+                                <span><%= image_tag("teacher_icon.png", size: "12") %></span>
+                                <%= link_to "/reviews/#{review.id}", class: "review_table_hk" do%><%= review.title %><%end%>
+                            <% else %>
+                                <%= link_to "/reviews/#{review.id}", class: "review_table_hk" do%><%= review.title %><%end%>   
+                            <% end %>
+                        </td>
+                        <!--<td>-->
+                        <!--   <#%= review.created_at.split(' ').first %>-->
+                        <!--</td>-->
+                        </tr>
+                        <% end %>
+                        </table>
+                    </div>
+                  </div>  
+                     <div class="col-3">
+                          <%= link_to "/reviews/new" do %> <%= image_tag("review_write.png", :class=>"review_write") %> <% end %>
+                      </div>
+        </div>    
+   
+     <%= will_paginate @reviews %>
+</div> <!-- 컨테이너 디브 -->

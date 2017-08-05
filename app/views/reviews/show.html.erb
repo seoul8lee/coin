@@ -1,48 +1,63 @@
-<h2>코인 그 후의 이야기를 들려주세요.</h2>
+<%=render 'nav'%>
+
+<div class="container">
+          <h2 class="jua offline_apply_hs center_hs">후기 보기</h2>
 
 
-<% if @review.user == current_user %>
-
-        <p>제목 <%= @review.title %></p>
-        <p>카테고리 
-        <% if @review.category == 'career' %> 진로
-        <% else %> 코딩
-        <% end %>
-        </p>
-        <p>내용</p><p> <%= @review.content %></p>
-        <%= link_to "/reviews/edit/#{@review.id}" do%>수정<%end%></td>
-        <%= render 'replylist', post: @review %>
-
-<% elsif @review.user.id == '1' %>
+<% if @review.user.id == "1" %>
     
-        <p>제목 <%= @review.title %></p>
-        <p>카테고리 
-        <% if @review.category == 'career' %> 진로
-        <% else %> 코딩
-        <% end %>
-        </p>
-        <p>내용</p><p> <%= @review.content %></p>
-        <%= link_to "/reviews/edit/#{@review.id}" do%>수정<%end%></td>
-        <%= render 'replylist', post: @review %>
+         <div class="row qna_title_box_hk">
+                <div class="col-11 qna_title_btn_hk"><p class="review_title_y">| <%= @review.title %></p></div>
+                <div class="col-1 text-uppercase qna_category_hk"><strong style="m-0 p-0"><%= @review.category %></strong></div>
+         </div>    
+        <hr>
+        <p> <%=simple_format(@review.content )%></p>
+        <%= link_to "/reviews/#{@review.id}/edit" do%>edit<%end%>
+        <%= link_to "/reviews", class: "back_gray_hs" do %><%end%>
+
+        <%= render 'replylist' %>
+
+<% elsif @review.user == current_user %>
+
+         <div class="row qna_title_box_hk">
+                <div class="col-11 qna_title_btn_hk"><p class="review_title_y">| <%= @review.title %></p></div>
+                <div class="col-1 text-uppercase qna_category_hk"><strong style="m-0 p-0"><%= @review.category %></strong></div>
+         </div>   
+         <hr>
+            <p> <%=simple_format(@review.content )%></p>
+            
+            
+        <%= link_to "/reviews/#{@review.id}/edit", class: "edit_hs" do %><%end%>
+        <%= link_to "/reviews/#{@review.id}", method: :delete, class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%>
+        <%= link_to "/reviews", class: "back_gray_hs" do %><%end%>
+        
+        <%= render 'replylist'%>
         
 <% else %>
         
         <% if @review.secret == true %>
-            
-                <p>제목 <%= @review.title %> </p>
-                <p>비밀글입니다.</p>
+         <div class="row qna_title_box_hk">
+                <div class="col-11 qna_title_btn_hk"><p class="review_title_y">| <%= @review.title %></p></div>
+                <div class="col-1 text-uppercase qna_category_hk"><strong style="m-0 p-0"><%= @review.category %></strong></div>
+         </div>    
+        <hr>
+        <p class="review_secret">비밀글입니다.</p>
   
         <% else %>
         
-            <p>제목 <%= @review.title %></p>
-            <p>카테고리 
-            <% if @review.category == 'career' %> 진로
-            <% else %> 코딩
-            <% end %>
-            </p>
-            <p>내용</p><p> <%= @review.content %></p>
-    
+              <div class="row qna_title_box_hk">
+                        <div class="col-11 qna_title_btn_hk"><p class="review_title_y">| <%= @review.title %></p></div>
+                        <div class="col-1 text-uppercase qna_category_hk"><strong style="m-0 p-0"><%= @review.category %></strong></div>
+                 </div>    
+                <hr>
+            <p> <%=simple_format(@review.content )%></p>
+        <%= link_to "/reviews", class: "back_gray_hs" do %><%end%>
+
+                    <%= render 'replylist' %>
+
+            <%#= render 'replylist', post: @review %>    
         <% end %>
             
 <% end %>
 
+</div>

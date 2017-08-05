@@ -1,3 +1,208 @@
-// Place all the styles related to the Qnas controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.radio_label{
+    font-size: 1.5em;
+}
+.radio_hs{
+    margin-top: 2px;
+}
+.radio_hs:hover{
+    outline: none;
+}
+.radio_hs:visited{
+    outline: none;
+}
+.radio_hs:focus{
+    outline: none;
+}
+
+.center_hs{
+    text-align: center;
+}
+
+.new_form{
+    //display: inline-block;
+    text-align: center;
+    padding: 0;
+}
+.new_form span{
+    font-size: 1em;
+}
+.new_form textarea:focus{
+    outline: none;
+}
+
+.new_form label{
+    vertical-align: top;
+    
+}
+.qna_form{
+    margin-bottom: 50px;
+}
+
+.navigation{
+    position: fixed;
+    width: 270px;
+    padding-right: 15px;
+}
+
+.question_hk{
+    text-align: center;
+    width: 92%;
+    background-color: #8acbc1;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.title_hk{
+    line-height: 80px;
+    width: auto;
+    height: 80px;
+    font-size: 45px;
+}
+
+
+.question_new_button_hk{
+    text-align: center;
+    width: 233px;
+    background-color: #e8464e;
+    border-radius: 10px 10px 10px 10px;
+    height: 70px;
+    font-size: 45px;
+}
+
+.qna_new_hk{
+    font-size: 20px;
+    padding-left: 140px;
+    padding-top: 60px;
+    position: relative;
+    bottom: 10px;
+    right: 10px;
+     
+}
+
+.qna_new_hk:hover{
+    color:white;
+    text-decoration: none;
+     cursor:pointer; 
+}
+
+.text_white_hk{
+    color: #FFFFFF;
+}
+
+.qna_info_hk{
+    width: 100%;
+    position: relative;
+    padding-bottom: 20px;
+    padding-right: 30px;
+}
+
+.search_hs{
+    //background-image: url('search.png');
+    //background-size: 100%;
+    width: 30px;
+    height: 20px;
+    font-size: 1em;
+    border: none !important;
+    background-color: white;
+    color: #4C4C4C;
+}
+
+
+
+
+                  
+            
+                    // <div class="row qna_title_box_hk">
+                    //     <div class="col-2 qna_category_hk"><%= qna.category %></div>
+                    //     <div class="col-10 qna_title_btn_hk"><%= link_to "/qnas/show/#{qna.id}", class:"qna_title" do %><%= qna.title %><%end%></div>
+                    // </div>    
+                    // <hr>
+                    // <div class="row qna_content_box_hk">
+                    //     <div class="qna_check_hk"><% if qna.choice != NIL %><%= image_tag("check-blue.png") %><%end%></div>
+                    //     <p class="qna_nickname_hk text-info"><%= qna.qna_user %>의 질문</br></p>
+                    //     <p class="content_hk">
+                    //     <%= qna.content %></br>
+                    //     <pre class="brush: cpp"><%= qna.code_content %></pre></br>
+                    //     <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to "/qnas/edit/#{qna.id}" do %>편집<%end%><%end%></br><%end%>
+                    //     <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to "/qnas/destroy/#{qna.id}" do %>삭제<%end%><%end%></br><%end%>
+                    //     <hr>
+                    //     </p>
+                    // </div>    
+                    
+.qna_category_hk{
+    color: #FFFFFF;
+    background-color: #8acbc1;
+    font-size: 18px;
+    border-radius: 15px 15px 0px 0px;
+    text-align: center;
+}
+
+.qna_title_btn_hk{
+    color: #D5D5D5;
+    font-size: 16px;
+}
+
+.qna_check_hk{
+    position: relative;
+    top: 5px;
+    right: 5px;
+}
+
+.right_hs{
+    margin-right: 0;
+    display: inline-block;
+    width: 50px;
+    margin: 0;
+}
+
+.qna_nickname_hk{
+    display: inline-block;
+    margin-left: 0;
+    width: 710px;
+}
+
+.qna_reply_choice_hs{
+    display: inline-block;
+    margin-left: 0;
+    width: 1000px;
+}
+
+.edit_hs{
+    background-image: url("edit.png");
+    width: 60px;
+    height: 30px;
+    background-size: 100%;
+    border: none;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.delete_hs{
+    background-image: url("delete.png");
+    width: 60px;
+    height: 30px;
+    background-size: 100%;
+    border: none;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+
+.qna_content_box_hk{
+    margin: 0 !important;
+}
+.qna_reply_hs{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+.qna_reply_small_hs{
+    margin-top: 30px;
+    margin-bottom: 5px;
+    font-size: 2em;
+}
+.reply_box_hs{
+    padding: 0 0 10px 30px;
+}
+.review_reply_top_hs *{
+    vertical-align: top;
+}

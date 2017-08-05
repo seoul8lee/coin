@@ -1,0 +1,62 @@
+<!--<nav class="sub_nav navbar navbar-fixed-left fixed-nav-bar">-->
+<div class="container-fluid pl-0">
+<div class="navigation">
+     <div class="question_hk justify-content-center align-items-center mb-4">
+         <h2 class="title_hk jua text_white_hk">질문답변</h2>
+     </div>
+    
+     <ul class="nav navbar-nav list-group no_draggable mb-3">
+     <li class="list-group-item depth_0">
+        <span class="search">
+        <%= form_tag(qnas_index_path, :method => "get") do %>
+        <%= select_tag "option", options_for_select(["Title", "Content", "Code", "ALL"], "ALL") %>
+        <%= text_field_tag :search, nil, placeholder: "here", size: "14" %>
+        <%= submit_tag '검색', class: "search_hs" %>
+        <% end %>
+        </span>
+     </li>
+      <li class="list-group-item epth_0">
+        <span class="category">
+            <%= link_to "/qnas/index_c", class: " qnas_hs text_black_hs" do %>C/C++<%end%>
+        </span>
+      </li>
+      <li class="list-group-item depth_0">
+        <span class="category">
+            <%= link_to "/qnas/index_py", class: " qnas_hs text_black_hs" do %>PYTHON<%end%>
+        </span>     
+      </li>
+      <li class="list-group-item depth_0">
+        <span class="category">
+            <%= link_to "/qnas/index_java", class: " qnas_hs text_black_hs" do %>JAVA<%end%>
+        </span>     
+      </li>
+      <li class="list-group-item depth_0">
+        <span class="category">
+            <%= link_to "/qnas/index_scratch", class: " qnas_hs text_black_hs" do %>SCRATCH/ENTRY<%end%>
+        </span>     
+      </li>
+      <li class="list-group-item depth_0">
+        <span class="category">
+            <%= link_to "/qnas/index_html", class: " qnas_hs text_black_hs" do %>HTML/CSS<%end%>
+        </span>     
+      </li>
+      <li class="list-group-item depth_0">
+        <span class="category">
+            <%= link_to "/qnas/index_etc", class: " qnas_hs text_black_hs" do %>ETC<%end%>
+        </span>     
+      </li>
+      <li class="list-group-item depth_0">
+        <span class="category">
+            <%= link_to "/qnas/index", class: " qnas_hs text_black_hs" do %>ALL<%end%>
+        </span>     
+      </li>
+    </ul>
+    
+    
+    <div class="nav navbar-nav mt-5">
+        <span class="question_new_button_hk"> <%= link_to "/qnas/new", class: "jua qna_new_hk text_white_hk" do %>질문하기<%end%></span>
+    </div>
+
+</div> <!--navigation -->
+</div> <!--container fluid -->
+

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
- 
+  <link href="https://cdn.rawgit.com/YJSoft/Webfonts/0.1/BM_JUA.css" rel="stylesheet" type="text/css" />
    <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <!-- Optional theme -->
@@ -13,12 +13,16 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/scss" href="posts.scss">
   
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- 
+
+
+
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
   <title>코인 - 코딩 문턱 낮춤 서비스</title>
   
   <!-- Latest compiled and minified CSS -->
@@ -27,36 +31,60 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   
   
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 
+
+  <style>
+    .text-danger{
+      color: #e8464e !important;  
+      /*배경에 있는 붉은색*/
+    }
+    .bg-danger{
+       background-color: #e8464e !important;  
+    }
+    .text-info{
+      color: #8acbc1 !important; 
+      /*모니터 속 민트색*/
+    }
+   .bg-info{
+       background-color: #8acbc1 !important;  
+    }
+    .text-muted{
+       color: #ABABAB !important; 
+    }
+    .bg-muted{
+       background-color: #ABABAB !important;  
+    }
+    .text-muted:hover{
+      color: #ABABAB !important;
+      text-decoration: none !important;
+    }
+    a.text-muted:hover{
+      color: #ABABAB !important;
+      background: transparent;
+      /*회색 hover 금지*/
+    }
+    a.text-info:hover{
+      color: #8acbc1 !important;
+      background: transparent;
+      /*민트색 hover 금지*/
+    }
+    a.text-danger:hover{
+      color: #e8464e !important;
+      background: transparent;
+      /*빨간색 hover 금지*/
+    }
+  </style>
 </head>
-<body>
-  
-  <nav class="fixed-nav-bar">
-    <div id="menu" class="menu">
-      <a class="sitename" href="/mains/index"> <%= image_tag("coin.jpg", size: "50x50") %> </a> 
-      <a class="sitename" href="/mains/index">코-인</a>
-    </div>
-  </nav>
-  <div class="margin"></div>
-  
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-
-
-<% if current_user %>
-  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to 'Register', new_user_registration_path %>
-  <%= link_to 'Login', new_user_session_path %>
-<% end %>
-
-
-
-<%= yield %>
+<body class="-ms-overflow-style: none;">
+   <%= yield %>
 
 </body>
+
+<footer id="footer" class="footer mt-1">
+	<div class="logofoot"><p class="jua">코인 : 코딩하는 사람들</p></div>
+	<p class="copyright" style="color: #666666;">COPYRIGHT ©GOODBOB ALL RIGHTS RESERVED</p>
+</footer>
 </html>

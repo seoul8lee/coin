@@ -1,26 +1,78 @@
-<h1>Qnas#new</h1>
-<p>Find me in app/views/qnas/new.html.erb</p>
+<%=render 'nav'%>
 
-<form action="/qnas/edit/<%= @qna.id %>"> 
-     <p>제목</p>
-    <input type="string" name="input_title" value="<%= @qna.title %>">
-    
-    <p>카테고리</p>
-    <label for="radio-1"> <input type="radio" name="input_category" value="c">C/C++</label>
-    <label for="radio-1">  <input type="radio" name="input_category" value="python">Python</label>
-    <label for="radio-1"> <input type="radio" name="input_category" value="java">Java</label>
-    <label for="radio-1"> <input type="radio" name="input_category" value="scratch">Scratch/Entry</label>
-    <label for="radio-1"> <input type="radio" name="input_category" value="html">Html/Css</label>
-    <label for="radio-1"> <input type="radio" name="input_category" value="etc">기타</label>
+<div class="container">
   
-    <p>내용</p>
-     <textarea name="input_content" ><%= @qna.content %></textarea>
+  <h2 class="jua offline_apply_hs center_hs">수정하기</h2>
+  
+<%= form_tag "/qnas/update/#{@qna.id}", method: 'post', multipart: true do %>
     
-    <p>코드 내용</p>
-      <textarea name="input_code_content" ><%= @qna.code_content %></textarea>
-   
-    <p>이미지</p>
-    <input type="string" name="input_img"  value="<%= @qna.img %>">    
-    <p>제출</p>
-    <input class="btn btn-default" type="submit">
-</form>
+    
+    <p class="new_form">
+      <label for="input_title"><span>제 목</span></label>
+      <input type="text" name="input_title" size="100" value="<%= @qna.title %>">
+    </p>
+    
+    <p class="new_form">
+        <% if(@qna.category=="c/c++")   %>
+          <label for="input_category"> <input type="radio" name="input_category" value="c/c++" checked="true">C/C++</label>
+        <% else %>
+          <label for="input_category"> <input type="radio" name="input_category" value="c/c++">C/C++</label>
+        <% end %>
+        
+        <% if(@qna.category=="python")   %>
+          <label for="input_category"> <input type="radio" name="input_category" value="python" checked="true">Python</label>
+        <% else %>
+          <label for="input_category"> <input type="radio" name="input_category" value="python">Python</label>
+        <% end %>
+        
+        <% if(@qna.category=="java")   %>
+          <label for="input_category"> <input type="radio" name="input_category" value="java" checked="true">Java</label>
+        <% else %>
+          <label for="input_category"> <input type="radio" name="input_category" value="java">Java</label>
+        <% end %>
+        
+        <% if(@qna.category=="scratch/entry")   %>
+          <label for="input_category"> <input type="radio" name="input_category" value="scratch/entry" checked="true">Scratch/Entry</label>
+        <% else %>
+          <label for="input_category"> <input type="radio" name="input_category" value="scratch/entry">Scratch/Entry</label>
+        <% end %>
+          
+        <% if(@qna.category=="html/css") %>
+          <label for="input_category"> <input type="radio" name="input_category" value="html/css" checked="true">Html/Css</label>
+        <% else %>
+          <label for="input_category"> <input type="radio" name="input_category" value="html/css">Html/Css</label>
+        <% end %>
+          
+        <% if(@qna.category=="etc") %>
+          <label for="input_category"> <input type="radio" name="input_category" value="etc" checked="true">기타</label><br>
+        <% else %>
+          <label for="input_category"> <input type="radio" name="input_category" value="etc">기타</label><br>
+        <% end %>
+          
+        
+    </p>
+  <!--여기라디오값?잘모르겟음찾아봐야겟다-->
+    
+      <p class="new_form">
+        <label for="input_content"><span>내 용</span></label>
+        <textarea name="input_content" cols="100" rows="15"><%= @qna.content %></textarea>
+      </p>
+      
+      <p class="new_form">
+        <label for="input_code_content"><span>코 드</span></label>
+        <textarea name="input_code_content" cols="100" rows="15"><%= @qna.code_content %></textarea>
+      </p>
+
+      <p class="new_form">
+        <label for="input_img"><span>이미지</span></label>
+        <input type="file" name="input_img"  value="<%= @qna.img %>"><br>
+      </p>
+      
+      <p class="new_form">  
+      <input type="submit" value="" class="submit_hs">
+      <a href="/qnas/index" class="back_hs"></a>
+      </p>
+<% end %>
+</div>
+
+

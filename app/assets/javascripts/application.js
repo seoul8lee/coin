@@ -21,4 +21,21 @@
 //= require tether
 //= require bootstrap-sprockets
 
+
 //= require_tree .
+
+function refresh(href) {
+  console.log('실행됨');
+  $('#list').load(href, function () {
+      console.log('콜백 호출');
+      SyntaxHighlighter.all();
+  });
+
+}
+
+SyntaxHighlighter.all();
+
+ function fnMove(seq){
+        var offset = $("#div" + seq).offset();
+        $('html, body').animate({scrollTop : offset.top}, 500);
+    }

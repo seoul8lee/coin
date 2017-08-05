@@ -1,25 +1,52 @@
-<p>댓글</p>
+<hr>
 
-    <% @review.review_replies.each do |reply| %>
-        <% if reply.user.id == 1 %>
-            <p><%= reply.user.nickname %></p>
-            <p><%= reply.body %></p>
+<p class="jua offline_apply_hs qna_reply_hs">댓글 보기</p>
 
-        <% else %>
-            <p>익명</p>
-            <p><%= reply.body %></p>
-            
-        <% end %>
-        
-        
-      <% if reply.user == current_user %>
-      <%= link_to "/review_replies/destroy/#{@review.id}/#{reply.id}" do%>삭제<%end%></td>
-      <% end %>
 
-    <% end %>
+<% @review.review_replies.each do |reply| %>
+<hr style="margin: 0 0 5 0;">
+         <% if reply.id ==1 %>
+                 <div style="border: 2px solid #8acbc1; border-radius: 5px;">
+                   <div class="reply_box_hs">
+                      <p class="qna_nickname_hk text-info">
+                        <%= reply.qna_reply_user %>
+                      </p>
+                      <p>
+                        <%= reply.body %>
+                      </p>
+                   </div>
+                 </div>
+             <% else %>
+                 <div>
+                   <div class="reply_box_hs">
+                      <p class="qna_nickname_hk text-info">
+                           익명
+                      </p>
+                      <p>
+                         <%= reply.body %>
+                      </p>
+                   </div>
+                 </div>
+                 
+                 
+         <% end %>
     
-<p>댓글 작성</p>
-<form action="/review_replies/create/<%= @review.id %>"> 
-    <textarea name="input_body" rows="10" cols="70"></textarea>
-    <input class="btn btn-default" type="submit">
-</p>
+     
+<% if reply.user == current_user %>
+<%= link_to "/reviews/#{@review.id}/review_replies/#{reply.id}", method: :delete, class: "delete_hs"  do%><% end %>
+<% end %>
+  <%end %> 
+
+<div>
+    
+    <h4 class="jua offline_apply_hs qna_reply_small_hs">댓글 쓰기</h4>
+    <div class="">
+        <%= form_tag "/reviews/#{@review.id}/review_replies", method: 'post' do %>
+            <p class="review_reply_top_hs">
+              <%= text_area_tag '',nil, cols: 40, rows: 5 %>
+            </p>
+            <%= submit_tag '', class: "submit_small_hs" %>
+        <% end %>
+    </div>
+</div> 
+    

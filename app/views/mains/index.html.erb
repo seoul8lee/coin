@@ -1,5 +1,15 @@
-<h2>안녕하세요, 코인입니다 '-' !</h2>
-<a class="btn btn-primary" href="/qnas/index" role="button">Q&A</a>
-<a class="btn btn-primary" href="/offlines/index" role="button">오프라인</a>
-<a class="btn btn-primary" href="/reviews" role="button">리뷰</a>
-<a class="btn btn-primary" href="#" role="button">1:N 매칭</a>
+<%=render 'nav'%>
+<div class="margin"></div>
+
+<div class="container" >
+    <div class="mb-3">
+    <%= link_to "/mains/intro" do %><%= image_tag("background.png", :class=>"mainbox_top") %><% end %>
+    </div>
+    <div >
+          <%= link_to "/qnas/index" do %><%= image_tag("1.png", :class=>" mainbox_title") %><% end %>
+         <%= link_to "/offlines/index" do %><%= image_tag("2.png", :class=>" mainbox_title") %><% end %>
+         <%= link_to "/reviews" do %><%= image_tag("3.png", :class=>" mainbox_title") %><% end %>
+         <%= link_to "#" do %><%= image_tag("4.png", :class=>" mainbox_title") %><% end %> 
+    </div>
+  
+</div>

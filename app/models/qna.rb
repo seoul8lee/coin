@@ -10,5 +10,5 @@ def self.search(search)
   end
 end
 
-
+mount_uploader :img, ImageUploader
 end

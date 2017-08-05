@@ -19,7 +19,83 @@
  */
  
  @import "bootstrap";
+ @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+ @import url('https://cdn.rawgit.com/YJSoft/Webfonts/0.1/BM_JUA.css');
+ 
 
+*{
+    font-family: 'Noto Sans KR';
+    font-size: 12px;
+}
+
+
+.jua {font-family:'BM JUA','배달의민족 주아',sans-serif;}
+
+.active{
+  border-bottom: thick solid #e8464e;
+}
+.mynav{
+  font-size:20px;
+  background: transparent !important;
+}
+.mymodal{
+  margin-top:100px;
+  position:fixed;
+  z-index:99999;
+}
+
+.title{
+  
+font-size:40px;
+ width:250px;
+ color:black;
+ font-weight: bold;
+
+}
+
+.bold{
+  
+  font-weight:bold;
+  font-size:20px;
+  color:#4C4C4C;;
+}
+
+
+.list{
+  width:100%;
+}
+
+.introbox1{
+  width:100%;
+  margin-bottom:10%;
+}
+.introbox2{
+  width:100%;
+}
+
+.qna_title{
+  font-size:15px;
+  font-weight:bold;
+  color:black;
+}
+
+.qna_title:hover{
+  color:black;
+  font-weight:bold;
+  text-decoration: none;
+}
+
+.qna_category{
+  color:#e8464e;
+  font-weight:bold;
+}
+
+
+.subtitle{
+  font-size:20px;
+  text-align:right;
+  color:#1d1a55;
+}
 
 .fixed-nav-bar {
   position: fixed;
@@ -28,16 +104,306 @@
   right: 0;
   z-index: 9999;
   width: 100%;
-  height: 100px;
-  padding-left: 50px;
-  padding-top: 20px;
+  height: 80px;
+  
+  padding-top: 11px;
+ 
   background-color: white;
+  border-bottom:solid #D5D5D5;
 }
 
+
 .margin{
-    height: 100px;
+    height: 80px;
+}
+.blank{
+  height:100px;
 }
 
 abbr[title="required"] {
   display: none;
+}
+
+
+::-webkit-scrollbar {
+display:none;
+}
+
+.foot{
+  border-top: solid #D5D5D5;
+  width:100%;
+  text-align:center;
+ 
+}
+
+.button_hs{
+  /* button 글씨 회색!, 크기 나중에 스타일 먹일때 여기다가*/
+  font-size: 2em;
+}
+.button_hs:hover{
+  text-decoration: none;
+}
+.button_hs:active{
+  text-decoration: none;
+}
+.button_hs:visited{
+  text-decoration: none;
+}
+
+.button_style_hs{
+  background: white;
+}
+.text_black_hs{
+  color: black;
+}
+.text_black_hs:hover{
+  color: black;
+  text-decoration: none;
+}
+.text_black_hs:clicked{
+  color: black;
+  text-decoration: none;
+}
+.qnas_hs{
+  font-size: 1.5em;
+  font-weight:bold;
+}
+
+/*pagenation */
+ .pagination {
+        font-size: 11px;
+        float: right;
+        margin: 0;
+        padding: 3px 0 4px;
+    }
+        .pagination a,
+        .pagination span {
+            padding: 3px 3px 2px;
+        }
+        .pagination .disabled {
+            background:none repeat scroll 0 0 transparent;
+            border:medium none;
+            color:#999999;
+            cursor:default;
+        }
+        .pagination a {
+            color:#8acbc1;
+            cursor:pointer;
+            text-decoration:none;
+        }
+        .pagination a:hover {
+            background-color:#8acbc1;
+            border-bottom:1px solid #8acbc1;
+            border-color:#8acbc1;
+            color:#FFFFFF;
+            text-decoration:none;
+        }
+        .pagination .current {}
+            .pagination .current {
+                border-bottom:2px solid #8acbc1;
+                border-color:#8acbc1;
+                color:#8acbc1;
+                font-weight:bold;
+                padding-left:2px;
+                padding-right:2px;
+            }
+            .pagination .current a:hover {
+                background-color:#8acbc1;
+                color:#FFFFFF;
+            }
+
+        .pagination .prev_page {
+
+        }
+        .pagination .next_page {
+
+        }
+        
+.submit_hs{
+    background-image: url("submit.png");
+    width: 80px;
+    height: 40px;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-size: 100%;
+    border-radius: 10px;
+}
+
+.submit_small_hs{
+    background-image: url("submit.png");
+    width: 60px;
+    height: 30px;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-size: 100%;
+    border-radius: 10px;
+}
+
+.back_hs{
+    background-image: url("back.png");
+    width: 80px;
+    height: 40px;
+    background-size: 100%;
+    border: none;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.save_hs{
+    background-image: url("save.png");
+    width: 80px;
+    height: 40px;
+    background-size: 100%;
+    border: none;
+    border-radius: 10px;
+    // display: inline-block;
+}
+
+.reply_hs{
+    background-image: url("reply.png");
+    width: 80px;
+    height: 40px;
+    background-size: 100%;
+    border-radius: 10px;
+    text-decoration: none;
+    border: none;
+    // display: inline-block;
+}
+
+.index_hs{
+    background-image: url("index.png");
+    width: 120px;
+    height: 40px;
+    background-size: 100%;
+    border: none;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.choice_hs{
+    background-image: url("choice.png");
+    width: 60px;
+    height: 30px;
+    background-size: 100%;
+    border: none;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.back_gray_hs{
+    background-image: url("back_gray.png");
+    width: 60px;
+    height: 30px;
+    background-size: 100%;
+    border: none;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.reply_hs:visited{
+  border: none;
+}
+.reply_hs:hover{
+  border: none ;
+}
+.reply_hs:active{
+  border: none;
+}
+.reply_hs:focus{
+  border: none;
+  outline: none;
+}
+
+.submit_hs:visited{
+  border: none;
+}
+.submit_hs:hover{
+  border: none ;
+}
+.submit_hs:active{
+  border: none;
+}
+.submit_hs:focus{
+  border: none;
+  outline: none;
+}
+
+.save_hs:visited{
+  border: none;
+}
+.save_hs:hover{
+  border: none ;
+}
+.save_hs:active{
+  border: none;
+}
+.save_hs:focus{
+  border: none;
+  outline: none;
+}
+
+.back_hs:visited{
+  border: none;
+}
+.back_hs:hover{
+  border: none ;
+}
+.back_hs:active{
+  border: none;
+}
+.back_hs:focus{
+  border: none;
+  outline: none;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  text-align: center;
+  
+}
+#footer {
+    position:absolute;
+    bottom:0;
+          text-align: center;
+          margin-top: 50px;
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+.qna_intro_hs{
+  margin-top: 50px;
+  text-align: right;
+  font-size: 1.5em;
+  border-left: 5px;
+  border-color: black;
+  
+}
+.qna_intro_coin_hs{
+  text-align: right;
+  font-size: 2em;
+  line-height: 2em;
+  margin-bottom: 40px;
+}
+
+.review_intro_hs2{
+  text-align: right;
+  font-size: 1.5em;
+  border-left: 5px;
+  border-color: black;
+  
 }
