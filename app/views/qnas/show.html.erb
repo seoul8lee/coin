@@ -13,11 +13,10 @@
     <p>
     <%= @qna.content %>
     </p>
+    
      <pre class="brush: cpp"><%= @qna.code_content%> </pre>
     
-    <img src="<%= @qna.img.url %>" alt="image" width="150" height="120">
-
-
+  <!--이미지-->
 
 <!--댓글용 모달입니다 -->
 <hr>
@@ -55,10 +54,10 @@
                   <textarea name="input_code_content" cols="40" rows="5"></textarea>
                 </p>
                 
-                <p class="new_form">
-                  <label for="input_img"><span>이미지</span></label>
-                  <input type="text" name="input_img" size="40">
-                </p>
+                <!--<p class="new_form">-->
+                <!--  <label for="input_img"><span>이미지</span></label>-->
+                <!--  <input type="text" name="input_img" size="40">-->
+                <!--</p>-->
                
                 <div>
                   <input class="submit_hs" type="submit" value="">
@@ -104,8 +103,8 @@
          <pre class="brush: cpp"><%= reply.code_content %> </pre>
       </p>
       <p>
-        <strong>이미지 : </strong>
-        <%= reply.img %>
+        <!--<strong>이미지 : </strong>-->
+        <!---->
       </p>
        <% if current_user %> <%if reply.user_id == current_user.id %>  <%= link_to "/qna_replies/destroy/#{@qna.id}/#{reply.id}", class: "delete_hs" do %> destroy<%end%></br><%end%><%end%>
       

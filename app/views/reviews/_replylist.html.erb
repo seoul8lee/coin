@@ -5,24 +5,37 @@
 
 <% @review.review_replies.each do |reply| %>
 <hr style="margin: 0 0 5 0;">
-         <% if reply.id ==1 %>
-                 <div style="border: 2px solid #8acbc1; border-radius: 5px;">
+         <% if reply.user.id == 1 %>
+         <div style="border: 2px solid #8acbc1; border-radius: 5px;">
+                  
+             
                    <div class="reply_box_hs">
-                      <p class="qna_nickname_hk text-info">
-                        <%= reply.qna_reply_user %>
+                      <p class="reply_nickname_hs text-info pt-4 review_reply_font">
+                        <strong class="review_reply_font">코인 팀</strong>
+                        <span class = "right_y">
+                            <% if reply.user == current_user %>
+                            <%= link_to "/reviews/#{@review.id}/review_replies/#{reply.id}", method: :delete, class: "delete_hs"  do%><% end %>
+                            <% end %>
+                          </span>
                       </p>
-                      <p>
+                      <p class="mr-2 pr-4 review_reply_font">
                         <%= reply.body %>
                       </p>
                    </div>
                  </div>
              <% else %>
                  <div>
+                     
                    <div class="reply_box_hs">
-                      <p class="qna_nickname_hk text-info">
-                           익명
+                      <p class="reply_nickname_hs text-info review_reply_font">
+                           <strong class="review_reply_font">익명</strong>
+                           <span class = "right_y">
+                                <% if reply.user == current_user %>
+                                <%= link_to "/reviews/#{@review.id}/review_replies/#{reply.id}", method: :delete, class: "delete_hs"  do%><% end %>
+                                <% end %>
+                              </span>
                       </p>
-                      <p>
+                      <p class="mt-2 review_reply_font">
                          <%= reply.body %>
                       </p>
                    </div>
@@ -30,23 +43,16 @@
                  
                  
          <% end %>
-    
-     
-<% if reply.user == current_user %>
-<%= link_to "/reviews/#{@review.id}/review_replies/#{reply.id}", method: :delete, class: "delete_hs"  do%><% end %>
-<% end %>
-  <%end %> 
+  <%end %>     
 
-<div>
-    
+
+
     <h4 class="jua offline_apply_hs qna_reply_small_hs">댓글 쓰기</h4>
-    <div class="">
+    <div class="mb-5">
         <%= form_tag "/reviews/#{@review.id}/review_replies", method: 'post' do %>
             <p class="review_reply_top_hs">
-              <%= text_area_tag '',nil, cols: 40, rows: 5 %>
+              <%= text_area_tag 'body',nil, cols: 150, rows: 5 %>
             </p>
             <%= submit_tag '', class: "submit_small_hs" %>
         <% end %>
     </div>
-</div> 
-    

@@ -51,6 +51,10 @@ li.active > .button_hk{
     margin: 20px 0 20px 0;
 }
 
+.right_y{
+    text-align:right;
+    float:right;
+}
 .review_intro_hs{
     text-align: center;
     margin: 50px 0 50px 0;
@@ -65,3 +69,16 @@ li.active > .button_hk{
     font-weight:bold;
 }
 
+.lock{
+    background-image: url('lock.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 100px;
+    height: 140px;
+    background-size: 100%;
+    border: none;
+    margin-top: 50px;
+}
+.review_secret{
+    font-size: 2em;
+}

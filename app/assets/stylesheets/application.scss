@@ -373,17 +373,14 @@ body {
   /* Set the fixed height of the footer here */
   height: 60px;
   text-align: center;
-  
+  border-top:1px solid #D5D5D5;
 }
 #footer {
     position:absolute;
     bottom:0;
           text-align: center;
-          margin-top: 50px;
-          margin-left: -20px;
-          margin-right: -20px;
-          padding-left: 20px;
-          padding-right: 20px;
+          margin-top: 60px;
+    
         }
 .qna_intro_hs{
   margin-top: 50px;
@@ -406,4 +403,21 @@ body {
   border-left: 5px;
   border-color: black;
   
+}
+
+.review_font{
+  font-size: 1.3em;
+  line-height: 1.8em;
+  //width: 80%;
+}
+.review_reply_font{
+  font-size: 1.2em;
+}
+
+
+
+.right_hs{
+    margin-right: 0;
+    display: inline-block;
+    width: 50px;
 }
