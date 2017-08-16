@@ -21,23 +21,117 @@
  @import "bootstrap";
  @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
  @import url('https://cdn.rawgit.com/YJSoft/Webfonts/0.1/BM_JUA.css');
- 
 
+
+/******************  common settings *****************/ 
+// html {
+//   position: relative;
+//   min-height: 100%;
+// }
 *{
     font-family: 'Noto Sans KR';
     font-size: 12px;
 }
 
+body {
+  height: 100vh;  /*반응형을 위한 세팅 100% of viewport height*/
+ 
+}
+
+
+a {
+	color: inherit;
+}
+
+a:hover{
+	color: inherit;
+	background-color: #FFF;
+	text-decoration: none;
+}
+
+button{
+	cursor: pointer;
+}
+
+button:focus{
+	outline: none;
+}
+
+ul, ol, li{
+	list-style-type: none;
+	padding: 0;
+}
 
 .jua {font-family:'BM JUA','배달의민족 주아',sans-serif;}
 
+/******************  common settings end *****************/        
+       
+
+/*********************  nav settings *********************/
 .active{
   border-bottom: thick solid #e8464e;
 }
-.mynav{
-  font-size:20px;
-  background: transparent !important;
+
+.navbar-brand {
+  padding-top: 0.4vh;
+  padding-bottom: 0.4vh;
 }
+
+.navbar-brand:hover{
+  background-color: transparent;
+}
+
+.nav_logo{
+  height: 83%;
+  width: auto;
+  padding: 0 auto;
+}
+
+.nav-a{
+  font-size: 3.5vw;
+}
+
+.nav-a:active{
+  color: inherit;
+}
+
+.navbar-custom {
+  z-index: 9999;
+  width: 100%;
+  height: 8vh;
+  padding-top: 11px;
+  background-color: white;
+  border-bottom: solid #D5D5D5;
+}
+
+.cont-nav-hk{
+   padding-left: 0;
+   padding-right: 0;
+   margin-left: 0.25em;
+   margin-right: 0.25em;
+}
+
+@media only screen and (min-width : 768px) {
+   .nav-a{
+     font-size: 1.5em;
+   }
+   
+  .navbar-brand {
+  padding-top: 0.2vh;
+  padding-bottom: 0.2vh;
+}
+
+.nav_logo{
+  height: 100%
+}
+   
+.cont-nav-hk{
+     margin: 0 auto;
+   }
+}
+/*********************  nav settings end *********************/
+
+
 .mymodal{
   margin-top:100px;
   position:fixed;
@@ -65,30 +159,6 @@ font-size:40px;
   width:100%;
 }
 
-.introbox1{
-  width:100%;
-  margin-bottom:10%;
-}
-.introbox2{
-  width:100%;
-}
-
-.qna_title{
-  font-size:15px;
-  font-weight:bold;
-  color:black;
-}
-
-.qna_title:hover{
-  color:black;
-  font-weight:bold;
-  text-decoration: none;
-}
-
-.qna_category{
-  color:#e8464e;
-  font-weight:bold;
-}
 
 
 .subtitle{
@@ -97,24 +167,10 @@ font-size:40px;
   color:#1d1a55;
 }
 
-.fixed-nav-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  width: 100%;
-  height: 80px;
-  
-  padding-top: 11px;
- 
-  background-color: white;
-  border-bottom:solid #D5D5D5;
-}
 
 
 .margin{
-    height: 80px;
+    height: 70px;
 }
 .blank{
   height:100px;
@@ -129,12 +185,6 @@ abbr[title="required"] {
 display:none;
 }
 
-.foot{
-  border-top: solid #D5D5D5;
-  width:100%;
-  text-align:center;
- 
-}
 
 .button_hs{
   /* button 글씨 회색!, 크기 나중에 스타일 먹일때 여기다가*/
@@ -261,26 +311,28 @@ display:none;
     // display: inline-block;
 }
 
-.reply_hs{
-    background-image: url("reply.png");
-    width: 80px;
-    height: 40px;
+.index_hs{
     background-size: 100%;
-    border-radius: 10px;
-    text-decoration: none;
+    background-color: transparent;
     border: none;
-    // display: inline-block;
+    display: block;
 }
 
-.index_hs{
-    background-image: url("index.png");
-    width: 120px;
-    height: 40px;
+.reply_hs{
     background-size: 100%;
+    background-color: transparent;
     border: none;
-    border-radius: 10px;
-    display: inline-block;
+    display: block;
 }
+
+.button-img{
+  border-radius: 5px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  background-color: transparent;
+}
+
 
 .choice_hs{
     background-image: url("choice.png");
@@ -358,30 +410,17 @@ display:none;
   outline: none;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.qna_intro{
+  height: 80px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('qna_intro.png');
+  background-size: cover;
+  *{
+    color: rgba(213,213,213,0.8);
+    font-size: 1.1em;
+  }
+  
 }
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-#footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  text-align: center;
-  border-top:1px solid #D5D5D5;
-}
-#footer {
-    position:absolute;
-    bottom:0;
-          text-align: center;
-          margin-top: 60px;
-    
-        }
+
 .qna_intro_hs{
   margin-top: 50px;
   text-align: right;
@@ -420,4 +459,55 @@ body {
     margin-right: 0;
     display: inline-block;
     width: 50px;
+}
+
+.header{
+  background-color: #8acbc1;
+  height: 80px;
+  border-radius: 0 0 20px 20px;
+   h1{
+     font-size: 2.3em;
+   }
+}
+
+.vertical_center_hs{
+  line-height: 80px;
+}
+
+
+#footer_flex_hyo9{
+    display: flex;
+    align-items: flex-end;
+  
+}
+
+.footer_center_hyo9{
+    display: flex;
+    justify-content: center;
+  
+}
+
+.hyo9_div {
+      border-top: 0.2em solid #D5D5D5;
+      display: flex;
+}
+/* footer settings */
+#wrapper{
+  position:relative;  
+  min-height:90%;
+  padding-bottom:50px;
+ 
+}
+
+#footer {
+  position:absolute;
+  bottom:0;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #D5D5D5;
+}
+
+.copyright{
+  font-size: 0.7rem;
 }

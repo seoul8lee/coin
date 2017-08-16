@@ -1,72 +1,51 @@
-  <div class="loginbody">
-  
-  
-    <div class="hyomain">
-      
-      
-        <div class="hyocontainer">
-          <center>
-    <div class="middle">
-      <div id="login">
-  
 
-      
-        <h2 style="font-weight: bold;">WAKE UP CO-IN</h2>
-        
-        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      
-      <fieldset class="clearfix hyofieldset">
-  
-            <p class="hyoinput hyop"><span class="fa fa-user"></span>
-            <%= f.input :email, required: false, autofocus: true, placeholder: "email" , label: false%>
-            </p>
-            
-            <p class="hyoinput hyop"><span class="fa fa-lock"></span>
-            <%= f.input :password, required: false, placeholder: "password" , label: false%>
-            </p>
-        
-            <div class="hyo9">
-  
-              <%= f.button :submit, "Log in" %>
+      <div class="container">
           
+          
+          
+          <div class="row justify-content-center align-items-center">
+              
+            <div class="col-5 bg-info sign_y">
+                  <div class="row justify-content-center align-items-center mt-5">
+                      <div class="col-4"><%= image_tag("coin_d.png", :class=>"review_write") %> </div>
+                  </div>
+    
+                <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name))  do |f| %>
+                  <div class="form-inputs align-items-center">
+                    <div class="row justify-content-center align-items-center">
+                      <div class="col-12"><p class="sign_title">WAKE UP COIN</p></div>
+                      <div class="col-12"><p><%= f.input :email, required: false, autofocus: true, :label=>"EMAIL", :placeholder => "이메일을 입력해주세요." %></p></div>
+                    </div>
+                  
+              
+                  <div class="form-inputs">
+                    <div class="row justify-content-center align-items-center">
+                      <div class="col-12"><p><%= f.input :password, required: false ,:placeholder => "비밀번호를 입력해주세요."%></p></div>
+                    </div>
+                  
+                    
+                    <div class="row justify-content-center align-items-center">
+                      <div class="col-12"><%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %></div>
+                    </div>
+                    
+                    
+                  </div>
+                
+                  <div class="form-actions">
+                
+                  <div class="row justify-content-center align-items-center">
+                    <div class="col-12"><div><%= f.button :submit, "로그인" %></div></div>
+                  </div>
+                </div>  
+                <% end %>
+                
+                <%= render "devise/shared/links" %>
+                
+                
             </div>
             
-            
-            <div class="hyo9">
-            
-              <%= render "devise/shared/links" %>
+          </div>
           
-            </div>
-            
-          <div class="form-actions">
-            
-              <!--<div>-->
-              <!--  <span style="width:48%; text-align:left;  display: inline-block;">-->
-              <!--    <a class="small-text" href="#">Forgot password?</a></span>-->
-              <!--  <span style="width:50%; text-align:right;  display: inline-block;">-->
-              <!--    <input type="submit" value="Sign In"></span>-->
-              <!--</div>-->
-  
-              <% end %>
-      
-        </fieldset>          
-      
-        </div> <!--id:login-->
-    
-          <div class="clearfix"></div>
-            <div class="clearfix"></div>
-                <div class="logo"><%= image_tag("dead.png", size: "230x230", alt: "logo") %>
-                  <div class="clearfix"></div>
-                </div>
-  
-      
-    </div>
-      </div>
-      </center>
-    </div>
-  </div>
-    
-        
-        
+          
+      </div> <!--컨테이너 닫기 -->
 
-</div>

@@ -1,32 +1,54 @@
- <nav class="fixed-nav-bar">
-     <div class="container">
-   <a class="sitename navbar-brand pl-0" href="/mains/index"> <%= image_tag("logo.png", size: "50x50") %> </a> 
-    <ul class="nav justify-content-end">
-      <li class="nav-item">
-        <a class="mynav nav-link text-info jua" href="/qnas/index">질문</a>
-      </li>
-      <li class="nav-item">
-        <a class="mynav nav-link text-info jua" href="/offlines/index">특강</a>
-      </li>
-      <li class="nav-item">
-        <a class="mynav nav-link text-danger active jua" href="/reviews">후기</a>
-      </li>
-      <li class="nav-item">
-        <a class="mynav nav-link text-info jua" href="#">스터디</a>
-      </li>
-        <li class="nav-item">
-      <% if current_user %>
-        <%= link_to '로그아웃', destroy_user_session_path, method: :delete ,class: "mynav text-muted jua"%>
-      <% else %>
-        <%= link_to '회원가입', new_user_registration_path,class: "mynav text-muted jua" %>
-        <%= link_to '로그인', new_user_session_path,class: "mynav text-muted jua" %>
-      <% end %>
-      </li>
-</ul>
+<div class="navbar navbar-custom navbar-fixed-top pt-2 mb-0">
+	<div class="container cont-nav-hk">
+		<a class="navbar-brand d-inline-block pl-0 m-0" href="/mains/index"><%= image_tag("logo.png", class: "nav_logo") %></a>
+		<ul class="nav navbar-nav navbar-right d-flex flex-row justify-content-end m-0">
+				<li><a class="nav-a text-info jua px-2 px-md-4" href="/qnas/index">질문</a></li>
+				<li><a class="nav-a text-info jua px-2 px-md-4" href="/offlines/index">특강</a></li>
+				<li><a class="nav-a text-danger active jua px-2 px-md-4" href="/reviews">후기</a></li>
+				<li><a class="nav-a text-info jua px-2 px-md-4" href="/studies/index">스터디</a></li>
+				<li class="dropdown">
+					<a class="dropdown-toggle nav-a text-muted jua px-1 pl-md-4" data-toggle="dropdown"><%= current_user.name %></a>
+					<ul class="dropdown-menu">
+						<li><%= link_to '로그아웃', destroy_user_session_path, method: :delete, class: "text-muted jua"%></li>
+						<li><a class="text-muted jua" href="#">마이페이지</a></li>
+					</ul>
+				</li>
+			</ul>
+			</div><!--row -->
+	</div> <!-- container end -->
+</div> <!-- total navbar end -->
+
+
+<!-- 원래 내브 -->
+<!-- <nav class="fixed-nav-bar">-->
+<!--     <div class="container">-->
+<!--   <a class="sitename navbar-brand pl-0" href="/mains/index"> <%= image_tag("logo.png", size: "50x50") %> </a> -->
+<!--    <ul class="nav justify-content-end">-->
+<!--      <li class="nav-item">-->
+<!--        <a class="mynav nav-link text-info jua" href="/qnas/index">질문</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="mynav nav-link text-info jua" href="/offlines/index">특강</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="mynav nav-link text-danger active jua" href="/reviews">후기</a>-->
+<!--      </li>-->
+<!--      <li class="nav-item">-->
+<!--        <a class="mynav nav-link text-info jua" href="/studies/index">스터디</a>-->
+<!--      </li>-->
+<!--        <li class="nav-item">-->
+<!--      <% if current_user %>-->
+<!--        <%= link_to '로그아웃', destroy_user_session_path, method: :delete ,class: "mynav text-muted jua"%>-->
+<!--      <% else %>-->
+<!--        <%= link_to '회원가입', new_user_registration_path,class: "mynav text-muted jua" %>-->
+<!--        <%= link_to '로그인', new_user_session_path,class: "mynav text-muted jua" %>-->
+<!--      <% end %>-->
+<!--      </li>-->
+<!--</ul>-->
   
-</div>
-  </nav>
+<!--</div>-->
+<!--  </nav>-->
   
-  <div class="margin"></div>
+<!--  <div class="margin"></div>-->
   
   

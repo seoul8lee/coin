@@ -1,60 +1,55 @@
 <%=render 'nav'%>
 
 <div class="container">
-     <h2 class="jua offline_apply_hs center_hs">후기 보기</h2>
-
+    <div class="col-12">
+         <h2 class="jua offline_apply_hs center_hs">후기 보기</h2>
+    </div>
+     <div class="row">
+            <div class="col-md-11 hidden-sm-down qna_title_btn_hk"><p class="review_title_y">| "<%= @review.title %> "</p></div>
+            <div class="col-md-1 hidden-sm-down text-uppercase qna_category_hk "><strong><%= @review.category %></strong></div>
+            <div class="col-12 hidden-md-up qna_title_btn_hk"><p class="review_title_y_m">| "<%= @review.title %> "</p></div> 
+     </div> 
+     <hr>
 <% if current_user.id == 1 %>
-    
-         <div class="row qna_title_box_hk">
-                <div class="col-11 qna_title_btn_hk"><p class="review_title_y">| "<%= @review.title %> "</p></div>
-                <div class="col-1 text-uppercase qna_category_hk "><strong style="m-0 p-0"><%= @review.category %></strong></div>
-         </div>    
-        <hr>
         <div class="mt-10 mb-10"><p class="review_font mt-10 mb-10"> <%= simple_format(@review.content, class: "review_font") %></p></div>
         <%= link_to "/reviews", class: "back_gray_hs" do %><%end%>
-
         <%= render 'replylist' %>
-
+        <div class="row no-gutters">
+            <div class="col-2 push-5"><%= link_to "/reviews", class: "index_hs" do %><%= image_tag('index_gray.png', class: "img-fluid button-img") %><%end%></div>    
+       </div>
 <% elsif @review.user == current_user %>
-
-         <div class="row qna_title_box_hk">
-                <div class="col-11 qna_title_btn_hk"><p class="review_title_y">| "<%= @review.title %> "</p></div>
-                <div class="col-1 text-uppercase qna_category_hk"><strong style="m-0 p-0"><%= @review.category %></strong></div>
-         </div>   
-         <hr>
-        <div class="mt-10 mb-10"><p class="review_font mt-10 mb-10"> <%=simple_format( @review.content, class: "review_font" )%></p></div>
-            
-            
-        <%= link_to "/reviews/#{@review.id}/edit", class: "edit_hs" do %><%end%>
-        <%= link_to "/reviews/#{@review.id}", method: :delete, class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%>
-        <%= link_to "/reviews", class: "back_gray_hs" do %><%end%>
-        
-        <%= render 'replylist'%>
-        
+        <div class=" mt-10 mb-10"><p class="review_font mt-10 mb-10"> <%=simple_format( @review.content, class: "review_font" )%></p></div>
+       <div class="row hidden-sm-down">
+           <div class="col-2 push-8"> <%= link_to "/reviews/#{@review.id}/edit" do %> <%= image_tag("edit.png", :class=>"button_y") %> <%end%> </div>
+           <div class="col-2 push-8"> <%= link_to "/reviews/#{@review.id}", method: :delete, data: { confirm: "삭제합니까?" } do %> <%= image_tag("delete.png", :class=>"button_y") %><%end%></div>
+       </div>
+       <div class="row hidden-md-up no-gutters">
+           <div class="col-2"><%= link_to "/reviews", class: "index_hs" do %><%= image_tag('index_gray.png', class: "img-fluid button-img") %><%end%></div>
+           <div class="col-2 push-6 mx-1"> <%= link_to "/reviews/#{@review.id}/edit" do %> <%= image_tag("edit.png", :class=>"button_y") %> <%end%> </div>
+           <div class="col-2 push-6"> <%= link_to "/reviews/#{@review.id}", method: :delete, data: { confirm: "삭제합니까?" } do %> <%= image_tag("delete.png", :class=>"button_y") %><%end%></div>
+       </div>
+       
+        <%= render 'replylist'%>     
+       <div class="row no-gutters">
+            <div class="col-2 push-5"><%= link_to "/reviews", class: "index_hs" do %><%= image_tag('index_gray.png', class: "img-fluid button-img") %><%end%></div>    
+       </div>
+       
 <% else %>
         
         <% if @review.secret == true %>
-         <div class="row qna_title_box_hk">
-                <div class="col-11 qna_title_btn_hk"><p class="review_title_y">| "<%= @review.title %> "</p></div>
-                <div class="col-1 text-uppercase qna_category_hk "><strong style="m-0 p-0"><%= @review.category %></strong></div>
-         </div>    
-        <hr>
         <div class="center_hs">
             <div class="lock"></div>
             <p class="review_secret jua">비밀글입니다 :)</p>
         </div>  
         <% else %>
-        
-         <div class="row qna_title_box_hk">
-                <div class="col-11 qna_title_btn_hk"><p class="review_title_y">| "<%= @review.title %>"</p></div>
-                <div class="col-1 text-uppercase qna_category_hk"><strong style="m-0 p-0"><%= @review.category %></strong></div>
-         </div>      
-        <hr>
         <div class="mt-10 mb-10"><p class="review_font"> <%=simple_format(@review.content, class: "review_font" )%></p></div>
-        <%= link_to "/reviews", class: "back_gray_hs" do %><%end%>
+        
         <%= render 'replylist' %>
 
-            <%#= render 'replylist', post: @review %>    
+        <div class="row no-gutters">
+            <div class="col-2 push-5"><%= link_to "/reviews", class: "index_hs" do %><%= image_tag('index_gray.png', class: "img-fluid button-img") %><%end%></div>    
+       </div>
+       
         <% end %>
             
 <% end %>

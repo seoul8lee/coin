@@ -1,32 +1,5 @@
 <%=render 'nav' %>
 
-
-<!--<form action="/qnas/create"> -->
-<!--    <p>제목</p>-->
-<!--    <input type="string" name="input_title">-->
-    
-<!--    <p>카테고리</p>-->
-<!--    <label for="radio-1"> <input type="radio" name="input_category" id="radio-1" value="c/c++">C/C++</label>-->
-<!--    <label for="radio-2"> <input type="radio" name="input_category" id="radio-2" value="python">Python</label>-->
-<!--    <label for="radio-3"> <input type="radio" name="input_category" id="radio-3" value="java">Java</label>-->
-<!--    <label for="radio-4"> <input type="radio" name="input_category" id="radio-4" value="scratch/entry">Scratch/Entry</label>-->
-<!--    <label for="radio-5"> <input type="radio" name="input_category" id="radio-5" value="html/css">Html/Css</label>-->
-<!--    <label for="radio-6"> <input type="radio" name="input_category" id="radio-6" value="etc">기타</label>-->
-  
-<!--    <p>내용</p>-->
-  
-<!--     <textarea name="input_content"></textarea>-->
-    
-<!--    <p>코드 내용</p>-->
-<!--      <textarea name="input_code_content"></textarea>-->
-   
-<!--    <p>이미지</p>-->
-<!--    <input type="string" name="input_img">    -->
-<!--    <p>제출</p>-->
-<!--    <input class="btn btn-default" type="submit">-->
-<!--</form>-->
-
-
 <div class="container">
   
   
@@ -34,43 +7,52 @@
   <div class="qna_form center_hs">
   
   <h2 class="jua offline_apply_hs">질문하기</h2>
+     <%= form_for @qna, url: { controller: "qnas", action: "create" } do |f| %>
+  
+   <p class="offline_form">
+        <%= f.label :category,"카테고리", class: "control-label"  %>
+        <div class="flex_hyo9 col-md-6 push-md-3 col-sm-12 mb-3">
+          <div><%= f.label :category, "C/C++", class: 'radio_hs' %> <%= f.radio_button :category, 'C/C++', html: { class: "new_form" } %></div>
+          <div><%= f.label :category, "PYTHON", class: 'radio_hs' %> <%= f.radio_button :category, 'PYTHON', html: { class: "new_form" } %></div>
+          <div><%= f.label :category, "Java", class: 'radio_hs' %> <%= f.radio_button :category, 'Java', html: { class: "new_form" } %></div>
+          <div><%= f.label :category, "Scratch/Entry", class: 'radio_hs' %> <%= f.radio_button :category, 'Scratch/Entry', html: { class: "new_form" } %></div>
+          <div><%= f.label :category, "Html/Css", class: 'radio_hs' %> <%= f.radio_button :category, 'Html/Css' , html: { class: "new_form" } %></div>
+          <div><%= f.label :category, "기타", class: 'radio_hs' %> <%= f.radio_button :category, 'etc'  , html: { class: "new_form" }%></div>
+        </div>
+        
+         <div class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
+             <%= f.label :content, "제목", class: "control-label"  %>
+             <%= f.text_field :title, class: "form-control"  %>
+          </div>
+  
+  
+          <div class="form-group  col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5">
+          <%= f.label :content, "질문 내용", class: "control-label" %>
+          <%= f.text_field :content, class: "form-control"%>
+          </div>
+          
+         <div class="form-group  col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5">
+          <%= f.label :code_content, "질문 코드", class: "control-label" %>
+          <%= f.text_area :code_content, rows: "20vh", class: "form-control text_area_hyo9" %>
+          </div>
+           
+           <p class="new_form col-md-8 push-md-2 col-sm-10 push-sm-1">
+          <%= f.file_field :img %>
+           </p>
+           
+        <p class="col-md-8 push-md-2 col-sm-10 push-sm-1">
+              <%= f.submit %>
+            
+        </p>
+     
     
-    <%=form_tag '/qnas/create', multipart: true do %>
-    
-      <p class="offline_form">
-        <label for="radio-1" class="radio_label"> <input type="radio" class="radio_hs" name="input_category" id="radio-1" value="C/C++">C/C++</label>
-        <label for="radio-2" class="radio_label"> <input type="radio" class="radio_hs" name="input_category" id="radio-2" value="PYTHON">Python</label>
-        <label for="radio-3" class="radio_label"> <input type="radio" class="radio_hs" name="input_category" id="radio-3" value="JAVA">Java</label>
-        <label for="radio-4" class="radio_label"> <input type="radio" class="radio_hs" name="input_category" id="radio-4" value="SCRATCH/ENTRY">Scratch/Entry</label>
-        <label for="radio-5" class="radio_label"> <input type="radio" class="radio_hs" name="input_category" id="radio-5" value="HTML/CSS">Html/Css</label>
-        <label for="radio-6" class="radio_label"> <input type="radio" class="radio_hs" name="input_category" id="radio-6" value="ETC">기타</label>
-      </p>
-      
-      <p class="new_form">
-        <label for="input_title"><span>제 목</span></label>
-        <input type="text" name="input_title" size="100">
-      </p>
-      
-      <p class="new_form">
-        <label for="input_title"><span>내 용</span></label>
-        <textarea name="input_content" cols="100" rows="15"></textarea>
-      </p>
-      
-      <p class="new_form">
-        <label for="input_title"><span>코 드</span></label>
-        <textarea name="input_code_content" cols="100" rows="15"></textarea>
-      </p>
-      
-      <!--<p class="new_form">-->
-      <!--  <label for="input_title"><span>이미지</span></label>-->
-      <!--  <input type="file" name="input_img" class="file_center">-->
-      <!--</p>-->
-      
-      <p>
-      <%= submit_tag '',class: "submit_hs" %>
+      <% end %>
+ 
+    <div class="col-md-8 push-md-2 col-sm-10 push-sm-1">
       <%= link_to '', :back, class: "back_hs" %>
-      </p>
-      
-    <% end %>
+     </div>
+  </p>
+       
+  
     </div>
 </div>

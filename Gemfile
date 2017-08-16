@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-
+gem 'font-awesome-sass'
 gem 'carrierwave', '~> 1.1'
-gem 'fog'
+gem 'fog-aws'
 gem 'figaro'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'fullpage-rails', '~> 0.0.1'

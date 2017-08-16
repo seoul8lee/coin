@@ -1,3 +1,23 @@
+
+.qna_title{
+  font-size:15px;
+  font-weight:bold;
+  color:black;
+}
+
+.qna_title:hover{
+  color:black;
+  font-weight:bold;
+  text-decoration: none;
+}
+
+.qna_category{
+  color:#e8464e;
+  font-weight:bold;
+}
+
+
+
 .radio_label{
     font-size: 1.5em;
 }
@@ -21,7 +41,7 @@
 .new_form{
     //display: inline-block;
     text-align: center;
-    padding: 0;
+    padding: 0;  
 }
 .new_form span{
     font-size: 1em;
@@ -46,43 +66,44 @@
 
 .question_hk{
     text-align: center;
-    width: 92%;
+    width: 100%;
     background-color: #8acbc1;
     border-radius: 0px 0px 20px 20px;
 }
 
-.title_hk{
-    line-height: 80px;
-    width: auto;
-    height: 80px;
-    font-size: 45px;
+
+.width-60px{
+    width: 60px;
 }
 
-
-.question_new_button_hk{
-    text-align: center;
-    width: 233px;
-    background-color: #e8464e;
-    border-radius: 10px 10px 10px 10px;
-    height: 70px;
-    font-size: 45px;
-}
-
-.qna_new_hk{
-    font-size: 20px;
-    padding-left: 140px;
-    padding-top: 60px;
-    position: relative;
-    bottom: 10px;
-    right: 10px;
-     
+.question_button{
+  background-color: #e8464e;
+  height: 60px;
+  border-radius: 20px;
+   a{
+     font-size: 2.3em;
+     display: inline-block;
+     width: 100%;
+     line-height: 60px;
+   }
+   a:hover{
+       background-color: transparent;
+       text-decoration: none;
+   }
+   a:active{
+       background-color: transparent;
+       text-decoration: none;
+   }
+   a:visited{
+       background-color: transparent;
+       text-decoration: none;
+   }
 }
 
 .qna_new_hk:hover{
-    color:white;
     text-decoration: none;
-     cursor:pointer; 
 }
+
 
 .text_white_hk{
     color: #FFFFFF;
@@ -98,16 +119,18 @@
 .search_hs{
     //background-image: url('search.png');
     //background-size: 100%;
-    width: 30px;
     height: 20px;
     font-size: 1em;
     border: none !important;
     background-color: white;
     color: #4C4C4C;
+    display: block;
 }
 
-
-
+// .search_filter{
+//     height: 20px;
+//     display: block;
+// }
 
                   
             
@@ -139,6 +162,10 @@
 .qna_title_btn_hk{
     color: #D5D5D5;
     font-size: 16px;
+    p{
+        font-size: 1.2em;
+        line-height: 1.2em;  
+    }
 }
 
 .qna_check_hk{
@@ -201,8 +228,44 @@
     font-size: 2em;
 }
 .reply_box_hs{
-    padding: 0 0 10px 30px;
+    padding: 0 0 10px 0;
 }
 .review_reply_top_hs *{
     vertical-align: top;
 }
+
+
+.flex_hyo9{
+    display: flex;
+    justify-content: space-between;
+}
+
+.choice_icon{
+    font-size: 1.5em;
+}
+
+.bt_hk{
+    background-color: transparent;
+    height: auto;
+    width: 100%;
+}
+
+.i_su_hk{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    display: block;
+}
+
+.modal_h{
+    width: 400px;
+}
+
+
+
+
+

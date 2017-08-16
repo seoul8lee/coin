@@ -1,70 +1,71 @@
 
 <div class="container">
     <div class="row">
-      <div class="col-3 pr-2">
-        <%= render 'subnav' %>
-      </div>
-      <div class="col-9 px-5">
-        <!--<div class="row">-->
-        <div class="margin"></div>
-        <p class="review_info_hk">코딩을 하다 막히는 점이 있을 때,</p>
-        <p class="review_info_hk">검색을 해도 영어로 된 설명에 머리 아플 때,</p>
-        <p class="review_info_hk"> 쉽고 편하게 질문해보세요.</p>
-            <p class="jua qna_intro_coin_hs">
-                    :코-인
-            </p>
+          <div class="col-md-3 col-12">
+            <%= render 'subnav' %>
+          </div>
+          <div class="col-md-9 col-12">
+            <div class="hidden-sm-down qna_intro d-flex flex-column justify-content-center pr-4 text-right">
+                <div class="p-1">코딩을 하다 막히는 점이 있을 때, 검색을 해도 영어로 된 설명에 머리 아플 때</div>
+                <div class="p-1">쉽고 편하게 질문해보세요  :코인</div>
+            </div>
             <hr style="border: solid 1.5px #D5D5D5;">
-        <!--</div>-->
-        <div class="row px-5">
-           <!--질문 목록-->
-                <div class="list">
-                    <script type="text/javascript">SyntaxHighlighter.all()</script>
-                    <div class="qna_box_hk">
-                    
-                    <% @qnas.each do |qna| %>
-                   
-                    <div class="row qna_title_box_hk">
-                        <div class="col-10 qna_title_btn_hk"><%= link_to "/qnas/show/#{qna.id}", class:"qna_title" do %>| <%= qna.title %><%end%></div>
-                        <div class="col-2 text-uppercase qna_category_hk"><strong style="m-0 p-0"><%= qna.category %></strong></div>
-                    </div>    
-                    <hr>
-                    <div class="row qna_content_box_hk">
-                        
-                        
-                    <% if qna.choice != NIL %>
-                        <div class="qna_check_hk">
-                            <span class="qna_nickname_hk text-info"><%= qna.qna_user %>의 질문</span>
-                            <%= image_tag("check-blue.png", class: "right_hs") %>
+                <div class="row px-5">
+                   <!--질문 목록-->
+                        <div class="list col-12 px-0">
+                                <script type="text/javascript">SyntaxHighlighter.all()</script>
+                                <div class="qna_box_hk">
+                                
+                                <% @qnas.each do |qna| %>
+                               
+                                <div class="row">
+                                    <div class="col-md-10 col-8 qna_title_btn_hk"><%= link_to "/qnas/show/#{qna.id}", class:"qna_title" do %><%= qna.title %><%end%></div>
+                                    <div class="col-md-2 col-3 text-uppercase qna_category_hk"><strong><%= qna.category %></strong></div>
+                                </div>    
+                                <hr>
+                                
+                                
+                                <div class="row qna_content_box_hk">
+                                    
+                                    
+                                    <% if qna.choice != NIL %>
+                                        <div class="qna_check_hk col-md-10 col-9">
+                                            <span class=" text-info"><span class="glyphicon glyphicon-user"></span> <%= qna.qna_user %>의 질문</span>
+                                        </div>
+                                        <div class="col-1 push-1">
+                                            <span class="glyphicon glyphicon-bookmark text-danger choice_icon"></span>
+                                        </div>
+                                        <div class="qna_no_check_hk col-12 mt-4">
+                                            <p class="content_hk col-10">
+                                            <%= qna.content %></br>
+                                            <pre class="brush: cpp"><%= qna.code_content %></pre></br>
+                                            <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to  "/qnas/edit/#{qna.id}",class: "edit_hs" do %><%end%><%end%><%end%>
+                                            <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to "/qnas/destroy/#{qna.id}",class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%><%end%></br><%end%>
+                                            </p>
+                                        </div>
+                                    <% else %>
+                                        <div class="qna_no_check_hk col-md-12 col-12">
+                                            <span class="text-info"><span class="glyphicon glyphicon-user"></span> <%= qna.qna_user %>의 질문</span>
+                                        </div>
+                                        <div class="qna_no_check_hk col-12 mt-4">
+                                            <p class="content_hk col-10">
+                                            <%= qna.content %></br>
+                                            <pre class="brush: cpp"><%= qna.code_content %></pre></br>
+                                            <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to "/qnas/edit/#{qna.id}", class: "edit_hs" do %><%end%><%end%><%end%>
+                                            <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to "/qnas/destroy/#{qna.id}",class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%><%end%></br><%end%>
+                                            </p>
+                                        </div>
+                                        
+                                    <%end%>    
+                                    
+                                    
+                                </div>    
+                                <% end %>
+                                </div>
+                            </div>
                         </div>
-                        <div class="qna_no_check_hk col-12">
-                            <p class="content_hk col-10">
-                            <%= qna.content %></br>
-                            <pre class="brush: cpp"><%= qna.code_content %></pre></br>
-                            <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to  "/qnas/edit/#{qna.id}",class: "edit_hs" do %><%end%><%end%><%end%>
-                            <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to "/qnas/destroy/#{qna.id}",class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%><%end%></br><%end%>
-                            </p>
-                        </div>
-                    <% else %>
-                        <div class="qna_no_check_hk">
-                            <p class="qna_nickname_hk text-info"><%= qna.qna_user %>의 질문</br></p>
-                            <p class="content_hk">
-                            <%= qna.content %></br>
-                            <pre class="brush: cpp"><%= qna.code_content %></pre></br>
-                            <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to "/qnas/edit/#{qna.id}", class: "edit_hs" do %><%end%><%end%><%end%>
-                            <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to "/qnas/destroy/#{qna.id}",class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%><%end%></br><%end%>
-                            </p>
-                        </div>
-                        
-                    <%end%>    
-                        
-                        
-                    </div>    
-                    <% end %>
-                    </div>
-                    </div>
+                    <%= will_paginate @qnas %>
                 </div>
-            <%= will_paginate @qnas %>
-        </div>
-        </div> <!--col-9-->
-    </div>  <!--row-->
-
+                </div> <!--col-9-->
+            </div>  <!--row-->
+        

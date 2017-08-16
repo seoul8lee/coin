@@ -7,47 +7,69 @@
         <p>수 정</p>
     </div>
     
-    <div class="new_hyun">
+
+    
+    <div class="qna_form center_hs">
     <%= form_tag "/reviews/#{@review.id}", method: 'patch' do %>
     
-        <p class="new_form">
+        <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
         <label for="title"><span>제 목</span></label>
-        <%= text_field_tag 'title', @review.title, size: 100 %>
+        <%= text_field_tag 'title', @review.title, class:'form-control'%>
         </p>
         
-        <p class="new_form">
+        <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
         <label for="category"><span>카테고리</span></label>
-        <span class="radio_inline">
+        
+        
+        <div class="flex_hyo9 col-md-6 push-md-3 col-sm-12 mb-3">
+        
              <% if(@review.category=="career")   %>
+             <div class="mr-1">     
                   <%= radio_button_tag(:category, "career", true) %>
                   <%= label_tag(:category_career, "진로") %>
+               </div>
+             
              <% else %>
+             <div class="mr-1">     
+        
                   <%= radio_button_tag(:category, "career") %>
                   <%= label_tag(:category_career, "진로") %>
+              </div>
             <% end %>
         
             <% if(@review.category=="coding")   %>
+
+             <div class="ml-1">
                 <%= radio_button_tag(:category, "coding", true) %>
                 <%= label_tag(:category_coding, "코딩") %>
+            </div>
              <% else %>
+             
+             <div class="ml-1">
                     <%= radio_button_tag(:category, "coding") %>
                     <%= label_tag(:category_coding, "코딩") %>
+              </div>        
             <% end %>
+
+
+        </div>    
+
+
 
         </span>
         </p>
         
-        <p class="new_form">
+        <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
         <label for="team_name"><span>학 교</span></label>
-        <%= text_field_tag 'team_name', @review.team_name, size: 100 %>
+        <%= text_field_tag 'team_name', @review.team_name, class:'form-control' %>
         </p>
         
-        <p class="new_form">
+        <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
         <label for="content"><span>내 용</span></label>
-        <%= text_area_tag 'content', @review.content, cols: 100, rows: 15 %>
+        <%= text_area_tag 'content', @review.content, class:'form-control' %>
         </p>
         
-        <p class="new_form">
+        <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
     
             <% if (@review.secret == "true")   %>
                  <input type="checkbox" name="secret" id="secret" value="true" checked="true">
@@ -60,7 +82,7 @@
    
          <span>(비밀글 선택 시 작성자만 내용과 답변을 확인할 수 있습니다.)</span></p>
     
-        <div class="new_form form_margin_hs">
+        <div class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
         <%= submit_tag '', class: "submit_hs" %>
         <%= link_to '','/reviews' , class: "back_hs" %> 
         </div>

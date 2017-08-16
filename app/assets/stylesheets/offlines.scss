@@ -16,29 +16,28 @@
     height: 200px;
     background: #c7e6ff;
 }
-.career_top{
-    width:49.5%;
-  
+
+.off_top_hk{
+    max-width: 100%;
+    height: auto;
 }
 
-.career_top:hover{
-    opacity: 0.7;
-}
-.coding_top{
-  width:49.5%;
-  
-}
-
-.coding_top:hover{
+.img_box:hover{
     opacity: 0.7;
 }
 
-.career_apply{
-    width:49.5%;
+.img_box > .off_more {
+    display: none;
 }
-.coding_apply{
-    width:49.5%;
+
+.img_box:hover > .off_more{
+    display: block;
 }
+
+.blank_m{
+    height:30px;
+}
+
 .career_intro{
     background-image: url('offline_career.jpg');
     background-size: 100%;
@@ -76,6 +75,7 @@
 
 .offline_form_hs{
     border: 1px solid !important;
+    border-radius: 5px !important;
     border-color: #D5D5D5 !important;
     margin: 0;
     overflow: auto;
@@ -97,9 +97,8 @@
 }
 
 .offline_apply_hs{
-    font-size: 3em;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    font-size: 2.5em;
+    line-height: 2.5em;
 }
 
 .center_hs{
@@ -114,3 +113,5 @@
     
     
 }
+
+

@@ -27,7 +27,8 @@
                  <div>
                      
                    <div class="reply_box_hs">
-                      <p class="reply_nickname_hs text-info review_reply_font">
+                      
+                             <p class="reply_nickname_hs text-info review_reply_font">
                            <strong class="review_reply_font">익명</strong>
                            <span class = "right_y">
                                 <% if reply.user == current_user %>
@@ -51,8 +52,16 @@
     <div class="mb-5">
         <%= form_tag "/reviews/#{@review.id}/review_replies", method: 'post' do %>
             <p class="review_reply_top_hs">
-              <%= text_area_tag 'body',nil, cols: 150, rows: 5 %>
+              <%= text_area_tag 'body',nil, rows: 5 ,style: 'width:100%;' %>
             </p>
-            <%= submit_tag '', class: "submit_small_hs" %>
+            
+            <div class="row no-gutters">
+                 <div class="col-1 hidden-sm-down">
+                     <%= image_submit_tag("submit.png", :class=>"review_write") %> 
+                  </div>
+                   <div class="col-2 hidden-md-up">
+                        <%= image_submit_tag("submit.png", :class=>"review_write") %> 
+                    </div>
+            </div>
         <% end %>
     </div>

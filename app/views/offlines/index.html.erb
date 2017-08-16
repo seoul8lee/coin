@@ -2,33 +2,47 @@
 
 <div class="container">
   
-  <div class="col-3 pl-0">
-     <div class="question_hk justify-content-center align-items-center mb-4">
-         <h2 class="title_hk jua text_white_hk">오프라인 특강</h2>
+  
+  <div class="offline_page">
+     <div class="row">
+              <div class="col-md-3 col-5 hidden-sm-down">
+                 <div class="question_hk justify-content-center align-items-center mb-4">
+                     <h2 class="title_review jua text_white_hk">오 프 라 인  특 강</h2>
+                 </div>
+               </div>
      </div>
-  </div>
-   
      
-    <div class="img_box">
-        <%= image_tag("career_img.png", :class=>"career_top", :onclick=>"fnMove('1')") %>
-      <%= image_tag("coding_img.png",  :class=>"coding_top", :onclick=>"fnMove('2')") %>
+    <div class="row justify-content-center no-gutter">
+            <div class="col-6 px-0 mx-0"><%= image_tag("career_img.png", :class=>"off_top_hk", :onclick=>"fnMove('1')") %></div>
+           <div class="col-6 px-0 mx-0"><%= image_tag("coding_img.png",  :class=>"off_top_hk", :onclick=>"fnMove('2')") %></div>  
     </div>
     
-     <div>
-       <%= link_to "/offlines/career_new" do %> <%= image_tag("apply_blue.png", :class=>"career_apply") %><% end %>
-         <%= link_to "/offlines/coding_new" do %> <%= image_tag("apply_red.png",  :class=>"coding_apply")%> <%end%>
-    </div>
-    
+    <div class="row justify-content-center no-gutters">
+         <div class="col-5 px-0 mx-0">
+            <%= link_to "/offlines/career_new" do %> <%= image_tag("apply_blue.png", :class=>"img-fluid") %><%end%>
+         </div>
+         <div class="col-5 px-0 mx-0">
+            <%= link_to "/offlines/coding_new" do %> <%= image_tag("apply_red.png",  :class=>"img-fluid")%> <%end%>
+         </div>
+     </div>
+  </div>    
     
 
-    <div id="div1">
-        <div class="blank"></div>
-        <div class="career_intro"></div>
+  <div id="div1" class="offline_page">
+        <div class="blank hidden-sm-down"></div>
+        <div class="career_intro hidden-sm-down"></div>
+        <div class="row no-gutters">
+        <div class="col-10 push-1 hidden-md-up pt-5"><%= image_tag("offline_career_m.png",  :class=>"review_write")%> </div>    
+        </div>
+        
     </div>
     
-    <div id="div2">
-        <div class="blank"></div>
-        <div class="coding_intro"></div>
+  <div id="div2" class="offline_page ">
+        <div class="blank hidden-sm-down"></div>
+        <div class="coding_intro hidden-sm-down"></div>
+        <div class="row no-gutters">
+            <div class="col-10 push-1 hidden-md-up pt-5"><%= image_tag("offline_coding_m.png",  :class=>"review_write")%> </div>    
+        </div>
     </div>
 
 </div>

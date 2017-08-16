@@ -30,15 +30,31 @@ li.active > .button_hk{
 .review_write{
     width:100%;
 }
-.review_write:hover{
-    opacity:0.7;
-}
 
 .review_info_hk{
     font-family: 'Noto Sans KR';
     font-size: 17px;
     font-weight:bold;
     text-align:right;
+}
+
+.review_info_hk_m{
+    font-family: 'Noto Sans KR';
+    font-size: 12px;
+    font-weight:bold;
+    text-align:right;
+}
+.review_intro_coin{
+  text-align: right;
+  font-size: 2em;
+  line-height: 2em;
+  margin-bottom: 40px;
+}
+.review_intro_coin_m{
+  text-align: right;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  margin-bottom: 40px;
 }
 
 .radio_inline{
@@ -67,6 +83,18 @@ li.active > .button_hk{
     font-size: 20px;
     color:#4C4C4C;
     font-weight:bold;
+    line-height:100%;
+}
+.review_title_y_m{
+    font-size: 1.1em;
+    color:#4C4C4C;
+    font-weight:bold;
+     line-height:140%;
+}
+
+.button_y{
+     border-radius: 5px;
+     width: 100%;
 }
 
 .lock{
@@ -82,3 +110,26 @@ li.active > .button_hk{
 .review_secret{
     font-size: 2em;
 }
+
+.title_review{
+    line-height: 80px;
+    width: 100%;
+    height: 80px;
+    font-size: 2.3em;
+}
+.title_review_m{
+    line-height: 50px;
+    width: 100%;
+    height: 50px;
+    font-size: 25px;
+}
+
+.pag{
+    text-align:right;
+}
+
+.flex_hyo9{
+    display: flex;
+    justify-content: center;
+}
+

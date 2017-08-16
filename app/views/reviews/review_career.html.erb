@@ -1,33 +1,40 @@
 <%=render 'nav'%>
-    <div class="container">
-  <div class="col-3 pl-0">
-     <div class="question_hk justify-content-center align-items-center mb-4">
-         <h2 class="title_hk jua text_white_hk">특강 후기</h2>
-     </div>
-  </div>
+   <div class="container">
+       
+        <div class="row">
+              <div class="col-md-3 col-5 hidden-sm-down">
+                 <div class="question_hk justify-content-center align-items-center mb-4">
+                     <h2 class="title_review jua text_white_hk">특 강 후 기</h2>
+                 </div>
+               </div>
+               
+              <div class="col-md-9 hidden-sm-down">
+                  <%= image_tag("review_main2.png", :class=>"review_write") %> 
+              </div> 
+              <div class="col-12 hidden-md-up">
+                   <%= image_tag("review_main.png", :class=>"review_write") %> 
+              </div> 
+        </div>
+ <hr style="border: solid 1px #D5D5D5;">  
 
-  <div class="row">
-    <div class="col-12">
-     <p class="review_info_hk">코인을 만나고 난 후의 이야기를 들려주세요.</p>
-      <p class="review_info_hk">익명 게시판이니 자유롭게 궁금한 내용을 질문하거나 전하고 싶은 후기를 남겨주세요.</p>
-      <p class="jua qna_intro_coin_hs">
-                    :코-인</p>
-                    <hr style="border: solid 1px #D5D5D5;">  
-    </div>
-  </div>
-  
-                <div >
-                    <ul class="nav nav-tabs">
-                        <li ><a class="review_button_hk" href = "/reviews">전체</a></li>
-                        <li ><a class="review_button_hk" href = "/reviews/teacher">공지</a></li>
+   <div >
+        
+     </div>
+                 
+        <div class="row">
+             <div class="col-md-3 hidden-sm-down">
+                  <%= link_to "/reviews/new" do %> <%= image_tag("review_write.png", :class=>"review_write") %> <% end %>
+             </div>     
+             
+             <div class="col-md-9 col-12">
+                  <ul class="nav nav-tabs">
+                        <li><a class="review_button_hk" href = "/reviews">전체</a></li>
+                        <li><a class="review_button_hk" href = "/reviews/teacher">공지</a></li>
                         <li class="active"><a class="review_button_hk" href = "/reviews/review_career">진로</a></li>
                         <li><a class="review_button_hk" href = "/reviews/review_coding">코딩</a></li>
                      
-                    </ul>
-                </div>
-                 
-        <div class="row">
-             <div class="col-9">
+                     </ul>
+         
                 <div class="justify-content-center">
                     <table class = "table table-hover">
                         <tr>
@@ -56,10 +63,14 @@
                         </table>
                     </div>
                   </div>  
-                     <div class="col-3">
-                          <%= link_to "/reviews/new" do %> <%= image_tag("review_write.png", :class=>"review_write") %> <% end %>
-                      </div>
+            <div class="col-12 pag">
+                 <%= will_paginate @reviews %>  
+            </div>    
+    
+             
+             <div class="col-6 push-3 hidden-md-up">
+                  <%= link_to "/reviews/new" do %> <%= image_tag("review_write.png", :class=>"review_write") %> <% end %>
+             </div>   
         </div>    
    
-     <%= will_paginate @reviews %>
 </div> <!-- 컨테이너 디브 -->

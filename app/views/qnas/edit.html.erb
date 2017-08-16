@@ -1,78 +1,99 @@
 <%=render 'nav'%>
 
 <div class="container">
-  
+    <div class="qna_form center_hs">
+    
   <h2 class="jua offline_apply_hs center_hs">수정하기</h2>
-  
-<%= form_tag "/qnas/update/#{@qna.id}", method: 'post', multipart: true do %>
-    
-    
-    <p class="new_form">
-      <label for="input_title"><span>제 목</span></label>
-      <input type="text" name="input_title" size="100" value="<%= @qna.title %>">
-    </p>
-    
-    <p class="new_form">
-        <% if(@qna.category=="c/c++")   %>
-          <label for="input_category"> <input type="radio" name="input_category" value="c/c++" checked="true">C/C++</label>
-        <% else %>
-          <label for="input_category"> <input type="radio" name="input_category" value="c/c++">C/C++</label>
-        <% end %>
-        
-        <% if(@qna.category=="python")   %>
-          <label for="input_category"> <input type="radio" name="input_category" value="python" checked="true">Python</label>
-        <% else %>
-          <label for="input_category"> <input type="radio" name="input_category" value="python">Python</label>
-        <% end %>
-        
-        <% if(@qna.category=="java")   %>
-          <label for="input_category"> <input type="radio" name="input_category" value="java" checked="true">Java</label>
-        <% else %>
-          <label for="input_category"> <input type="radio" name="input_category" value="java">Java</label>
-        <% end %>
-        
-        <% if(@qna.category=="scratch/entry")   %>
-          <label for="input_category"> <input type="radio" name="input_category" value="scratch/entry" checked="true">Scratch/Entry</label>
-        <% else %>
-          <label for="input_category"> <input type="radio" name="input_category" value="scratch/entry">Scratch/Entry</label>
-        <% end %>
-          
-        <% if(@qna.category=="html/css") %>
-          <label for="input_category"> <input type="radio" name="input_category" value="html/css" checked="true">Html/Css</label>
-        <% else %>
-          <label for="input_category"> <input type="radio" name="input_category" value="html/css">Html/Css</label>
-        <% end %>
-          
-        <% if(@qna.category=="etc") %>
-          <label for="input_category"> <input type="radio" name="input_category" value="etc" checked="true">기타</label><br>
-        <% else %>
-          <label for="input_category"> <input type="radio" name="input_category" value="etc">기타</label><br>
-        <% end %>
-          
-        
-    </p>
-  <!--여기라디오값?잘모르겟음찾아봐야겟다-->
-    
-      <p class="new_form">
-        <label for="input_content"><span>내 용</span></label>
-        <textarea name="input_content" cols="100" rows="15"><%= @qna.content %></textarea>
-      </p>
-      
-      <p class="new_form">
-        <label for="input_code_content"><span>코 드</span></label>
-        <textarea name="input_code_content" cols="100" rows="15"><%= @qna.code_content %></textarea>
-      </p>
+ 
 
-      <!--<p class="new_form">-->
-      <!--  <label for="input_img"><span>이미지</span></label>-->
-      <!--  <input type="file" name="input_img"  value=""><br>-->
-      <!--</p>-->
+   <%= form_for @qna, url: "/qnas/update/#{@qna.id}" , method: :post do |f| %>
+  
+   <p class="offline_form">
+        <%= f.label :category,"카테고리", class: "control-label"  %>
+        <div class="flex_hyo9 col-md-6 push-md-3 col-sm-12 mb-3">
+        
+        <div>    
+        <% if(@qna.category=="c/c++")   %>
+        <%= f.label :category, "C/C++", class: 'radio_hs' %> <%= f.radio_button :category, 'C/C++', :checked => true %>
+          <% else %>
+         <%= f.label :category, "C/C++", class: 'radio_hs' %> <%= f.radio_button :category, 'C/C++'%>
+          <% end %>
+        </div>
+        
+        <div>
+         <% if(@qna.category=="python")   %>
+        <%= f.label :category, "PYTHON", class: 'radio_hs' %> <%= f.radio_button :category, 'PYTHON', :checked => true %>
+          <% else %>
+        <%= f.label :category, "PYTHON", class: 'radio_hs' %> <%= f.radio_button :category, 'PYTHON' %>
+          <% end %>
+        </div>
+        
+        <div>
+        <% if(@qna.category=="java")   %>
+        <%= f.label :category, "Java", class: 'radio_hs' %> <%= f.radio_button :category, 'Java', :checked => true %>
+          <% else %>
+        <%= f.label :category, "Java", class: 'radio_hs' %> <%= f.radio_button :category, 'Java' %>
+          <% end %>
+        </div>
+        
+        
+        <div>
+         <% if(@qna.category=="scratch/entry")   %>
+        <%= f.label :category, "Scratch/Entry", class: 'radio_hs' %> <%= f.radio_button :category, 'Scratch/Entry', :checked => true %>
+          <% else %>
+        <%= f.label :category, "Scratch/Entry", class: 'radio_hs' %> <%= f.radio_button :category, 'Scratch/Entry' %>
+          <% end %>
+        </div>
+        
+        <div>
+        <% if(@qna.category=="html/css") %>
+        <%= f.label :category, "Html/Css", class: 'radio_hs' %> <%= f.radio_button :category, 'Html/Css', :checked => true %>
+          <% else %>
+         <%= f.label :category, "Html/Css", class: 'radio_hs' %> <%= f.radio_button :category, 'Html/Css' %>
+          <% end %>
+        </div>
+        
+        <div>
+        <% if(@qna.category=="etc") %>
+        <%= f.label :category, "etc", class: 'radio_hs' %> <%= f.radio_button :category, '기타', :checked => true %>
+          <% else %>
+        <%= f.label :category, "etc", class: 'radio_hs' %> <%= f.radio_button :category, '기타'%>
+        <% end %>
+        </div>
+        
+        
+        </div>
+        
+
+
+     <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
+      <%= f.label :title, "제목", class: "control-label" %>
+      <%= f.text_field :title, value: @qna.title, class: "form-control" %>
+       </p>
       
-      <p class="new_form">  
-      <input type="submit" value="" class="submit_hs">
-      <a href="/qnas/index" class="back_hs"></a>
-      </p>
-<% end %>
+      
+      <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 "> 
+      <%= f.label :content, "내용", class: "control-label" %>
+      <%= f.text_field :content, value: @qna.content, class: "form-control" %>
+       </p>
+      
+       <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
+      <%= f.label :code_content, "코드", class: "control-label" %>
+      <%= f.text_area :code_content, value: @qna.code_content, class: "form-control" %>
+       </p>
+       
+       <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
+      <%= f.file_field :img %>
+       </p>
+    <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
+      <%= f.submit %>
+    </p>
+    
+    
+      <% end %>
+      
+      
+    
 </div>
 
-
+</div>

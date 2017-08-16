@@ -38,8 +38,10 @@ class QnasController < ApplicationController
   end
 
 
-  def new
-  end
+   def new
+      @qna = Qna.new 
+   end
+  
   
   def edit
     @qna = Qna.find(params[:qna_id])
@@ -47,12 +49,7 @@ class QnasController < ApplicationController
 end
 
     def create
-        @qna = Qna.new 
-        @qna.title = params[:input_title]
-        @qna.category = params[:input_category]
-        @qna.content = params[:input_content]
-        @qna.code_content = params[:input_code_content]
-        @qna.img = params[:input_img]
+         @qna = Qna.new(post_params)
         @qna.user_id= current_user.id
         @qna.qna_user=current_user.nickname
         @qna.save
@@ -70,17 +67,15 @@ end
        redirect_to "/qnas/index"
     end
     
+     
     def update
       @qna = Qna.find(params[:qna_id])
-       @qna.title = params[:input_title]
-        @qna.category = params[:input_category]
-        @qna.content = params[:input_content]
-        @qna.code_content = params[:input_code_content]
-        @qna.img = params[:input_img]
+      @qna.update(post_params)
         @qna.user_id= current_user.id
         @qna.qna_user=current_user.nickname
         @qna.save
-      redirect_to "/qnas/show/#{@qna.id}"
+        redirect_to "/qnas/show/#{@qna.id}"
+  
     end
     
       
@@ -116,6 +111,13 @@ end
   
   end
   
+  
+  
+  private
+     def post_params
+      params.require(:qna).permit(:category, :title, :content, :code_content, :img)
+     end
+    
 end
 
 
@@ -125,3 +127,5 @@ end
     #   @post2s = Post2.where(user_id: current_user)
     #   @post3s = Post3.where(user_id: current_user)
     # end
+    
+    

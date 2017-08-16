@@ -1,0 +1,20 @@
+<%=render 'nav'%>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @suggest.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @suggest.content %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @suggest.user %>
+</p>
+
+<%= link_to 'Edit', edit_suggest_path(@suggest) %> |
+<%= link_to "/suggests", class: "index_hs" do %><%= image_tag('index_gray.png', class: "img-fluid button-img") %><%end%>

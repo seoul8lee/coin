@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170803150006) do
+ActiveRecord::Schema.define(version: 20170811075200) do
+
+  create_table "applies", force: :cascade do |t|
+    t.string   "student_name"
+    t.integer  "user_id"
+    t.integer  "study_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "applies", ["study_id"], name: "index_applies_on_study_id"
+  add_index "applies", ["user_id"], name: "index_applies_on_user_id"
 
   create_table "offlines", force: :cascade do |t|
     t.string   "category"
@@ -80,6 +91,34 @@ ActiveRecord::Schema.define(version: 20170803150006) do
   end
 
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+
+  create_table "studies", force: :cascade do |t|
+    t.string   "study_name"
+    t.text     "study_time"
+    t.text     "study_content"
+    t.string   "study_pay"
+    t.integer  "study_max"
+    t.date     "study_due"
+    t.string   "teacher_img"
+    t.text     "teacher_intro"
+    t.boolean  "study_pass"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "studies", ["user_id"], name: "index_studies_on_user_id"
+
+  create_table "suggests", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "suggest_user"
+  end
+
+  add_index "suggests", ["user_id"], name: "index_suggests_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

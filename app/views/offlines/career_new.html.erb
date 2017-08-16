@@ -3,76 +3,45 @@
 <div class="container center_hs">
 <h2 class="jua offline_apply_hs">진로 특강 신청</h2>
 <div>
-    <!--<form action="/offlines/create">-->
-    <!--    <p class="offline_form">-->
-    <!--        <label for="team_name"><span class="offline_new_title">단 체 명</span></label>-->
-    <!--        <input type="text" id="team_name" name="team_name">-->
-    <!--    </p>-->
-        <!--<p class="offline_form">-->
-        <!--    <label for="address"><span class="offline_new_title">주 소</span></label>-->
-        <!--    <input type="text" id="address" name="address">-->
-        <!--</p>-->
-        <!--<p class="offline_form">-->
-        <!--    <label for="name"><span class="offline_new_title">대표자 이름</span></label>-->
-        <!--    <input type="text" id="name" name="name">-->
-        <!--</p>-->
-        <!--<p class="offline_form">-->
-        <!--    <label for="phone"><span class="offline_new_title">대표자 연락처</span></label>-->
-        <!--    <input type="text" id="phone" name="phone">-->
-        <!--</p>-->
-        <!--<p class="offline_form">-->
-        <!--    <label for="date"><span class="offline_new_title">희 망 일 시</span></label>-->
-        <!--    <textarea id="date" name="date" rows="10"></textarea>-->
-        <!--</p>-->
-        <!--<p class="offline_form">-->
-        <!--    <label for="content"><span class="offline_new_title">신 청 계 기</span></label>-->
-        <!--    <textarea id="content" name="content" rows="10"></textarea>-->
-        <!--</p>-->
-        <!--<p class="offline_form">-->
-        <!--    <span class="offline_new_title"></span>-->
-        <!--    <input type="hidden" id="category" name="category" value="진로">-->
-        <!--</p>-->
-        <!--<p>-->
-        <!--    <input type="submit">-->
-        <!--</p>-->
-    <!--</form>-->
-    
-    
+            
+
+    <div class="qna_form center_hs">
     <%= form_tag('/offlines/create', multipart: true) do %>
-        <p class="offline_form">
+        <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
             <label for="team_name"><span class="offline_new_title">단 체 명</span></label>
-            <%= text_field_tag('team_name',nil, size: 70, placeholder: "학교이름 또는 단체이름", class: "offline_form_hs") %>   
+            <%= text_field_tag('team_name',nil, placeholder: "학교이름 또는 단체이름", class:'form-control' ) %>   
         </p>
-        <p class="offline_form">
+        <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
             <label for="address"><span class="offline_new_title">주 소</span></label>
-            <%= text_field_tag('address',nil, size: 70,class: "offline_form_hs") %>
+            <%= text_field_tag('address',nil, class:'form-control') %>
         </p>
-        <p class="offline_form">
+        <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
             <label for="name"><span class="offline_new_title">대표자 이름</span></label>
-            <%= text_field_tag('name',nil, size: 70,class: "offline_form_hs") %>
+            <%= text_field_tag('name',nil, class:'form-control') %>
         </p>
-        <p class="offline_form">
+        <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
             <label for="phone"><span class="offline_new_title">대표자 연락처</span></label>
-            <%= text_field_tag('phone',nil, size: 70,class: "offline_form_hs") %>
+            <%= text_field_tag('phone',nil, class:'form-control') %>
         </p>
-        <p class="offline_form">
+        <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
             <label for="date"><span class="offline_new_title">희 망 일 시</span></label>
-            <%= text_area_tag('date',nil, cols: 70, rows: 10, placeholder: "최대한 구체적으로 작성해주세요", class: "offline_form_hs")  %>
+            <%= text_area_tag('date',nil , placeholder: "최대한 구체적으로 작성해주세요", class:'form-control')  %>
         </p>
-        <p class="offline_form">
+        <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
             <label for="content"><span class="offline_new_title">신 청 계 기</span></label>
-            <%= text_area_tag('content',nil, cols: 70, rows: 10, class: "offline_form_hs") %>
+            <%= text_area_tag('content',nil, class:'form-control') %>
         </p>
-        <p class="offline_form">
+        <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
             <span class="offline_new_title"></span>
             <%= hidden_field_tag('category','진로') %>
         </p>
-        <p>
+        <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
             <%= submit_tag '',class: "submit_hs" %>
             <%= link_to '', '/offlines/index', class: "back_hs" %>
         </p>
         <div class="blank">
         </div>
+    </div>    
     <% end %>
 </div>
 </div>

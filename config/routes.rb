@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   
+  resources :suggests
+  resources :suggests
+  resources :suggests
   devise_for :users
   root 'mains#index'
   get 'mains/index'
   get 'mains/intro'
+  
   
   
   # heeham's
@@ -38,6 +42,22 @@ Rails.application.routes.draw do
   get 'offlines/coding_new'
   post 'offlines/create'
   
+  get 'studies/index'
+  get 'studies/new'
+  get 'studies/apply/:study_id'=>'studies#apply'
+   get 'studies/apply_d/:study_id/:apply_id'=>'studies#apply_d'
+  get 'studies/show/:study_id' => 'studies#show'
+  post 'studies/create'
+  post 'studies/update/:study_id' => 'studies#update'
+  get 'studies/destroy/:study_id' => 'studies#destroy'
+  get 'studies/edit/:study_id' => 'studies#edit'
+  
+  
+   resources :qnas do
+    resources :qna_replies
+  end
+
+  
   
   resources :reviews do
       resources :review_replies 
@@ -47,6 +67,8 @@ Rails.application.routes.draw do
         get :review_coding
         end
   end
+  
+  
 
   
   
