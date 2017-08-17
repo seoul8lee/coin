@@ -3,12 +3,9 @@
 <div class="container">
     <div class="review_intro_hs">
         <h1 class="jua">코인 그 후의 이야기를 들려주세요.</h1>
-        <br>
-        <p>수 정</p>
     </div>
-    
 
-    
+
     <div class="qna_form center_hs">
     <%= form_tag "/reviews/#{@review.id}", method: 'patch' do %>
     
@@ -17,11 +14,13 @@
         <%= text_field_tag 'title', @review.title, class:'form-control'%>
         </p>
         
-        <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
-        <label for="category"><span>카테고리</span></label>
+        <p class="form-group row justify-content-center ">
+      
+            <div class="flex_hyo9 col-md-5 push-md-3  col-sm-12 mb-3">
+                <label for="category">카테고리</label>
+            </div>  
         
-        
-        <div class="flex_hyo9 col-md-6 push-md-3 col-sm-12 mb-3">
+        <div class="flex_hyo9 col-md-5 pull-md-1 col-sm-12 mb-3">
         
              <% if(@review.category=="career")   %>
              <div class="mr-1">     
@@ -66,7 +65,7 @@
         
         <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
         <label for="content"><span>내 용</span></label>
-        <%= text_area_tag 'content', @review.content, class:'form-control' %>
+        <%= text_area_tag 'content', @review.content, class:'form-control', rows: "10vh" %>
         </p>
         
         <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">

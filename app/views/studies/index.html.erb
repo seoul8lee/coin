@@ -1,34 +1,65 @@
 <%=render 'nav'%>
 <div class="container">
+	<div class="row">
 
-        <div class="row">
-              <div class="col-md-3 col-5 hidden-sm-down">
-                 <div class="question_hk justify-content-center align-items-center mb-4">
-                     <h2 class="title_review jua text_white_hk">스 터 디</h2>
-                 </div>
-               </div>
+		<!-- PC subnav -->
+        <div class="col-3 hidden-sm-down">
+             <%= render 'subnav' %> 
         </div>
-    
-    <h2>
-        스터디 신청
-        <%= link_to '신청', '/studies/new'%>
-    </h2>
-    
-    
-        <h2>
-            여기는 스터디 목록
-        </h2>
-        
-        <% @studies.each do |study| %>
-            <% if(study.study_pass==true) %>
-                <%=study.id %> 
-                <%= link_to "/studies/show/#{study.id}" do %> <%= study.study_name %><% end %>
-                <hr>
-            <%end%>
-        <% end %>
-    
-    <h2>
-        <a href="/suggests">건의게시판 들어가기</a>
-    </h2>
 
-</div>
+        <!-- PC Mobile both -->
+		<div class="col-md-9 col-12">
+			
+			<!-- Mobile subnav -->	
+			<div class="row hidden-md-up">
+				<div class="col-6  m-0"><%= link_to "/suggests", class: "" do %><%= image_tag("sugg_mob.png", class: "img-responsive") %><% end %></div>
+				<div class="col-6  for_b"><%= link_to "/studies/new", class: "" do %><%= image_tag("studies_mob.png", class: "img-responsive") %><% end %></div>
+			</div>
+		
+			<!-- PC header -->
+			<div class="row hidden-sm-down d-flex flex-column justify-content-center pr-4 text-right">
+                <div class="p-1">코딩을 더 가까이에서 배우고 싶다면</div>
+                <div class="p-1">심화 주제로 튜터님과 스터디하세요  :코인</div>
+            </div>
+            <hr style="border: solid 1px #D5D5D5;">
+
+			<!-- PC mobile LIST -->
+			<div class="row">
+			<div class="col-12">
+			    
+			<% @studies.each do |study| %>
+            	<% if(study.study_pass == true) %>
+                
+                
+                	<%= link_to "/studies/show/#{study.id}", class: "d-block" do %>
+                
+                	<div class="study_box_hk">
+                	    <div class="row">
+                    	    <div class="col-md-4 col-6 study_title_hk"><h3><%= study.study_name %></h3></div>
+                    	</div>
+                    	<div class="row justify-content-end">
+                    	    <div class="col-md-8 col-10"><p class="study_cont_hk"><%= study.study_content %></p></div>
+                    	</div>
+                    	<div class="row justify-content-end">
+                    	    <div class="col-md-8 col-10"><p class="study_cont_hk"><%= study.user.name %></p></div>
+                    	</div>
+                    	<div class="row justify-content-end">
+                    	    <div class="col-md-8 col-10"><p class="study_cont_hk"><%= study.study_max %></p></div>
+                    	</div>
+                    	<div class="row justify-content-end">
+                    	    <div class="col-md-8 col-10"><p class="study_cont_hk"><%= study.study_due %></p></div>
+                    	</div>
+        			</div> <!-- study_box_hk end -->
+				
+					<% end %>
+				            
+                <hr>
+                <div class="hidden-md-up"><p> </p></div>
+             	            
+            	<% end %>
+       		<% end %>
+			</div></div> <!-- PC Mobile LIST end -->
+		</div> <!-- PC Mobile both end-->
+
+	</div> <!-- total row end -->
+</div> <!-- container end -->

@@ -1,7 +1,7 @@
 class StudiesController < ApplicationController
     
     def index
-        @studies=Study.all
+        @studies=Study.all.order('created_at DESC')
     end
     
     def apply

@@ -23,12 +23,29 @@
   clear: both; /* Required for Webkit, but not for Gecko */
 }
 
-.simple_form label >.email {
+.simple_form label.email {
+       display:none;
+}
+.simple_form label.password {
+       display:none;
+}
+.simple_form label.string{
+       display:none;
+}
+.simple_form label.tel{
        display:none;
 }
 
-
-.simple_form input[type='email'], .simple_form input[type='password']{
+#user_nickname,#user_name,#user_birthday,#user_part{
+   width:100%;
+    height: 50px;
+    border-radius: 5px;
+    margin:0;
+    padding:0;
+     box-shadow:none;
+     border-width:0px;
+}
+.simple_form input[type='email'], .simple_form input[type='password'],.simple_form input[type='tel']{
     width:100%;
     height: 50px;
     border-radius: 5px;
@@ -44,8 +61,7 @@
  width:100%;
     height: 50px;
     border-radius: 5px;
-    margin:0;
-    padding:0;
+    margin-bottom:10px;
      box-shadow:none;
      border-width:0px;
      font-size:20px;
@@ -65,7 +81,22 @@
 
 
 div.boolean{
-  margin-left: 120px;
-  display: block;
-  visibility:visible;
+  margin-left:20px;
+  color:white;
+ margin-top:0;
+ margin-bottom:0;
+  font-family: 'Noto Sans KR';
+ 
+}
+
+.for_sign_link{
+  color: white; 
+  font-size:20px; 
+  float:right;
+   font-family:'BM JUA','배달의민족 주아',sans-serif;
+   margin:10px;
+}
+
+.for_sign_link:hover{
+  background-color:transparent;
 }

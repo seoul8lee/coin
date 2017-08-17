@@ -1,39 +1,43 @@
 <%= form_for @study, url: { controller: "studies", action: "create" } do |f| %>
 
-  <div class="field">
-    <%= f.label :study_name %><br>
-    <%= f.text_field :study_name %>
+
+<div class="row justify-content-center center_h9">
+  <div class="form-group  col-md-8 col-sm-10 mb-5">
+    <%= f.label "스터디 제목" %><br>
+    <%= f.text_field :study_name, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :study_time %><br>
-    <%= f.text_area :study_time %>
+  <div class="form-group  col-md-8  col-sm-10  mb-5">
+    <%= f.label "스터디 기간" %><br>
+    <%= f.text_area :study_time, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :study_content %><br>
-    <%= f.text_area :study_content %>
+  <div class="form-group  col-md-8 col-sm-10  mb-5">
+    <%= f.label "커리큘럼" %><br>
+    <%= f.text_area :study_content, class: "form-control", rows: "20vh" %>
   </div>
-  <div class="field">
-    <%= f.label :study_pay %><br>
-    <%= f.text_field :study_pay %>
+  <div class="form-group  col-md-8  col-sm-10  mb-5">
+    <%= f.label "수업료" %><br>
+    <%= f.text_field :study_pay, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :study_max %><br>
-    <%= f.text_field :study_max %>
+  <div class="form-group  col-md-8 col-sm-10  mb-5">
+    <%= f.label "최대 수강인원" %><br>
+    <%= f.text_field :study_max, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :study_due %><br>
-    <%= f.date_field :study_due %>
+  <div class="form-group  col-md-8  col-sm-10  mb-5">
+    <%= f.label "모집 마감일" %><br>
+    <%= f.date_field :study_due, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :teacher_img %><br>
+  <div class="form-group  col-md-8 col-sm-10 mb-5">
+    <%= f.label "선생님 프로필 사진" %><br>
     <%= f.file_field :teacher_img %>
   </div>
-  <div class="field">
-    <%= f.label :teacher_intro %><br>
-    <%= f.text_area :teacher_intro %>
+  <div class="form-group  col-md-8 col-sm-10 mb-5">
+    <%= f.label "선생님 소개" %><br>
+    <%= f.text_area :teacher_intro, class: "form-control" , rows: "10vh"%>
   </div>
-  <div class="actions">
+  
+  <div class="form-group  col-md-8 col-sm-10 mb-5">
     <%= f.submit %>
 
   </div>
+  
 <% end %>

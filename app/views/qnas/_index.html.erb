@@ -38,7 +38,13 @@
                                         <div class="qna_no_check_hk col-12 mt-4">
                                             <p class="content_hk col-10">
                                             <%= qna.content %></br>
-                                            <pre class="brush: cpp"><%= qna.code_content %></pre></br>
+                                            <% if qna.category=='C/C++' or qna.category=='c/c++' %> <pre class="brush: cpp"><%= qna.code_content %></pre></br>
+                                            <% elsif qna.category=='PYTHON' or qna.category=='Python' %><pre class="brush: py"><%= qna.code_content %></pre></br>
+                                            <% elsif qna.category=='Java' or qna.category=='JAVA' %> <pre class="brush: java"><%= qna.code_content %></pre></br>
+                                            <% elsif qna.category=='Scratch/Entry' or qna.category=='SCRATCH/ENTRY' %> <pre class="brush: cpp"><%= qna.code_content %></pre></br>
+                                            <% elsif qna.category=='Html/Css' or qna.category=='HTML/CSS' %> <pre class="brush: css"><%= qna.code_content %></pre></br>
+                                            <% elsif qna.category=='etc' or qna.category=='ETC' %> <pre class="brush: cpp"><%= qna.code_content %></pre></br>
+                                            <%end%>
                                             <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to  "/qnas/edit/#{qna.id}",class: "edit_hs" do %><%end%><%end%><%end%>
                                             <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to "/qnas/destroy/#{qna.id}",class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%><%end%></br><%end%>
                                             </p>
@@ -50,7 +56,14 @@
                                         <div class="qna_no_check_hk col-12 mt-4">
                                             <p class="content_hk col-10">
                                             <%= qna.content %></br>
-                                            <pre class="brush: cpp"><%= qna.code_content %></pre></br>
+                                            
+                                            <% if qna.category=='C/C++' or qna.category=='c/c++' %> <pre class="brush: cpp"><%= qna.code_content %></pre></br>
+                                            <% elsif qna.category=='PYTHON' or qna.category=='Python' %><pre class="brush: py"><%= qna.code_content %></pre></br>
+                                            <% elsif qna.category=='Java' or qna.category=='JAVA' %> <pre class="brush: java"><%= qna.code_content %></pre></br>
+                                            <% elsif qna.category=='Scratch/Entry' or qna.category=='SCRATCH/ENTRY' %> <pre class="brush: cpp"><%= qna.code_content %></pre></br>
+                                            <% elsif qna.category=='Html/Css' or qna.category=='HTML/CSS' %> <pre class="brush: css"><%= qna.code_content %></pre></br>
+                                            <% elsif qna.category=='etc' or qna.category=='ETC' %> <pre class="brush: cpp"><%= qna.code_content %></pre></br>
+                                            <%end%>
                                             <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to "/qnas/edit/#{qna.id}", class: "edit_hs" do %><%end%><%end%><%end%>
                                             <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to "/qnas/destroy/#{qna.id}",class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%><%end%></br><%end%>
                                             </p>

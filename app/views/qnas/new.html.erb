@@ -9,7 +9,7 @@
   <h2 class="jua offline_apply_hs">질문하기</h2>
      <%= form_for @qna, url: { controller: "qnas", action: "create" } do |f| %>
   
-   <p class="offline_form">
+   <p class=" ">
         <%= f.label :category,"카테고리", class: "control-label"  %>
         <div class="flex_hyo9 col-md-6 push-md-3 col-sm-12 mb-3">
           <div><%= f.label :category, "C/C++", class: 'radio_hs' %> <%= f.radio_button :category, 'C/C++', html: { class: "new_form" } %></div>
@@ -45,7 +45,7 @@
             
         </p>
      
-    
+
       <% end %>
  
     <div class="col-md-8 push-md-2 col-sm-10 push-sm-1">

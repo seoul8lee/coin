@@ -18,20 +18,24 @@
             <%= text_field_tag 'title', nil, class:'form-control' %>
             </p>
             
-            <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 ">
-            <label for="category">카테고리</label>
+            <p class="form-group row justify-content-center ">
+                
+            <div class="flex_hyo9 col-md-5 push-md-3  col-sm-12 mb-3">
+                <label for="category">카테고리</label>
+            </div>
             
-            <div class="flex_hyo9 col-md-6 push-md-3 col-sm-12 mb-3">
-        
-             <div class="mr-1">     
-                <%= radio_button_tag(:category, "career") %>
-                <%= label_tag(:category_career, "진로") %>
-             </div>
-             
-             <div class="ml-1">
-                <%= radio_button_tag(:category, "coding") %>
-                <%= label_tag(:category_coding, "코딩") %>
-             </div>   
+                <div class="flex_hyo9 col-md-5 pull-md-1 col-sm-12 mb-3">
+            
+                 <div class="mr-1">     
+                    <%= radio_button_tag(:category, "career") %>
+                    <%= label_tag(:category_career, "진로") %>
+                 </div>
+                 
+                 <div class="ml-1">
+                    <%= radio_button_tag(:category, "coding") %>
+                    <%= label_tag(:category_coding, "코딩") %>
+                 </div>   
+                
             </div>    
             </p>
             
@@ -43,7 +47,7 @@
             
             <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
             <label for="content">내 용</label>
-            <%= text_area_tag 'content', nil, class:'form-control'%>
+            <%= text_area_tag 'content', nil, class:'form-control', rows: "20vh"%>
             </p>
             
     

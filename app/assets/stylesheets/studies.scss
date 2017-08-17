@@ -1,3 +1,179 @@
 // Place all the styles related to the studies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// studies/intro
+.study_box_hk{
+    // background-image: url('studies_show_web_1.png');
+    // background-repeat: no-repeat;
+    // background-position: center; 
+    width: 100%;
+    // height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.study_content_box_hk{
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.study_title_hk{
+    background-color: #8acbc1;
+    padding: 0;
+    margin: 0;
+    opacity: 0.7;
+    border-radius: 0 0 20px 0;
+    text-align: center;
+}
+
+.study_cont_hk{
+    text-align: right;
+}
+
+// studies/show
+.study_show_intro{
+    height:400px;
+    background-image: url('studies_show_web_5.png');
+    background-size: cover;
+ 
+}
+.study_show_intro_m{
+    width:100%;
+    background-image: url('studies_show_m_5.png');
+    background-size: cover;
+ 
+}
+
+.study_name{
+    font-size:3em;
+    background-color: #e8464e;
+    opacity:0.8;
+  display:inline-block;
+  color:white;
+  border-radius:0 0 10px 0;
+}
+
+.study_name_m{
+    font-size:1.8em;
+    background-color:#e8464e;
+    opacity:0.8;
+  display:inline-block;
+  color:white;
+  border-radius:0 0 10px 0;
+}
+
+.study_max, .study_pay, .study_time{
+    font-size:3em;
+  display:inline-block;
+  color:white;
+  border: 1px solid white;
+  border-right:none;
+ float:right;
+    
+}
+.study_max_m, .study_pay_m, .study_time_m{
+    font-size:1.1em;
+  display:inline-block;
+  color:white;
+  border: 1px solid white;
+  border-right:none;
+ float:right;
+    
+}
+
+.intro_box{
+    color:white;
+    font-size:3em;
+    padding:10px;
+    text-align:center;
+    margin-top:10px;
+}
+.intro_box_m{
+    color:white;
+    font-size:1.5em;
+    padding:10px;
+    text-align:center;
+    margin-top:10px;
+}
+
+.apply_box{
+    color:white;
+    font-size:2em;
+    padding:10px;
+    text-align:center;
+   
+}
+.teacher_intro{
+    padding:10px;
+    border:1px solid #D5D5D5;
+    border-radius:5px;
+    min-height:150px;
+    margin-top:10px;
+    font-size:15px;
+}
+
+.for_font{
+     font-size:15px;
+}
+.study_due{
+    border-radius:100%;
+    
+    font-size:2.5em;
+    color:white;
+    background-color: #e8464e;
+    text-align:center;
+    width:200px;
+    height:200px;
+   
+}
+
+.study_due_m{
+    border-radius:100%;
+    font-size:1.2em;
+    color:white;
+    background-color: #e8464e;
+    text-align:center;
+    width:100px;
+    height:100px;
+   
+}
+.study_content{
+    font-size:2em;
+    color:#4C4C4C;
+    display:inline-block;
+    border-bottom:3px solid #8acbc1;
+    line-height:70px;
+}
+.study_content_m{
+    font-size:1.1em;
+    color:#4C4C4C;
+    display:inline-block;
+    border-bottom:3px solid #8acbc1;
+    line-height:40px;
+}
+
+.student_intro{
+     border:1px solid #D5D5D5;
+    border-radius:5px;
+    min-height:250px;
+    margin-top:10px;
+    font-size:1.5em;
+    color:#4C4C4C;
+}
+
+.student_intro_m{
+    border:1px solid #D5D5D5;
+    border-radius:5px;
+    min-height:50px;
+    margin-top:10px;
+    font-size:1em;
+    color:#4C4C4C;
+}
+
+
+
+
+.center_h9{
+    text-align: center;
+}

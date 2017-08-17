@@ -1,0 +1,40 @@
+<div class="container-fluid">
+	<div class="row">
+
+		<div class="header col-12 mb-3 px-0">
+             <h1 class="jua text-white center_hs vertical_center_hs">스 터 디</h1>
+        </div>	<!-- header end -->
+
+		<div class="col-12 px-0 mb-5">
+        	<ul class="nav navbar-nav list-group no_draggable w-100">
+             	<li class="list-group-item depth_0">
+	                <%= form_tag(studies_index_path, :method => "get", :class => "d-block w-100 row justify-content-center") do %>
+		                <%= text_field_tag :search, nil, placeholder: "here", class: "d-inline-block col-8 ml-3" %>
+		                <%= button_tag(type: "submit", class: "btn bt_hk d-inline-block col-2") do %><i class="fa fa-search fa-lg mx-0 i_su_hk" aria-hidden="true"></i><% end %>
+	                <% end %> 
+	                
+				</li>
+				<li class="list-group-item depth_0">
+  					<span class="category">
+                    <%= link_to "#", class: "" do %>인기 스터디<%end%>
+               		</span>
+				</li>
+				<li class="list-group-item depth_0">
+  					<span class="category">
+                    <%= link_to "#", class: "" do %>지난 스터디<%end%>
+               		</span>
+				</li>
+			</ul>
+		</div> <!-- list end -->
+
+		<div class="col-12 px-0 mb-3">
+			<%= link_to "/suggests", class: "" do %><%= image_tag("sugg_mob.png", class: "img-responsive") %><% end %>	
+		</div> <!-- suggest end -->
+
+		<div class="col-12 px-0">
+			<%= link_to "/studies/new", class: "" do %><%= image_tag("studies_mob.png", class: "img-responsive") %><% end %>
+		</div> <!-- studies new end -->
+
+
+	</div> <!-- total row end -->
+</div> <!-- container fluid end -->

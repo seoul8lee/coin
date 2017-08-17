@@ -1,10 +1,12 @@
- <%= render 'nav' %>
-
+<%= render 'nav' %>
 <script type="text/javascript">SyntaxHighlighter.all()</script>
+
+
 <div class="container">
+
     <div class="row justify-content-center">   
         <div class="col-md-4 col-12"> <!--제목col-4--> 
-          <h2 class="jua offline_apply_hs center_hs">질문 보기</h2>
+            <h2 class="jua offline_apply_hs center_hs">질문 보기</h2>
         </div>
         <div class="col-md-10 col-12"> <!--내용col-10-->
             <div class="row qna_title_box_hk">
@@ -30,17 +32,18 @@
             <hr>
                         
             <div class="row justify-content">
-                <div class="col-md-2 col-3">
-                    <%= link_to "/qnas/index", class: "index_hs" do %><%= image_tag('index_gray.png', class: "img-fluid button-img") %><%end%>
+                <div class="col-md-2 pr-md-0 col-3 pr-1 align-content-center">
+                    <%= link_to "/qnas/index", class: "index_hs px-md-5 px-2" do %><%= image_tag('index_gray.png', class: "img-fluid button-img") %><%end%>
                 </div>
                 <div class="col-md-2 push-md-8 col-4 push-5">
-                    <button class="reply_hs" data-target="#layerpop" data-toggle="modal" ><%= image_tag('reply.png', class: "img-fluid button-img") %></button>
+                    <button class="reply_hs px-md-4 py-md-0 pb-2" data-target="#layerpop" data-toggle="modal" ><%= image_tag('reply.png', class: "img-fluid button-img") %></button>
                 </div>
             </div>   
             
                         <!--댓글용 모달입니다 -->
+                        
                         <div class="mymodal modal fade" id="layerpop" >
-                          <div class="modal-dialog col-10">
+                          <div class="modal-dialog">
                             <div class="modal-content">
                               <!-- header -->
                               
@@ -71,17 +74,17 @@
                             
                             
                                   
-                                  <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 "> 
+                                  <p class="form-group col-md-8 push-md-2 col-10 push-1 mb-5 "> 
                                   <%= f.label :content, "내용", class: "control-label" %>
                                   <%= f.text_field :content, class: "form-control"  %>
                                    </p>
                                   
-                                   <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
+                                   <p class="form-group col-md-8 push-md-2 col-10 push-1 mb-5 ">
                                   <%= f.label :code_content, "코드", class: "control-label" %>
                                   <%= f.text_area :code_content, class: "form-control"  %>
                                    </p>
                                    
-                                   <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
+                                   <p class="form-group col-md-8 push-md-2 col-10 push-1 mb-5 ">
                                   <%= f.file_field :img %>
                                    </p>
                                    
