@@ -1,9 +1,17 @@
 <%=render 'nav'%>
 <div class="container">
      <!--web용 -->
-    <div class="row no-gutters  hidden-sm-down">
-        <div class="col-md-9 study_show_intro d-flex flex-column">
-            <div><div class="p-3 study_name"><%=@study.study_name %></div></div>
+    <div class="row no-gutters hidden-sm-down">
+        <% if (@study.id % 7)==0 %><div class="col-md-9 study_show_intro7 d-flex flex-column">
+        <% elsif (@study.id % 7)==1%><div class="col-md-9 study_show_intro1 d-flex flex-column">
+        <% elsif (@study.id % 7)==2%><div class="col-md-9 study_show_intro2 d-flex flex-column">
+        <% elsif (@study.id % 7)==3%><div class="col-md-9 study_show_intro3 d-flex flex-column">
+        <% elsif (@study.id % 7)==4%><div class="col-md-9 study_show_intro4 d-flex flex-column">
+        <% elsif (@study.id % 7)==5%><div class="col-md-9 study_show_intro5 d-flex flex-column">
+        <% elsif (@study.id % 7)==6%><div class="col-md-9 study_show_intro6 d-flex flex-column">
+        <% else%> <div class="col-md-9 study_show_intro7 d-flex flex-column">
+        <%end%>    
+            <div><div class="p-3 study_name jua"><%=@study.study_name %></div></div>
             <div class="p-5"></div>
             <div><div class="p-3 study_max">1:<%=@study.study_max %></div></div>
             <div><div class="p-3 study_time"><%=@study.study_time %></div></div>
@@ -38,9 +46,16 @@
     
       <!--mobile -->
     <div class="row no-gutters  hidden-md-up">
-       
-        <div class="col-12 study_show_intro_m d-flex flex-column">
-            <div><div class="p-3 study_name_m"><%=@study.study_name %></div></div>
+       <% if (@study.id % 7)==0%><div class="col-md-9 study_show_intro7_m d-flex flex-column">
+        <% elsif (@study.id % 7)==1%><div class="col-md-9 study_show_intro1_m d-flex flex-column">
+        <% elsif (@study.id % 7)==2%><div class="col-md-9 study_show_intro2_m d-flex flex-column">
+        <% elsif (@study.id % 7)==3%><div class="col-md-9 study_show_intro3_m d-flex flex-column">
+        <% elsif (@study.id % 7)==4%><div class="col-md-9 study_show_intro4_m d-flex flex-column">
+        <% elsif (@study.id % 7)==5%><div class="col-md-9 study_show_intro5_m d-flex flex-column">
+        <% elsif (@study.id % 7)==6%><div class="col-md-9 study_show_intro6_m d-flex flex-column">
+        <% else%> <div class="col-md-9 study_show_intro7_m d-flex flex-column">
+        <%end%>  
+            <div><div class="p-3 study_name_m jua"><%=@study.study_name %></div></div>
             <div class="p-5"></div>
             <div><div class="p-3 study_max_m">1:<%=@study.study_max %></div></div>
             <div><div class="p-3 study_time_m"><%=@study.study_time %></div></div>

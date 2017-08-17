@@ -26,7 +26,7 @@
                 <pre class="brush: cpp"><%= @qna.code_content %> </pre>
             </div>
             <% if @qna.img.url %>
-                <img src="<%= @qna.img.url %>" alt="파일을 다시 업로드 해주세요" width="800">
+                <img src="<%= @qna.img.url %>" alt="파일을 다시 업로드 해주세요" class="img-fluid">
             <% end  %>
             
             <hr>
@@ -41,22 +41,28 @@
             </div>   
             
                         <!--댓글용 모달입니다 -->
-                        
-                        <div class="mymodal modal fade" id="layerpop" >
-                          <div class="modal-dialog">
-                            <div class="modal-content">
-                              <!-- header -->
+                    <div class="row hyo3 ">
+                         <div class="mymodal modal fade hyo3" id="layerpop"  >
+                         <!--여기가전체박스겟지-->
+                         
+                         <div class="container-fluid hyo3">
+                          <div class="row justify-content-center hyo3">
+                            <div class="modal-content col-8 col-sm-8 hyo3">
+                              <!--이위에가 모달크기디브 header -->
                               
                               
-                                <div class="modal-header row ml-0 mr-0">
-                                    <!-- header title -->
-                                    <div class="col-4">
-                                        <span class="modal-title jua center_hs">댓글쓰기</span>
-                                    </div>
+                                <div class="modal-header row justify-content-center hyo3">
+                                    
                                       <!-- 닫기(x) 버튼 -->
-                                    <div class="col-md-1 pull-1">
+                                    <div class="col-md-12 pull-1">
                                         <button type="button" class="close m-0 p-0" data-dismiss="modal">×</button>
                                     </div>
+                                    
+                                    <!-- header title -->
+                                    <div class="">
+                                        <span class="modal-title jua hyo2">댓글쓰기</span>
+                                    </div>
+                                    
                                 </div>
                                
                                
@@ -64,31 +70,31 @@
                                   <!-- body -->
                               <div class="modal-body">
                                  <div class="container-fluid">
-                                    <div class="new-form center_hs row justify-content-center">
+                                    <div class="new-form center_hs row justify-content-start">
                                        
                                        
-                                       
-                                        <h2>Reply:</h2>
-                               
+    
                                 <%= form_for [@qna, @qna.qna_replies.build] do |f| %>
                             
                             
                                   
-                                  <p class="form-group col-md-8 push-md-2 col-10 push-1 mb-5 "> 
+                                  <p class="form-group "> 
                                   <%= f.label :content, "내용", class: "control-label" %>
                                   <%= f.text_field :content, class: "form-control"  %>
                                    </p>
                                   
-                                   <p class="form-group col-md-8 push-md-2 col-10 push-1 mb-5 ">
+                                   <p class="form-group  ">
                                   <%= f.label :code_content, "코드", class: "control-label" %>
                                   <%= f.text_area :code_content, class: "form-control"  %>
                                    </p>
                                    
-                                   <p class="form-group col-md-8 push-md-2 col-10 push-1 mb-5 ">
+                                   <p class="form-group col-md-12 col-12 ">
                                   <%= f.file_field :img %>
                                    </p>
+                                  
+                                  
                                    
-                                <div class="row justify-content-center">
+                                <div class="col-12">
                                     <div class="col-2 pl-0 pr-0">
                                       <%= f.submit "", :type => :image, :src => "/assets/submit.png", :class => "button-img" %>
                                     </div>
@@ -111,6 +117,9 @@
                             </div>
                           </div>
                         </div>
+                    </div>
+                        </div> 
+                        <!--여기가모달끝-->
                         <hr>           
                         
                         
@@ -147,7 +156,7 @@
                                     <div class="col-12">
                                         <p>
                                              <% if reply.img.url %>
-                                            <img src="<%= reply.img.url %>" alt="파일을 다시 업로드 해주세요" width="800">
+                                            <img src="<%= reply.img.url %>" alt="파일을 다시 업로드 해주세요" class="img-fluid">
                                             <% end  %>
                                         </p>
                                     </div>
@@ -189,7 +198,7 @@
                                     <div class="col-12">
                                         <p>
                                              <% if reply.img.url %>
-                                            <img src="<%= reply.img.url %>" alt="파일을 다시 업로드 해주세요" width="800">
+                                            <img src="<%= reply.img.url %>" alt="파일을 다시 업로드 해주세요" class="img-fluid">
                                             <% end  %>
                                         </p>
                                     </div>

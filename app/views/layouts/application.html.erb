@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,9 +17,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+   
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  
+    <%= favicon_link_tag 'favicon.ico' %>
+    
     <title lang = "ko">코인 - 코딩 문턱 낮춤 서비스</title>
   
     <!-- Latest compiled and minified CSS -->
@@ -80,9 +82,9 @@
 <div id="wrapper"><!--
  --><div id="container"><%= yield %></div>
     <div id="footer footer_flex_hyo9 mb-2">
-     <div class="hyo9_div mb-3"> </div>
-       <p class="jua footer_center_hyo9">코인 : 코딩하는 사람들</p>
-	     <p class="copyright footer_center_hyo9">COPYRIGHT ©GOODBOB ALL RIGHTS RESERVED</p>
+     <div class="hyo9_div mb-2"> </div>
+       <p class="jua footer_center_hyo9" style="margin-bottom: 0;">코인 : 코딩하는 사람들</p>
+	     <p class="copyright footer_center_hyo9" style="margin-bottom: 0;">COPYRIGHT ©GOODBOB ALL RIGHTS RESERVED</p>
     </div>
   </div>
 

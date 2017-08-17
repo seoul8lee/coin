@@ -1,43 +1,44 @@
 <%= form_for @study, url: { controller: "studies", action: "create" } do |f| %>
 
-
 <div class="row justify-content-center center_h9">
   <div class="form-group  col-md-8 col-sm-10 mb-5">
-    <%= f.label "스터디 제목" %><br>
-    <%= f.text_field :study_name, class: "form-control" %>
+    <span class="offline_new_title m-2">스터디 이름</span>
+    <%= f.text_field :study_name, class: "form-control", :placeholder=>"스터디 개설은 코인 팀의 승인 후 보여집니다." %>
   </div>
   <div class="form-group  col-md-8  col-sm-10  mb-5">
-    <%= f.label "스터디 기간" %><br>
-    <%= f.text_area :study_time, class: "form-control" %>
+    <span class="offline_new_title m-2">스터디 시간</span>
+    <%= f.text_area :study_time, class: "form-control", :placeholder=>"1회에 몇 시간 진행 할 것인지 적어주세요.(ex:2시간)"  %>
   </div>
   <div class="form-group  col-md-8 col-sm-10  mb-5">
-    <%= f.label "커리큘럼" %><br>
-    <%= f.text_area :study_content, class: "form-control", rows: "20vh" %>
+    <span class="offline_new_title m-2">커리큘럼</span>
+    <%= f.text_area :study_content, class: "form-control", rows: "20vh", :placeholder=>"자신의 수업의 커리큘럼을 자세히 적어주세요."  %>
   </div>
   <div class="form-group  col-md-8  col-sm-10  mb-5">
-    <%= f.label "수업료" %><br>
-    <%= f.text_field :study_pay, class: "form-control" %>
+    <span class="offline_new_title m-2">수업료</span>
+    <%= f.text_field :study_pay, class: "form-control", :placeholder=>"시간 당 수업료를 적어주세요.(ex:25,000)"  %>
   </div>
   <div class="form-group  col-md-8 col-sm-10  mb-5">
-    <%= f.label "최대 수강인원" %><br>
-    <%= f.text_field :study_max, class: "form-control" %>
+    <span class="offline_new_title m-2">수강 인원</span>
+    <%= f.text_field :study_max, class: "form-control" , :placeholder=>"그룹 강의인 경우, 최대 수강 가능 인원을 적어주세요. (ex:5)" %>
   </div>
   <div class="form-group  col-md-8  col-sm-10  mb-5">
-    <%= f.label "모집 마감일" %><br>
+    <span class="offline_new_title m-2">모집 마감일</span>
     <%= f.date_field :study_due, class: "form-control" %>
   </div>
   <div class="form-group  col-md-8 col-sm-10 mb-5">
-    <%= f.label "선생님 프로필 사진" %><br>
-    <%= f.file_field :teacher_img %>
+   <span class="offline_new_title m-2">프로필 사진</span><br>
+   <label class="img_upload" for="ex_file"></label> 
+    <%= f.file_field :teacher_img, id:"ex_file" %>
   </div>
   <div class="form-group  col-md-8 col-sm-10 mb-5">
-    <%= f.label "선생님 소개" %><br>
-    <%= f.text_area :teacher_intro, class: "form-control" , rows: "10vh"%>
+    <span class="offline_new_title m-2">강사 소개</span>
+    <%= f.text_area :teacher_intro, class: "form-control" , rows: "10vh" , :placeholder=>"자신의 경력, 수업 방식 등을 자세히 적어주세요." %>
   </div>
   
   <div class="form-group  col-md-8 col-sm-10 mb-5">
-    <%= f.submit %>
+    <%= submit_tag '',class: "submit_hs" %>
+    <%= link_to '', '/studies/index', class: "back_hs" %>
 
   </div>
-  
+</div>  
 <% end %>

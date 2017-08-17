@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   post 'offlines/create'
   
   get 'studies/index'
+  
   get 'studies/new'
   get 'studies/apply/:study_id'=>'studies#apply'
    get 'studies/apply_d/:study_id/:apply_id'=>'studies#apply_d'
@@ -51,6 +52,8 @@ Rails.application.routes.draw do
   post 'studies/update/:study_id' => 'studies#update'
   get 'studies/destroy/:study_id' => 'studies#destroy'
   get 'studies/edit/:study_id' => 'studies#edit'
+  
+  get 'mypages/index'
   
   
    resources :qnas do

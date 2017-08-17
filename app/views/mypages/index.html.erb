@@ -1,0 +1,33 @@
+<h1>mypage</h1>
+
+
+<h3>나의 프로필</h3>
+
+
+
+
+<div>
+    <h3>내가 쓴 글 제목들 </h3>
+    
+    <% @qnas.each do |qna| %>
+        <div><%= link_to "/qnas/show/#{qna.id}", class:"" do %><%= qna.title %><%end%></div>
+    <% end %>
+   
+    <h3>내가 쓴 후기 제목들</h3>
+                        
+    <% @reviews.each do |review| %>
+        <div><%= link_to "/reviews/#{review.id}", class: "" do%><%= review.title %><%end%></div>
+    <% end %>
+    
+    <h3>내가 신청한 스터디 제목들</h3>
+    <% @studies.each do |study| %>
+        <% @applies.each do |apply| %>
+            <% if study.id == apply.study.id %>
+             <div><%= link_to "/studies/show/#{study.id}", class: "" do %><%= study.study_name %><% end %></div>
+            <% end %>
+            
+        <% end %>
+    <% end %>
+            
+    
+</div>

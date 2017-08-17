@@ -35,22 +35,23 @@
           <%= f.label :code_content, "질문 코드", class: "control-label" %>
           <%= f.text_area :code_content, rows: "20vh", class: "form-control text_area_hyo9" %>
           </div>
+          
+          <div class="form-group  col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5">
+          <%= f.label :code_content, "코드 이미지", class: "control-label" %><br>
+           <label class="img_upload" for="ex_file"></label> 
+                 <%= f.file_field :img , id:"ex_file" %>
+          </div>
            
-           <p class="new_form col-md-8 push-md-2 col-sm-10 push-sm-1">
-          <%= f.file_field :img %>
-           </p>
-           
+          
         <p class="col-md-8 push-md-2 col-sm-10 push-sm-1">
-              <%= f.submit %>
+            <%= submit_tag '',class: "submit_hs" %>
+             <%= link_to '', :back, class: "back_hs" %>
             
         </p>
      
 
       <% end %>
- 
-    <div class="col-md-8 push-md-2 col-sm-10 push-sm-1">
-      <%= link_to '', :back, class: "back_hs" %>
-     </div>
+
   </p>
        
   

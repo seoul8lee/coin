@@ -21,6 +21,9 @@
     max-width: 100%;
     height: auto;
 }
+.off_top_hk:hover{
+    opacity:0.8;
+}
 
 .img_box:hover{
     opacity: 0.7;
@@ -67,6 +70,7 @@
     display: inline-block;
     width: 100px;
     text-align: center;
+    font-weight:bold;
 }
 .offline_form *{
     vertical-align: top;

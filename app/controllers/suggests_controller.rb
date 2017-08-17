@@ -4,7 +4,7 @@ class SuggestsController < ApplicationController
   # GET /suggests
   # GET /suggests.json
   def index
-    @suggests = Suggest.all
+    @suggests = Suggest.paginate(:page => params[:page],:per_page => 10).order('created_at DESC')
   end
 
   # GET /suggests/1

@@ -40,4 +40,3 @@ SyntaxHighlighter.all();
         $('html, body').animate({scrollTop : offset.top}, 500);
     }
 
-
