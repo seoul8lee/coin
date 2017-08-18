@@ -12,15 +12,15 @@
   <% end %>
 
 <div class="row justify-content-center center_h9">
-  <div class="form-group  col-md-8 col-sm-10 mb-5">
+  <div class="form-group  col-10 col-md-8 col-sm-10 mb-5">
     <span class="offline_new_title m-2">제 목</span>
     <%= f.text_field :title, class: "form-control", :placeholder=>"원하는 스터디를 간략하게 제목에 적어주세요." %>
   </div>
-  <div class="form-group  col-md-8 col-sm-10 mb-5">
+  <div class="form-group  col-10 col-md-8 col-sm-10 mb-5">
      <span class="offline_new_title m-2">내 용</span>
     <%= f.text_area :content, class: "form-control", rows: "20vh", :placeholder=>"스터디 개설을 원하는 이유, 사연 등을 자세히 적어주세요. 코인 팀에서 확인 후 반영하겠습니다."  %>
   </div>
-  <div class="form-group  col-md-8 col-sm-10 mb-5">
+  <div class="form-group  col-10 col-md-8 col-sm-10 mb-5">
      <%= submit_tag '',class: "submit_hs" %>
     <%= link_to '', '/suggests', class: "back_hs" %>
   </div>

@@ -79,26 +79,26 @@ end
     end
     
       
-  def index_all
+ def index_all
     @qnas = Qna.all.order('created_at DESC')
   end
   def index_c
     @qnas = Qna.where("category = 'C/C++'").paginate(:page => params[:page],:per_page => 5).order('created_at DESC')
   end
   def index_py
-    @qnas = Qna.where("category = 'PYTHON'").paginate(:page => params[:page],:per_page => 5).order('created_at DESC')
+    @qnas = Qna.where("category = 'Python'").paginate(:page => params[:page],:per_page => 5).order('created_at DESC')
   end
   def index_java
-    @qnas = Qna.where("category = 'JAVA'").paginate(:page => params[:page],:per_page => 5).order('created_at DESC')
+    @qnas = Qna.where("category = 'Java'").paginate(:page => params[:page],:per_page => 5).order('created_at DESC')
   end
   def index_scratch
-    @qnas = Qna.where("category = 'SCRATCH/ENTRY'").paginate(:page => params[:page],:per_page => 5).order('created_at DESC')
+    @qnas = Qna.where("category = 'Scratch/Entry'").paginate(:page => params[:page],:per_page => 5).order('created_at DESC')
   end
   def index_html
-    @qnas = Qna.where("category = 'HTML/CSS'").paginate(:page => params[:page],:per_page => 5).order('created_at DESC')
+    @qnas = Qna.where("category = 'Html/Css'").paginate(:page => params[:page],:per_page => 5).order('created_at DESC')
   end
   def index_etc
-    @qnas = Qna.where("category = 'ETC'").paginate(:page => params[:page],:per_page => 5).order('created_at DESC')
+    @qnas = Qna.where("category = 'etc'").paginate(:page => params[:page],:per_page => 5).order('created_at DESC')
   end
   
   
