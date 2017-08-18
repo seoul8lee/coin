@@ -48,3 +48,65 @@
     </div>
 </div>
 </div>
+
+
+<!-- required form -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+
+function validateText(id)
+{
+   
+    if($("#"+id).val()==null || $("#"+id).val()=="")
+    {
+        var div = $("#"+id).closest("div");
+        div.addClass("has-danger");
+        // div.addClass("form-control-danger");
+        return false;
+    }
+    else 
+    {
+        var div = $("#"+id).closest("div");
+        div.removeClass("has-danger");  
+        return true;      
+    }
+}
+
+$(document).ready(
+
+      function(){
+          $("#contactbtn").click(function()
+          {
+              if(!validateText("contactteam"))
+              {
+                  return false;
+              }
+              if(!validateText("contactaddress"))
+              {
+                  return false;
+              }
+              if(!validateText("contactname"))
+              {
+                  return false;
+              }
+              if(!validateText("contactphone"))
+              {
+                  return false;
+              }
+              if(!validateText("contactdate"))
+              {
+                  return false;
+              }
+              if(!validateText("contactcontent"))
+              {
+                  return false;
+              } 
+
+              $("form#contactform").submit;
+
+          });
+      }
+
+    );
+</script>
