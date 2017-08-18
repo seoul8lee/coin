@@ -2,15 +2,17 @@
    <div class="container minheight">
        
         <div class="row">
-              <div class="col-md-3 col-5 hidden-sm-down">
+              <div class="col-md-3 hidden-sm-down">
                  <div class="question_hk justify-content-center align-items-center mb-4">
                      <h2 class="title_review jua text_white_hk">특 강 후 기</h2>
                  </div>
                </div>
-               
-              <div class="col-md-9 hidden-sm-down">
-                  <%= image_tag("review_main2.png", :class=>"review_write") %> 
-              </div> 
+                  <div class="col-md-9 col-12">
+                      <div class="hidden-sm-down review_intro d-flex flex-column justify-content-center pr-4 text-right">
+                          <div class="p-1">코인을 만나고 난 후의 이야기를 들려주세요.</div>
+                          <div class="p-1">익명게시판이니 자유롭게 궁금한 내용을 질문하거나 전하고 싶은 후기를 남겨주세요  :코인</div>
+                      </div>
+                   </div> 
               <div class="col-12 hidden-md-up">
                    <%= image_tag("review_main.png", :class=>"review_write") %> 
               </div> 
@@ -29,7 +31,7 @@
              <div class="col-md-9 col-12">
                   <ul class="nav nav-tabs">
                         <li><a class="review_button_hk" href = "/reviews">전체</a></li>
-                        <li class-"active" ><a class="review_button_hk" href = "/reviews/teacher">공지</a></li>
+                        <li class="active"><a class="review_button_hk" href = "/reviews/teacher">공지</a></li>
                         <li><a class="review_button_hk" href = "/reviews/review_career">진로</a></li>
                         <li><a class="review_button_hk" href = "/reviews/review_coding">코딩</a></li>
                      
@@ -38,13 +40,13 @@
                 <div class="justify-content-center">
                     <table class = "table table-hover">
                         <tr>
-                        <!--<th>제목</th>-->
-                        <!--<th>날짜</th>-->
+                        <th>제목</th>
+                        <th class="text-right">날짜</th>
                         </tr>
                         
                         <% @reviews.each do |review| %>
                         <tr>
-                        <td class="table_hk">
+                        <td class="table_hk" width="70%">
                             <% if review.secret == true %>
                                 <span><%= image_tag("lock.png", size: "10") %></span>
                                 <%= link_to "/reviews/#{review.id}", class: "review_table_hk" do%><%= review.title %><%end%>
@@ -55,9 +57,12 @@
                                 <%= link_to "/reviews/#{review.id}", class: "review_table_hk" do%><%= review.title %><%end%>   
                             <% end %>
                         </td>
-                        <!--<td>-->
-                        <!--   <#%= review.created_at.split(' ').first %>-->
-                        <!--</td>-->
+                        <td class="text-right hidden-sm-down" width="30%">
+                        <%= review.created_at.strftime("%Y년 %m월 %d일") %>
+                        </td>
+                        <td class="text-right hidden-md-up" width="30%">
+                        <%= review.created_at.strftime("%m월 %d일") %>
+                        </td>
                         </tr>
                         <% end %>
                         </table>
@@ -68,7 +73,7 @@
             </div>    
     
              
-             <div class="col-6 push-3 hidden-md-up">
+             <div class="col-6 push-3 hidden-md-up mb-2">
                   <%= link_to "/reviews/new" do %> <%= image_tag("review_write.png", :class=>"review_write") %> <% end %>
              </div>   
         </div>    

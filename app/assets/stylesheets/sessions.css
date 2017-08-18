@@ -70,6 +70,12 @@
   background-color:#D5D5D5;
 }
 
+.boxshadow{
+    box-shadow: none;
+    text-align: center;
+    color: white;
+    
+}
 
 .hyo_box{
     box-sizing: border-box;

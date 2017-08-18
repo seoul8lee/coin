@@ -40,8 +40,21 @@
 }
 
 .margin_hk{
-    margin: 7vh;
+    margin: 4vh;
 }
+
+.margin_dd{
+    mragin: 2vh;
+}
+
+.revi_intro{
+  height: 80px;
+  *{
+    color: #ababab;
+    font-size: 1.1em;
+  }
+}
+
 
 .margin_m_hk{
     margin: 8vh;
@@ -58,6 +71,14 @@
     line-height: 100%;
     margin-bottom: 2vh;
     border-bottom: 1px solid white;
+}
+
+.study_con3_hk{
+    font-size: 2em;
+    text-align: right;
+    color: #FFF;
+    line-height: 100%;
+    margin-bottom: 2vh;
 }
 
 .study_con2_hk{

@@ -14,16 +14,17 @@
 	<% studyday=study.study_due.day%> 
 	
 	
- 
-    <div class="margin_hk"></div>
+     <div class="margin_hk"></div>
      <div class="row justify-content-end">
-        <div class="col-4"><p class="study_con1_hk jua">
-            <% if (nowyear==studyyear) &&(nowmonth==studymonth) %>
+            <% if (nowyear==studyyear) && (nowmonth==studymonth) %>
         	    <% if ((studyday-nowday)<6)&&(studyday>nowday) %>
-        	        D-<%= studyday-nowday%>
-        	   <%end%>     
-        	  <%end%> 
-            </p></div>
+        	       <div class="col-4"><p class="study_con1_hk jua">D-<%= studyday-nowday%></p></div>
+        	    <% else %>
+        	         <div class="margin_dd"><p class="study_con3_hk jua">  </p></div>
+        	    <% end %>    
+        	    <% else %>
+        	         <div class="margin_dd"><p class="study_con3_hk jua"></p></div>
+        	<%end%> 
     </div>
     <div class="row justify-content-end">
         <div class="col-4"><p class="study_con1_hk jua"><%= study.user.name %> 튜터와 1 : <%= study.study_max %> 스터디</p></div>
