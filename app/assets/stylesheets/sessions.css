@@ -41,7 +41,7 @@
     height: 50px;
     border-radius: 5px;
     margin:0;
-    padding:0;
+    padding:5px;
      box-shadow:none;
      border-width:0px;
 }
@@ -50,7 +50,7 @@
     height: 50px;
     border-radius: 5px;
     margin:0;
-    padding:0;
+    padding:5px;
      box-shadow:none;
      border-width:0px;
      
@@ -70,6 +70,10 @@
   background-color:#D5D5D5;
 }
 
+
+.hyo_box{
+    box-sizing: border-box;
+}
 
 .simple_form .hint {
   clear: left;

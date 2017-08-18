@@ -6,9 +6,7 @@ class MypagesController < ApplicationController
         @applies = Apply.where(user_id: current_user)
         @studies = Study.all
         @offlines = Offline.where(user_id: current_user)
-        
+       @users = User.all
     end
-
-
 
 end

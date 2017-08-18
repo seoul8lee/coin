@@ -1,33 +1,127 @@
-<h1>mypage</h1>
+<%=render 'nav'%>
 
-
-<h3>나의 프로필</h3>
-
-
-
-
-<div>
-    <h3>내가 쓴 글 제목들 </h3>
+<div class="container minheight">
+       <div class="row">
+                      <div class="col-md-3 col-5 hidden-sm-down">
+                         <div class="question_hk justify-content-center align-items-center mb-4">
+                             <h2 class="title_review jua text_white_hk">마 이 페 이 지</h2>
+                         </div>
+                       </div>
+        </div>
     
-    <% @qnas.each do |qna| %>
-        <div><%= link_to "/qnas/show/#{qna.id}", class:"" do %><%= qna.title %><%end%></div>
-    <% end %>
+    <div class="row">
+        <!--<h1 class="col-12 jua my-3">나의 프로필</h1>-->
+      <div class="col-4  hidden-sm-down">
+        <div class="col-12 mypage_box justify-content-center align-items-center">
+           <div class="col-md-6 push-md-2 col-4 m-4"><%= image_tag("logo.png", :class=>"review_write") %></div>
+                    
+            <% @users.each do |user| %>
+                <% if user.id == current_user.id %>
+                    <p class="active jua my_e text_ah9"><%= user.email %></p>
+                    <div class="col-8 push-1 m-4"><%= image_tag("my_info.png", :class=>"review_write") %></div>
+                    <div class="col-10 push-1 mx-4 my-3"><span class="jua my_e">이 름 :</span> <span class="my_i"><%= user.name %></span></div>
+                    <div class="col-10 push-1 mx-4 my-3"><span class="jua my_e">닉 네 임 :</span> <span class="my_i"><%= user.nickname %></span></div>
+                    <div class="col-10 push-1 mx-4 my-3"><span class="jua my_e">생 일 :</span> <span class="my_i"><%= user.birthday %></span></div>
+                    <div class="col-10 push-1 mx-4 my-3"><span class="jua my_e">연 락 처 :</span> <span class="my_i"><%= user.phone %></span></div>
+                    <div class="col-10 push-1 mx-4 my-3"><span class="jua my_e">소 속 :</span> <span class="my_i"><%= user.part %></span></div>
+         
+                <% end %>      
+            <% end %>        
+        </div>
+        
+    </div>  
+      <div class="col-12  hidden-md-up">
+        <div class="col-12 mypage_box_m justify-content-center align-items-center">
+           <div class="row"><div class="col-4 mt-4"><%= image_tag("logo.png", :class=>"review_write") %></div>
+                    
+            <% @users.each do |user| %>
+                <% if user.id == current_user.id %>
+                    <div class="col-8 mt-5 for_b">
+                        <p class="active jua my_e text_ah9"><%= user.email %></p>
+                        <div><span class="jua my_e">이 름 :</span> <span class="my_i_m"><%= user.name %></span></div>
+                        <div><span class="jua my_e">닉 네 임 :</span> <span class="my_i_m"><%= user.nickname %></span></div>
+                        <div><span class="jua my_e">생 일 :</span> <span class="my_i_m"><%= user.birthday %></span></div>
+                        <div><span class="jua my_e">연 락 처 :</span> <span class="my_i_m"><%= user.phone %></span></div>
+                        <div><span class="jua my_e">소 속 :</span> <span class="my_i_m"><%= user.part %></span></div>
+                            
+                    </div>
+                  </div>  
+         
+                <% end %>      
+            <% end %>        
+        </div>
+        
+        </div>   
+
+
+      
+    <div class="col-4">
+        <div class="d-flex flex-column justify-content-around align-items-center mypage_box">
+
+            <!--쓴후기글-->
+            <div class="mypage_content w-100 h-50 p-5 m-0">
+                <div class="row">
+                    <div class="col-8 push-1 m-4"><%= image_tag("my_review.png", :class=>"review_write") %></div>
+                </div>
+                 <table class="table">
+                    <% current_user.reviews.last(4).each do |review| %>
+                    <tr>
+                        <td class="table_hk"><%= link_to "/reviews/#{review.id}", class: "my_2" do%><%= review.title %><% end %></td>
+                    </tr>
+                <% end %>
+                </table>
+            </div>
+            
+       
+
+                   
+            <!--신청스터디목록-->
+            <div class="mypage_content w-100 h-50 px-5 m-0">
+                <div class="row">
+                    <div class="col-8 push-1 m-4"><%= image_tag("my_study.png", :class=>"review_write") %></div>
+                </div>
+                <ul class="row d-block">    
+                 <table class="table">
+                      <% @studies.each do |study| %>
+                        <% @applies.last(4).each do |apply| %>
+                            <% if study.id == apply.study_id %>
+                            
+                                        <tr>
+                                            <td class="table_hk"><%= link_to "/studies/show/#{study.id}", class: "my_2" do %><%= study.study_name %><% end %></td>
+                                        </tr>
+                              
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                  </table>    
+                </ul>    
+            </div>
+            
+        </div>
+    </div>
+
+
+    <div class="col-4">
+        <div class="d-flex flex-column justify-content-between align-items-center mypage_box">
+            <div class="row mypage_content w-100 h-90 p-5 m-0">  
+                <div class="col-8 push-1 m-4"><%= image_tag("my_question.png", :class=>"review_write") %></div>
+                 
+                <table class="table">
+                <% current_user.qnas.last(7).each do |qna| %>
+                    <tr>
+                        <th><%= link_to "/qnas/show/#{qna.id}", class:"table_hk" do %><%= qna.title %><% end %></th>
+                        <th><span class="badge badge-default badge-pill table_hk"><%= qna.qna_replies.count %></span></th>
+                        <th><% if qna.choice == NIL %><i class="fa fa-square-o" aria-hidden="true"></i></i>
+                               <% else %><i class="fa fa-check-square-o" aria-hidden="true"></i></i><% end %></th>
+                    </tr>
+                <% end %>
+                </table>
+          </div>   
+        </div>   
+    </div>
+    
    
-    <h3>내가 쓴 후기 제목들</h3>
-                        
-    <% @reviews.each do |review| %>
-        <div><%= link_to "/reviews/#{review.id}", class: "" do%><%= review.title %><%end%></div>
-    <% end %>
-    
-    <h3>내가 신청한 스터디 제목들</h3>
-    <% @studies.each do |study| %>
-        <% @applies.each do |apply| %>
-            <% if study.id == apply.study.id %>
-             <div><%= link_to "/studies/show/#{study.id}", class: "" do %><%= study.study_name %><% end %></div>
-            <% end %>
+         
+</div>            
             
-        <% end %>
-    <% end %>
-            
-    
-</div>
+      

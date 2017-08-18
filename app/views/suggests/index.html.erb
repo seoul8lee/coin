@@ -1,5 +1,5 @@
 <%=render 'nav'%>
-   <div class="container">
+   <div class="container minheight">
            
             <div class="row">
                   <div class="col-md-3 col-5 hidden-sm-down">
@@ -8,18 +8,20 @@
                      </div>
                    </div>
                    <div class="col-md-9 col-12">
-                      <div class="hidden-sm-down qna_intro d-flex flex-column justify-content-center pr-4 text-right">
+                      <div class="hidden-sm-down suggest_intro d-flex flex-column justify-content-center pr-4 text-right">
                           <div class="p-1">개설 된 스터디 중, 내가 듣고 싶은 스터디가 없다면</div>
                           <div class="p-1">자신에게 필요한 스터디를 신청해주세요  :코인</div>
                       </div>
                    </div>  
-          
+           <div class="col-12 hidden-md-up">
+                   <%= image_tag("suggest_main_m.png", :class=>"review_write") %> 
+              </div> 
  
             </div>
      <hr style="border: solid 1px #D5D5D5;">  
     
     <div class="row">
-        <div class="col-md-3 col-6">
+        <div class="col-md-3 hidden-sm-down">
            <%= link_to "/suggests/new" do %> <%= image_tag("study_suggest_btn.png", :class=>"review_write") %> <% end %>
         </div>
         
@@ -28,7 +30,7 @@
            <div class="justify-content-center">
                     <table class = "table table-hover">
                         <tr>
-                        <th class="active jua"><h2>신 청 목 록</h2></th>
+                        <th class="active jua"><h2>건 의 목 록</h2></th>
                         <th class="active"></th>
                         </tr>
                         
@@ -53,6 +55,9 @@
                   <%= will_paginate @suggests %>    
         </div>
         
+        <div class="col-6 push-3 hidden-md-up mb-2">
+                  <%= link_to "/suggests/new" do %> <%= image_tag("study_suggest_btn.png", :class=>"review_write") %> <% end %>
+             </div>  
     </div>
         
   

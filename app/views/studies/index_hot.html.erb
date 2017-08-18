@@ -1,0 +1,94 @@
+<%=render 'nav'%>
+<div class="container minheight">
+	<div class="row">
+
+		<!-- PC subnav -->
+        <div class="col-3 hidden-sm-down">
+             <%= render 'subnav' %> 
+        </div>
+
+        <!-- PC Mobile both -->
+		<div class="col-md-9 col-12 ">
+			
+			<!-- Mobile subnav -->	
+			<div class="row hidden-md-up">
+				<div class="col-6 px-0 m-0"><%= link_to "/suggests", class: "" do %><%= image_tag("sugg_mob.png", class: "img-fluid") %><% end %></div>
+				<div class="col-6 px-0 for_b"><%= link_to "/studies/new", class: "" do %><%= image_tag("studies_mob.png", class: "img-fluid") %><% end %></div>
+			</div>
+		
+			<!-- PC header -->
+			<div class="row hidden-sm-down d-flex flex-column justify-content-center pr-4 text-right">
+                <div class="p-1">코딩을 더 가까이에서 배우고 싶다면</div>
+                <div class="p-1">심화 주제로 튜터님과 스터디하세요  :코인</div>
+            </div>
+            <hr class="w-100" style="border: solid 1px #D5D5D5;">
+
+			<!-- PC mobile LIST -->
+			<div class="row">
+			<div class="col-12">
+			    
+			    
+			<% @studies.each do |study| %>
+			    <% count=0%>
+            	<% if(study.study_pass == true) %>
+            	   
+            	     <% @applies.each do |apply| %>
+			            <% if apply.study.id==study.id%>
+			                    <% count=count+1%>
+			             <%end%>
+			             
+			        <%end%>
+			        
+			        <% if (study.study_max/2) < count %>
+			            
+			        
+                <%= link_to "/studies/show/#{study.id}", class: "row" do %>
+                
+                
+		        <!-- study box -->    
+		
+		        <% if (study.id % 7)==0%>
+		            <div class="study_box_hk study_index_intro7 w-100 mx-0 px-0">         	
+		                <%= render partial: 'fl', locals: { study: study }  %>
+		        	</div> 
+		        <% elsif (study.id % 7)==1%>
+		            <div class="study_box_hk study_index_intro1 w-100 mx-0 px-0">         	
+		                <%= render partial: 'fl', locals: { study: study }  %>
+		        	</div> 
+		        <% elsif (study.id % 7)==2%>
+		        	<div class="study_box_hk study_index_intro2 w-100 mx-0 px-0">         	
+		                <%= render partial: 'fl', locals: { study: study }  %>
+		        	</div> 
+		        <% elsif (study.id % 7)==3%>
+		        	<div class="study_box_hk study_index_intro3 w-100 mx-0 px-0">         	
+		                <%= render partial: 'fl', locals: { study: study }  %>
+		        	</div> 
+		        <% elsif (study.id % 7)==4%>
+		        	<div class="study_box_hk study_index_intro4 w-100 mx-0 px-0">         	
+		                <%= render partial: 'fl', locals: { study: study }  %>
+		        	</div> 
+		        <% elsif (study.id % 7)==5%>
+		    	    <div class="study_box_hk study_index_intro5 w-100 mx-0 px-0">         	
+		                <%= render partial: 'fl', locals: { study: study }  %>
+		        	</div> 
+		        <% elsif (study.id % 7)==6%>
+		        	<div class="study_box_hk study_index_intro6 w-100 mx-0 px-0">         	
+		                <%= render partial: 'fl', locals: { study: study }  %>
+		        	</div> 
+		        <% else %>
+			        <div class="study_box_hk study_index_intro7 w-100 mx-0 px-0">         	
+		                <%= render partial: 'fl', locals: { study: study }  %>
+		        	</div> 
+		        <%end%>  
+		
+		        <!-- study_box_hk end -->
+				<% end %> <!-- link to end -->
+			<%end%>          
+                <div class="hidden-md-up"><p> </p></div>
+             	            
+            	<% end %><% end %> <!-- for if end -->
+			</div></div> <!-- PC Mobile LIST end -->
+		</div> <!-- PC Mobile both end-->
+
+	</div> <!-- total row end -->
+</div> <!-- container end -->

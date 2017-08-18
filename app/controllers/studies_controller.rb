@@ -4,6 +4,15 @@ class StudiesController < ApplicationController
         @studies=Study.all.order('created_at DESC')
     end
     
+     def index_hot
+        @studies=Study.all.order('created_at DESC')
+        @applies=Apply.all
+    end
+     def index_last
+        @studies=Study.all.order('created_at DESC')
+        @applies=Apply.all
+    end
+    
     def apply
         @study = Study.find(params[:study_id])
         @apply=Apply.new

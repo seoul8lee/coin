@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'mains/intro'
   
   
-  
+  get 'mypages/index/:user_id' => 'mypages#index'
   # heeham's
   post 'qnas/index_c' => 'qnas#ajax_index_c'
   
@@ -43,7 +43,8 @@ Rails.application.routes.draw do
   post 'offlines/create'
   
   get 'studies/index'
-  
+  get 'studies/index_hot'
+  get 'studies/index_last'
   get 'studies/new'
   get 'studies/apply/:study_id'=>'studies#apply'
    get 'studies/apply_d/:study_id/:apply_id'=>'studies#apply_d'

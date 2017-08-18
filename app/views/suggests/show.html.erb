@@ -1,6 +1,6 @@
 <%=render 'nav'%>
 
-<div class="container">
+<div class="container minheight">
     <div class="col-12">
          <h2 class="jua offline_apply_hs center_hs">신청 보기</h2>
     </div>
@@ -22,7 +22,8 @@
                      <div class="col-2 push-6 mx-1"> <%= link_to "/suggests/#{@suggest.id}/edit" do %> <%= image_tag("edit.png", :class=>"button_y") %> <%end%> </div>
                      <div class="col-2 push-6"> <%= link_to "/suggests/#{@suggest.id}", method: :delete, data: { confirm: "삭제합니까?" } do %> <%= image_tag("delete.png", :class=>"button_y") %><%end%></div>
                  </div>
-
+                 
+     
      <%else %>
             <div class="row hidden-sm-down">
                <div class="col-1 pr-1"><%= link_to "/suggests", class: "index_hs" do %><%= image_tag('index_gray.png', class: "img-fluid button-img") %><%end%></div>

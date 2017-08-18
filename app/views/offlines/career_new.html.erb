@@ -1,3 +1,5 @@
+<!--2300 -->
+
 <%= render 'nav'%>
 
 <div class="container center_hs">
@@ -6,37 +8,37 @@
             
 
     <div class="qna_form center_hs">
-    <%= form_tag('/offlines/create', multipart: true) do %>
+    <%= form_tag('/offlines/create', multipart: true, :id => 'contactform') do %>
         <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
             <label for="team_name"><span class="offline_new_title">단 체 명</span></label>
-            <%= text_field_tag('team_name',nil, placeholder: "학교이름 또는 단체이름", class:'form-control' ) %>   
+            <%= text_field_tag('team_name',nil, placeholder: "학교이름 또는 단체이름", class:'form-control', :id => "contactteam" ) %>   
         </p>
         <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
             <label for="address"><span class="offline_new_title">주 소</span></label>
-            <%= text_field_tag('address',nil, class:'form-control') %>
+            <%= text_field_tag('address',nil, class:'form-control', :id => "contactaddress") %>
         </p>
         <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
             <label for="name"><span class="offline_new_title">대표자 이름</span></label>
-            <%= text_field_tag('name',nil, class:'form-control') %>
+            <%= text_field_tag('name',nil, class:'form-control', :id => "contactname") %>
         </p>
         <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
             <label for="phone"><span class="offline_new_title">대표자 연락처</span></label>
-            <%= text_field_tag('phone',nil, class:'form-control') %>
+            <%= text_field_tag('phone',nil, class:'form-control', :id => "contactphone") %>
         </p>
         <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
             <label for="date"><span class="offline_new_title">희 망 일 시</span></label>
-            <%= text_area_tag('date',nil , placeholder: "최대한 구체적으로 작성해주세요", class:'form-control')  %>
+            <%= text_area_tag('date',nil , placeholder: "최대한 구체적으로 작성해주세요", class:'form-control', :id => "contactdate")  %>
         </p>
         <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
             <label for="content"><span class="offline_new_title">신 청 계 기</span></label>
-            <%= text_area_tag('content',nil, class:'form-control') %>
+            <%= text_area_tag('content',nil, class:'form-control', :id => "contactcontent") %>
         </p>
         <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
             <span class="offline_new_title"></span>
             <%= hidden_field_tag('category','진로') %>
         </p>
         <p class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
-            <%= submit_tag '',class: "submit_hs" %>
+            <%= submit_tag '', class: "submit_hs", :id => 'contactbtn' %>
             <%= link_to '', '/offlines/index', class: "back_hs" %>
         </p>
         <div class="blank">
@@ -45,3 +47,65 @@
     <% end %>
 </div>
 </div>
+
+
+<!-- required form -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+
+function validateText(id)
+{
+   
+    if($("#"+id).val()==null || $("#"+id).val()=="")
+    {
+        var div = $("#"+id).closest("div");
+        div.addClass("has-danger");
+        // div.addClass("form-control-danger");
+        return false;
+    }
+    else 
+    {
+        var div = $("#"+id).closest("div");
+        div.removeClass("has-danger");  
+        return true;      
+    }
+}
+
+$(document).ready(
+
+      function(){
+          $("#contactbtn").click(function()
+          {
+              if(!validateText("contactteam"))
+              {
+                  return false;
+              }
+              if(!validateText("contactaddress"))
+              {
+                  return false;
+              }
+              if(!validateText("contactname"))
+              {
+                  return false;
+              }
+              if(!validateText("contactphone"))
+              {
+                  return false;
+              }
+              if(!validateText("contactdate"))
+              {
+                  return false;
+              }
+              if(!validateText("contactcontent"))
+              {
+                  return false;
+              } 
+
+              $("form#contactform").submit;
+
+          });
+      }
+
+    );
+</script>

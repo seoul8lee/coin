@@ -2,21 +2,38 @@
 <script type="text/javascript">SyntaxHighlighter.all()</script>
 
 
-<div class="container">
+<div class="container minheight">
 
     <div class="row justify-content-center">   
         <div class="col-md-4 col-12"> <!--제목col-4--> 
             <h2 class="jua offline_apply_hs center_hs">질문 보기</h2>
         </div>
         <div class="col-md-10 col-12"> <!--내용col-10-->
-            <div class="row qna_title_box_hk">
+            <div class="row qna_title_box_hk mx-2">
                 <div class="col-md-10 col-9 qna_title_btn_hk"><p class="review_title_y mb-0"><%= @qna.title %></p></div>
                 <div class="col-md-2 col-2 text-uppercase qna_category_hk"><strong style="m-0 p-0"><%= @qna.category %></strong></div>
             </div>
             <hr>            
             <div class="qna_check_hk col-12 mb-3">
                 <span class=" text-info"><span class="glyphicon glyphicon-user"></span> <%= @qna.qna_user %>의 질문</span>
+                
             </div>
+            
+           
+            <!--<div class="col-md-4 push-md-10 hidden-sm-down">-->
+             <div class="row justify-content-end">        
+                 <div class="col-2 pull-1 col-md-1 push-md-1"><% if current_user %> <%if @qna.user_id == current_user.id %> <%= link_to "/qnas/destroy/#{@qna.id}",class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%><%end%></br><%end%></div>
+                 <div class="col-2 pull-1 col-md-1 "><% if current_user %> <%if @qna.user_id == current_user.id %> <%= link_to "/qnas/edit/#{@qna.id}", class: "edit_hs" do %><%end%><%end%><%end%></div>
+            
+            </div>
+            <!--</div>-->
+            
+           <!--  <div class="row no-gutters">-->
+           <!--          <% if current_user %> <%if @qna.user_id == current_user.id %>  <div class="col-3 push-6 hidden-md-up"><%= link_to "/qnas/edit/#{@qna.id}", class: "edit_hs" do %><%end%><%end%><%end%> </div>-->
+           <!--         <% if current_user %> <%if @qna.user_id == current_user.id %><div class="col-3 push-6 hidden-md-up"> <%= link_to "/qnas/destroy/#{@qna.id}",class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%><%end%></br><%end%></div>-->
+           <!--</div>-->
+            
+            
             <div class="col-12">
                 <p>
                 <%= @qna.content %>
@@ -29,6 +46,7 @@
                 <img src="<%= @qna.img.url %>" alt="파일을 다시 업로드 해주세요" class="img-fluid">
             <% end  %>
             
+                      
             <hr>
                         
             <div class="row justify-content">
@@ -46,7 +64,7 @@
                          <!--여기가전체박스겟지-->
                          
                          <div class="container-fluid hyo3">
-                          <div class="row justify-content-center hyo3">
+                          <div class="modal-dialog row justify-content-center hyo3">
                             <div class="modal-content col-8 col-sm-8 hyo3">
                               <!--이위에가 모달크기디브 header -->
                               
@@ -58,6 +76,10 @@
                                         <button type="button" class="close m-0 p-0" data-dismiss="modal">×</button>
                                     </div>
                                     
+                                    
+                                    
+                                        <!-- 닫기(x) 버튼 -->
+
                                     <!-- header title -->
                                     <div class="">
                                         <span class="modal-title jua hyo2">댓글쓰기</span>
@@ -70,7 +92,7 @@
                                   <!-- body -->
                               <div class="modal-body">
                                  <div class="container-fluid">
-                                    <div class="new-form center_hs row justify-content-start">
+                                    <div class="row justify-content-center">
                                        
                                        
     
@@ -78,27 +100,26 @@
                             
                             
                                   
-                                  <p class="form-group "> 
-                                  <%= f.label :content, "내용", class: "control-label" %>
-                                  <%= f.text_field :content, class: "form-control"  %>
-                                   </p>
-                                  
-                                   <p class="form-group  ">
-                                  <%= f.label :code_content, "코드", class: "control-label" %>
-                                  <%= f.text_area :code_content, class: "form-control"  %>
-                                   </p>
+                                  <div class="hyo0"><%= f.label :content, "내용", class: "control-label" %></div>
+                                  <div ><%= f.text_field :content, class: "form-control"%></div>
                                    
-                                   <p class="form-group col-md-12 col-12 ">
-                                  <%= f.file_field :img %>
-                                   </p>
+                                      <div  class="hyo0"><%= f.label :code_content, "코드", class: "control-label" %></div>
+                                      <div><%= f.text_area :code_content, cols:"80vw", rows:"15vh" ,class: "form-control" %></div>
+                                   
+                                   
+                                   <div class="">
+                                    <label class="img_upload col-3 " for="ex_file"></label> 
+         
+                                     <%= f.file_field :img , id:"ex_file" %><%=  %>
+    
+                                   </div>
                                   
                                   
                                    
-                                <div class="col-12">
-                                    <div class="col-2 pl-0 pr-0">
+                                    <div class="push-5 col-3 pl-0 pr-0">
                                       <%= f.submit "", :type => :image, :src => "/assets/submit.png", :class => "button-img" %>
                                     </div>
-                                </div>    
+                                
                                 
                                   <% end %>
                             
@@ -135,7 +156,7 @@
                           
                             <% if reply.qna_reply_user %>
                                <% if reply.id == @qna.choice %>
-                                 <div class="reply_box_hs row">
+                                 <div class="reply_box_hs px-1 px-md-5 row">
                                     <div class="qna_check_hk col-md-11 col-10">
                                       <span class="qna_reply_choice_hs text-info"><span class="glyphicon glyphicon-user"></span> <%= reply.qna_reply_user %>님의 댓글</span>
                                     </div>
@@ -173,61 +194,71 @@
                             <%end%>
                             
                             
-                            <!--선택안된댓글-->
                             
-                        <% @qna.qna_replies.each do |reply| %>
-                             <% if reply.id != @qna.choice %>
-                             
-                             <% if reply.qna_reply_user %>
-                               <div class="reply_box_hs row">
-                                    <div class="qna_check_hk col-md-11 col-10">
-                                      <span class="qna_reply_choice_hs text-info"><span class="glyphicon glyphicon-user"></span> <%= reply.qna_reply_user %>님의 댓글</span>
-                                    </div>
-                                    <div class="col-md-1 col-1">
-                                    </div>
-                                    <div class="col-12 mt-3">
-                                        <p>
-                                          <%= reply.content %>
-                                        </p>
-                                    </div>
-                                    <div class="col-12">
-                                        <p>
-                                           <pre class="brush: cpp"><%= reply.code_content %> </pre>
-                                        </p>
-                                    </div>
-                                    <div class="col-12">
-                                        <p>
-                                             <% if reply.img.url %>
-                                            <img src="<%= reply.img.url %>" alt="파일을 다시 업로드 해주세요" class="img-fluid">
-                                            <% end  %>
-                                        </p>
-                                    </div>
-                                      
-                                </div>
-                            <% end  %>   
-                            
-                        
-                                <div class="col-md-1 col-2">
-                                    <% if current_user %>
-                                        <%if reply.user_id == current_user.id %>
-                                            <%= link_to "/qna_replies/destroy/#{@qna.id}/#{reply.id}", class: "delete_hs" do %><%end%>
-                                        <%end%>
-                                    <%end%>
-                                </div>
-                                <div class="col-md-1 col-2">
-                                    <% if @qna.choice ==NIL %>
-                                        <% if current_user.id==@qna.user_id %>
-                                            <%= link_to "/qna_replies/choose/#{@qna.id}/#{reply.id}", class: "choice_hs" do %><%end%>
-                                        <%end %>
-                                    <%end %>            
-                                </div>
-                                
-                                
-                       
-                       <% end %>
-                        
-                        <%end %>
-                 
-        </div> 
-    </div> <!--큰 row-->
+<!-- ************선택안된댓글************ -->    
+<% @qna.qna_replies.each do |reply| %>
+  <% if reply.id != @qna.choice %>
+     
+    <% if reply.qna_reply_user %>
+    <div class="reply_box_hk px-1 px-md-5 py-2">
+
+      <div class="row">
+        <div class="qna_check_hk col-md-10 col-8">
+          <span class="qna_reply_choice_hs text-info"><span class="glyphicon glyphicon-user"></span> <%= reply.qna_reply_user %>님의 댓글</span>
+        </div>
+        
+        <% if @qna.choice == NIL %>
+            <% if current_user.id == @qna.user_id %>
+                <div class="col-1 pull-1 pull-md-0 px-0 mx-md-0">
+                    <% if current_user %>
+                        <%if reply.user_id == current_user.id %>
+                            <%= link_to "/qna_replies/destroy/#{@qna.id}/#{reply.id}", class: "delete_hs" do %><%end%>
+                        <% end %>
+                    <%end%>
+                </div>
+                <div class="col-1 for_b px-0 mx-0">
+                    <%= link_to "/qna_replies/choose/#{@qna.id}/#{reply.id}", class: "choice_hs" do %><%end%>
+                </div>
+            <% end %>
+        <% else %>
+                <div class="col-1"></div>
+                <div class="col-1 for_b px-0 mx-0">
+                    <% if current_user %>
+                        <%if reply.user_id == current_user.id %>
+                            <%= link_to "/qna_replies/destroy/#{@qna.id}/#{reply.id}", class: "delete_hs" do %><%end%>
+                        <% end %>
+                    <%end%>
+                </div>
+        <% end %> 
+      </div>
+      
+      
+      <div class="row">
+        <div class="col-12 mt-3">
+          <p><%= reply.content %></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <p><pre class="brush: cpp"><%= reply.code_content %></pre></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <p><% if reply.img.url %>
+            <img src="<%= reply.img.url %>" alt="파일을 다시 업로드 해주세요" class="img-fluid">
+            <% end  %>
+          </p>
+        </div>
+      </div>
+              
+    </div> <!-- reply box end -->
+    <% end %>        
+  <% end %>
+<% end %> <!-- 채택 X 인지 묻기 -->
+
+</div> 
+</div> <!--큰 row-->
 </div>

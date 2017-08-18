@@ -1,3 +1,43 @@
 // Place all the styles related to the Mypages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.text_ah9{
+  text-align: center;  
+}
+
+.mypage_box{
+    border:2px solid #8acbc1;
+    border-radius:3em;
+    height:500px;
+}
+
+.mypage_box_m{
+    border:2px solid #8acbc1;
+    border-radius:3em;
+    height:200px;
+}
+.my_e{
+    font-size:1.5em;
+}
+.my_i_m{
+    font-size:1.2em;
+}
+
+.my_i{
+     font-size:1.4em;
+    
+}
+
+.table_hk{
+    font-size: 1.1em;
+    line-height: 120%;
+    font-weight: normal;
+}
+
+
+.mypage_mobile{
+    border-top: 1px solid #8acbc1;
+    height: auto;
+    margin-bottom: 5vh;
+}
+
