@@ -100,7 +100,7 @@ li.active > .button_hk{
 }
 
 .lock{
-    background-image: url('lock.png');
+    background-image: url("/assets/lock.png");
     background-repeat: no-repeat;
     display: inline-block;
     width: 100px;
@@ -137,7 +137,7 @@ li.active > .button_hk{
 
 .review_intro{
   height: 80px;
-  background-image: url('review_back.png');
+  background-image: url("/assets/review_back.png");
   background-size: cover;
   *{
     color: rgba(213,213,213,0.8);

@@ -270,7 +270,7 @@ display:none;
         }
         
 .submit_hs{
-    background-image: url("submit.png");
+    background-image: url("/assets/submit.png");
     width: 80px;
     height: 40px;
     border: none;
@@ -281,7 +281,7 @@ display:none;
 }
 
 .submit_small_hs{
-    background-image: url("submit.png");
+    background-image: url("/assets/submit.png");
     width: 60px;
     height: 30px;
     border: none;
@@ -292,7 +292,7 @@ display:none;
 }
 
 .back_hs{
-    background-image: url("back.png");
+    background-image: url("/assets/back.png");
     width: 80px;
     height: 40px;
     background-size: 100%;
@@ -302,7 +302,7 @@ display:none;
 }
 
 .save_hs{
-    background-image: url("save.png");
+    background-image: url("/assets/save.png");
     width: 80px;
     height: 40px;
     background-size: 100%;
@@ -335,7 +335,7 @@ display:none;
 
 
 .choice_hs{
-    background-image: url("choice.png");
+    background-image: url("/assets/choice.png");
     width: 60px;
     height: 30px;
     background-size: 100%;
@@ -345,7 +345,7 @@ display:none;
 }
 
 .back_gray_hs{
-    background-image: url("back_gray.png");
+    background-image: url("/assets/back_gray.png");
     width: 60px;
     height: 30px;
     background-size: 100%;
@@ -412,7 +412,7 @@ display:none;
 
 .qna_intro{
   height: 80px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('qna_intro.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url("/assets/qna_intro.png");
   background-size: cover;
   *{
     color: rgba(213,213,213,0.8);
