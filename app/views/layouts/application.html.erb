@@ -39,6 +39,11 @@
       color: #e8464e !important;  
       /*배경에 있는 붉은색*/
     }
+    
+    .text-white{
+      color:white !important;
+    }
+    
     .bg-danger{
        background-color: #e8464e !important;  
     }
@@ -164,6 +169,15 @@
     border-radius: 10px;
     display: inline-block;
 }
+.qna_intro{
+  height: 80px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),  url(<%= asset_path 'qna_intro.png' %>);
+  background-size: cover;
+  *{
+    color: rgba(213,213,213,0.8);
+    font-size: 1.1em;
+  }
+  
 
 /* reviews.scss */
 
@@ -343,9 +357,11 @@
     color: rgba(213,213,213,0.8);
     font-size: 1.1em;
   }
+  
+  
 }
   
-
+}
 
   </style>
 </head>

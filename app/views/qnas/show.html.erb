@@ -22,8 +22,8 @@
            
             <!--<div class="col-md-4 push-md-10 hidden-sm-down">-->
              <div class="row justify-content-end">        
-                 <div class="col-2 pull-1 col-md-1 push-md-1"><% if current_user %> <%if @qna.user_id == current_user.id %> <%= link_to "/qnas/destroy/#{@qna.id}",class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%><%end%></br><%end%></div>
-                 <div class="col-2 pull-1 col-md-1 "><% if current_user %> <%if @qna.user_id == current_user.id %> <%= link_to "/qnas/edit/#{@qna.id}", class: "edit_hs" do %><%end%><%end%><%end%></div>
+                 <div class="col-2 col-md-1 "><% if current_user %> <%if @qna.user_id == current_user.id %> <%= link_to "/qnas/edit/#{@qna.id}", class: "edit_hs" do %><%end%><%end%><%end%></div>
+                 <div class="col-2 col-md-1"><% if current_user %> <%if @qna.user_id == current_user.id %> <%= link_to "/qnas/destroy/#{@qna.id}",class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%><%end%></br><%end%></div>
             
             </div>
             <!--</div>-->
@@ -121,7 +121,8 @@
                                   
                                    
                                     <div class="col-md-3 col-5 col-pull-7 pl-0 pr-0">
-                                      <%= f.submit "", :type => :image, :src => "/assets/submit.png", :class => "button-img" %>
+                                      <%#= 원래 f.submit "", :type => :image, :src => "/assets/submit.png", :class => "button-img" %>
+                                      <%= f.submit "", :class => "submit_hs" %>
                                     </div>
                                 
                                 
