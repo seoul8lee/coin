@@ -12,12 +12,12 @@
    <p class=" ">
         <%= f.label :category,"카테고리", class: "control-label"  %>
         <div class="flex_hyo9 col-md-6 push-md-3 col-sm-12 mb-3">
-          <div><%= f.label :category, "C/C++", class: 'radio_hs' %> <%= f.radio_button :category, 'C/C++', html: { class: "new_form" } %></div>
-          <div><%= f.label :category, "PYTHON", class: 'radio_hs' %> <%= f.radio_button :category, 'PYTHON', html: { class: "new_form" } %></div>
-          <div><%= f.label :category, "Java", class: 'radio_hs' %> <%= f.radio_button :category, 'Java', html: { class: "new_form" } %></div>
-          <div><%= f.label :category, "Scratch/Entry", class: 'radio_hs' %> <%= f.radio_button :category, 'Scratch/Entry', html: { class: "new_form" } %></div>
-          <div><%= f.label :category, "Html/Css", class: 'radio_hs' %> <%= f.radio_button :category, 'Html/Css' , html: { class: "new_form" } %></div>
-          <div><%= f.label :category, "기타", class: 'radio_hs' %> <%= f.radio_button :category, 'etc'  , html: { class: "new_form" }%></div>
+          <div><%= f.radio_button :category, 'C/C++', html: { class: "new_form" } %><%= f.label :category, "C/C++", class: 'radio_hs' %> </div>
+          <div> <%= f.radio_button :category, 'PYTHON', html: { class: "new_form" } %><%= f.label :category, "PYTHON", class: 'radio_hs' %></div>
+          <div><%= f.radio_button :category, 'Java', html: { class: "new_form" } %><%= f.label :category, "Java", class: 'radio_hs' %> </div>
+          <div> <%= f.radio_button :category, 'Scratch/Entry', html: { class: "new_form" } %><%= f.label :category, "Scratch/Entry", class: 'radio_hs' %></div>
+          <div> <%= f.radio_button :category, 'Html/Css' , html: { class: "new_form" } %><%= f.label :category, "Html/Css", class: 'radio_hs' %></div>
+          <div> <%= f.radio_button :category, 'etc'  , html: { class: "new_form" }%><%= f.label :category, "기타", class: 'radio_hs' %></div>
         </div>
         
          <div class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
@@ -28,7 +28,7 @@
   
           <div class="form-group  col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5">
           <%= f.label :content, "질문 내용", class: "control-label" %>
-          <%= f.text_field :content, class: "form-control"%>
+          <%= f.text_area :content, rows: "20vh", class: "form-control text_area_hyo9" %>
           </div>
           
          <div class="form-group  col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5">

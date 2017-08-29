@@ -99,16 +99,6 @@ li.active > .button_hk{
      width: 100%;
 }
 
-.lock{
-    background-image: url("/assets/lock.png");
-    background-repeat: no-repeat;
-    display: inline-block;
-    width: 100px;
-    height: 140px;
-    background-size: 100%;
-    border: none;
-    margin-top: 50px;
-}
 .review_secret{
     font-size: 2em;
 }
@@ -133,15 +123,5 @@ li.active > .button_hk{
 .flex_hyo9{
     display: flex;
     justify-content: center;
-}
-
-.review_intro{
-  height: 80px;
-  background-image: url("/assets/review_back.png");
-  background-size: cover;
-  *{
-    color: rgba(213,213,213,0.8);
-    font-size: 1.1em;
-  }
 }
 

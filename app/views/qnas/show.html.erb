@@ -40,7 +40,13 @@
                 </p>
             </div>
             <div class="col-12">
-                <pre class="brush: cpp"><%= @qna.code_content %> </pre>
+                    <% if @qna.category=='C/C++' or @qna.category=='c/c++' %> <pre class="brush: cpp"><%= @qna.code_content %></pre>
+                    <% elsif @qna.category=='PYTHON' or @qna.category=='Python'  or @qna.category=='python' %><pre class="brush: py"><%= @qna.code_content %></pre>
+                    <% elsif @qna.category=='Java' or @qna.category=='JAVA'or @qna.category=='java' %> <pre class="brush: java"><%= @qna.code_content %></pre>
+                    <% elsif @qna.category=='Scratch/Entry' or @qna.category=='SCRATCH/ENTRY' %> <pre class="brush: cpp"><%= @qna.code_content %></pre>
+                    <% elsif @qna.category=='Html/Css' or @qna.category=='HTML/CSS' or @qna.category=='html/css' %> <pre class="brush: css"><%= @qna.code_content %></pre>
+                    <% elsif @qna.category=='etc' or @qna.category=='ETC' %> <pre class="brush: cpp"><%= @qna.code_content %></pre>
+                    <%end%>                
             </div>
             <% if @qna.img.url %>
                 <img src="<%= @qna.img.url %>" alt="파일을 다시 업로드 해주세요" class="img-fluid">
@@ -168,8 +174,15 @@
                                         </p>
                                     </div>
                                     <div class="col-12">
-                                        <p>
-                                           <pre class="brush: cpp"><%= reply.code_content %> </pre>
+                                        <p> 
+                                             <% if @qna.category=='C/C++' or @qna.category=='c/c++' %> <pre class="brush: cpp"><%= reply.code_content %></pre>
+                                            <% elsif @qna.category=='PYTHON' or @qna.category=='Python'  or @qna.category=='python' %><pre class="brush: py"><%= reply.code_content %></pre>
+                                            <% elsif @qna.category=='Java' or @qna.category=='JAVA'or @qna.category=='java' %> <pre class="brush: java"><%= reply.code_content %></pre>
+                                            <% elsif @qna.category=='Scratch/Entry' or @qna.category=='SCRATCH/ENTRY' %> <pre class="brush: cpp"><%= reply.code_content %></pre>
+                                            <% elsif @qna.category=='Html/Css' or @qna.category=='HTML/CSS' or @qna.category=='html/css' %> <pre class="brush: css"><%= reply.code_content %></pre>
+                                            <% elsif @qna.category=='etc' or @qna.category=='ETC' %> <pre class="brush: cpp"><%= reply.code_content %></pre>
+                                            <%end%>
+                                          
                                         </p>
                                     </div>
                                     <div class="col-12">
@@ -239,7 +252,15 @@
 
       <div class="row">
         <div class="col-12">
-          <p><pre class="brush: cpp"><%= reply.code_content %></pre></p>
+          <p>
+               <% if @qna.category=='C/C++' or @qna.category=='c/c++' %> <pre class="brush: cpp"><%= reply.code_content %></pre>
+                <% elsif @qna.category=='PYTHON' or @qna.category=='Python'  or @qna.category=='python' %><pre class="brush: py"><%= reply.code_content %></pre>
+                <% elsif @qna.category=='Java' or @qna.category=='JAVA'or @qna.category=='java' %> <pre class="brush: java"><%= reply.code_content %></pre>
+            <% elsif @qna.category=='Scratch/Entry' or @qna.category=='SCRATCH/ENTRY' %> <pre class="brush: cpp"><%= reply.code_content %></pre>
+            <% elsif @qna.category=='Html/Css' or @qna.category=='HTML/CSS' or @qna.category=='html/css' %> <pre class="brush: css"><%= reply.code_content %></pre>
+            <% elsif @qna.category=='etc' or @qna.category=='ETC' %> <pre class="brush: cpp"><%= reply.code_content %></pre>
+            <%end%>
+            </p>
         </div>
       </div>
 
