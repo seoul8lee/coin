@@ -6,19 +6,19 @@
         <div class="col-5 study_name_box_hk py-4"><p class="study_name_hk jua"><%= study.study_name %></p></div>
     </div>
  <% time=Time.now%>
-	<% nowyear=time.year%>  
-	<% nowmonth=time.month%>  
-	<% nowday=time.day%>  
-	<% studyyear=study.study_due.year%>  
-	<% studymonth=study.study_due.month%>  
-	<% studyday=study.study_due.day%> 
+	<% nowyear=time.year %>  
+	<% nowmonth=time.month %>  
+	<% nowday=time.day %>  
+	<% studyyear=study.study_due.year %>  
+	<% studymonth=study.study_due.month %>  
+	<% studyday=study.study_due.day %> 
 	
 	
      <div class="margin_hk"></div>
      <div class="row justify-content-end">
             <% if (nowyear==studyyear) && (nowmonth==studymonth) %>
         	    <% if ((studyday-nowday)<6)&&(studyday>nowday) %>
-        	       <div class="col-4"><p class="study_con1_hk jua">D-<%= studyday-nowday%></p></div>
+        	       <div class="col-4"><p class="study_con1_hk jua">D-<%= studyday-nowday %></p></div>
         	    <% else %>
         	         <div class="margin_dd"><p class="study_con3_hk jua">  </p></div>
         	    <% end %>    
