@@ -86,7 +86,7 @@ end
     @qnas = Qna.where("category = 'C/C++'").paginate(:page => params[:page],:per_page => 5).order('created_at DESC')
   end
   def index_py
-    @qnas = Qna.where("category = 'Python'").paginate(:page => params[:page],:per_page => 5).order('created_at DESC')
+    @qnas = Qna.where("category = 'PYTHON'").paginate(:page => params[:page],:per_page => 5).order('created_at DESC')
   end
   def index_java
     @qnas = Qna.where("category = 'Java'").paginate(:page => params[:page],:per_page => 5).order('created_at DESC')
