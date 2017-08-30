@@ -30,7 +30,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise', '~> 4.3'
 
-  gem 'rails_db'
+  # gem 'rails_db'
 
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'rails-assets-tether', '~> 1.1', '>= 1.1.1'

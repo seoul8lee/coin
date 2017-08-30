@@ -76,7 +76,7 @@ Rails.application.routes.draw do
   
   
   
-  mount RailsDb::Engine => '/coinkiyom', :as => 'rails_db'
+#   mount RailsDb::Engine => '/coinkiyom', :as => 'rails_db'
 
 
   
