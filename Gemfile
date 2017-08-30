@@ -29,6 +29,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise', '~> 4.3'
+
+
+gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'rails-assets-tether', '~> 1.1', '>= 1.1.1'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -52,6 +58,3 @@ group :development do
   
   gem 'rails_db'
 end
-
-gem 'bootstrap', '~> 4.0.0.alpha6'
-gem 'rails-assets-tether', '~> 1.1', '>= 1.1.1'

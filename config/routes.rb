@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :suggests
   resources :suggests
   devise_for :users
+  
+  
   root 'mains#index'
   get 'mains/index'
   get 'mains/intro'
@@ -73,6 +75,9 @@ Rails.application.routes.draw do
   end
   
   
+  
+  mount RailsDb::Engine => '/coinkiyom', :as => 'rails_db'
+
 
   
   
