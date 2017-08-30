@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'simple_form'
 gem 'font-awesome-sass'
 gem 'carrierwave', '~> 1.1'
 gem 'fog-aws'
