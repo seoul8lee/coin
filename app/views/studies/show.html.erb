@@ -85,29 +85,55 @@
 <%=render 'nav'%>
 <div class="container minheight">
      <!--web용 -->
-    <div class="row no-gutters hidden-sm-down">
-        <% if (@study.id % 7)==0 %><div class="col-md-9 study_show_intro7 d-flex flex-column">
-        <% elsif (@study.id % 7)==1%><div class="col-md-9 study_show_intro1 d-flex flex-column">
-        <% elsif (@study.id % 7)==2%><div class="col-md-9 study_show_intro2 d-flex flex-column">
-        <% elsif (@study.id % 7)==3%><div class="col-md-9 study_show_intro3 d-flex flex-column">
-        <% elsif (@study.id % 7)==4%><div class="col-md-9 study_show_intro4 d-flex flex-column">
-        <% elsif (@study.id % 7)==5%><div class="col-md-9 study_show_intro5 d-flex flex-column">
-        <% elsif (@study.id % 7)==6%><div class="col-md-9 study_show_intro6 d-flex flex-column">
-        <% else%> <div class="col-md-9 study_show_intro7 d-flex flex-column">
-        <%end%>    
+    <div class="row no-gutters d-none d-md-block">
+       <div class="col-md-9">
+           <div class="row no-gutters">
             <div><div class="p-3 study_name jua"><%=@study.study_name %></div></div>
             <div class="p-5"></div>
-            <div><div class="p-3 study_max">1:<%=@study.study_max %></div></div>
-            <div><div class="p-3 study_time"><%=@study.study_time %></div></div>
-            <div><div class="p-3 study_pay"><%=@study.study_pay%>W/hour</div></div>
+                    <div class="col-12"><div class="intro_box jua">강 사 소 개</div></div>
+                    <div class="col-12">
+                        <div class=" row mx-1 teacher_intro">
+                            <div class="col-3">
+                                <% if @study.teacher_img.present? %>
+                                    <img src="<%= @study.teacher_img.url %>" alt="파일을 다시 업로드 해주세요" width="200">
+                                <% else %>
+                                        <%= image_tag('logo_gray.png', size: "200") %>
+                                <% end %>
+                            </div>
+                            <div class="col-8 push-1 for_font">
+                               <%= simple_format(@study.teacher_intro) %>
+                            </div>
+                        
+                        </div> 
+                    </div>
+                    
+                    <div class="col-12"><div class="intro_box jua">강 의 내 용</div></div>
+                    <div class="col-12"><div class="teacher_intro"><%= simple_format(@study.study_content) %></div> </div>
+                    
+                    
+                    <div class="col-12 row">
+                        <div class="col-2">
+                            <%= link_to "/studies", class: "index_hs" do %><%= image_tag('index_gray.png', class: "img-fluid button-img") %><%end%> 
+                        </div>
+                        <div class="col-2">
+                             <%if current_user.id==@study.user_id %>    
+                              <%= link_to "/studies/edit/#{@study.id}", class: "index_hs" do %><%= image_tag('edit.png', class: "img-fluid button-img") %><%end%> 
+                           <%end%>
+                        
+                        </div>
+                    </div>  
+                </div>    
         </div>
-        <div class="col-md-3 for_b">
-            <div class="col-12"><div class="apply_box bg-info jua">신 청 자 목 록</div></div>
+        
+        <div class="col-md-3 study_fixed for_b">
+            <div class="col-12"><div class="apply_box bg-info jua">강 의 정 보</div></div>
             <div class="col-12">
                 <div class="student_intro jua">
-                        <% @apply.each do |apply| %>
-                            <%=apply.student_name %> 
-                         <%end%>
+                        <div class="col-12"><div class="study_content2 ">MAX: <%=@study.study_max %>명 </div><hr></div>
+                        
+                         <div class="col-12"><div class="study_content2 ">TIME: <%=@study.study_time %>/회</div><hr></div>
+                          <div class="col-12"><div class="study_content2 ">PAY: <%=@study.study_pay%>/시간</div><hr></div>
+                          <div class="col-12"><div class="study_content2 ">D-DAY: <%=@study.study_due%></div><hr></div>
                 </div>
              </div>
              <div class="col-12">
@@ -120,82 +146,37 @@
                     <%end%>
                     
                     <% if flag!=0 %>
-                             <%= link_to "/studies/apply_d/#{@study.id}/#{flag}" do %><%= image_tag("study_apply_d.png", :class=>"review_write") %> <% end %>
+                             <%= link_to "/studies/#{@study.id}/apply_d/#{flag}" do %><%= image_tag("study_apply_d.png", :class=>"review_write") %> <% end %>
                      <% else %>
-                             <%= link_to "/studies/apply/#{@study.id}" do %><%= image_tag("study_apply.png", :class=>"review_write") %> <% end %>
+                             <%= link_to "/studies/#{@study.id}/apply" do %><%= image_tag("study_apply.png", :class=>"review_write") %> <% end %>
                     <%end %>
              </div>
         </div>
+        
     </div>
     
       <!--mobile -->
-    <div class="row no-gutters  hidden-md-up">
-       <% if (@study.id % 7)==0%><div class="col-md-9 study_show_intro7_m d-flex flex-column">
-        <% elsif (@study.id % 7)==1%><div class="col-md-9 study_show_intro1_m d-flex flex-column">
-        <% elsif (@study.id % 7)==2%><div class="col-md-9 study_show_intro2_m d-flex flex-column">
-        <% elsif (@study.id % 7)==3%><div class="col-md-9 study_show_intro3_m d-flex flex-column">
-        <% elsif (@study.id % 7)==4%><div class="col-md-9 study_show_intro4_m d-flex flex-column">
-        <% elsif (@study.id % 7)==5%><div class="col-md-9 study_show_intro5_m d-flex flex-column">
-        <% elsif (@study.id % 7)==6%><div class="col-md-9 study_show_intro6_m d-flex flex-column">
-        <% else%> <div class="col-md-9 study_show_intro7_m d-flex flex-column">
-        <%end%>  
+    <div class="row no-gutters  d-md-none d-lg-none d-xl-none">
+      
             <div><div class="p-3 study_name_m jua"><%=@study.study_name %></div></div>
             <div class="p-5"></div>
-            <div><div class="p-3 study_max_m">1:<%=@study.study_max %></div></div>
-            <div><div class="p-3 study_time_m"><%=@study.study_time %></div></div>
-            <div><div class="p-3 study_pay_m"><%=@study.study_pay%>W/hour</div></div>
-        </div>
-    </div>
     
-    <!--web-->
-    <div class="row no-gutters hidden-sm-down">
-        <div class="col-9"><div class="intro_box bg-info jua">강 사 소 개</div></div>
-        <div class="col-9">
-            <div class=" row mx-1 teacher_intro">
-                <div class="col-3">
-                    <% if @study.teacher_img.present? %>
-                        <img src="<%= @study.teacher_img.url %>" alt="파일을 다시 업로드 해주세요" width="200">
-                    <% else %>
-                            <%= image_tag('logo_gray.png', size: "200") %>
-                    <% end %>
-                </div>
-                <div class="col-8 push-1 for_font">
-                   <%= simple_format(@study.teacher_intro) %>
-                </div>
-            
-            </div> 
-        </div>
-        
-        <div class="col-9"><div class="intro_box bg-info jua">강 의 내 용</div></div>
-        <div class="col-9"><div class="teacher_intro"><%= simple_format(@study.study_content) %></div> </div>
-        
-        <div class="col-9"><div class="intro_box bg-info jua">강 의 정 보</div></div>
-        <div class="col-9">
-            <div class="row mx-1 teacher_intro">
-                <div class="col-3"><div class="study_due jua"><br>Due:<br><%=@study.study_due %></div></div>
-                <div class="col-8 push-1 text-right">
-                    <div class="col-12"><div class="study_content jua">신청 가능 인원: <%=@study.study_max %>명</div></div>
-                     <div class="col-12"><div class="study_content jua">수업 시간: 1회 당 <%=@study.study_time %></div></div>
-                      <div class="col-12"><div class="study_content jua">수업료: 1회 당 <%=@study.study_pay%>원</div></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-9 row">
-            <div class="col-2">
-                <%= link_to "/studies/index", class: "index_hs" do %><%= image_tag('index_gray.png', class: "img-fluid button-img") %><%end%> 
-            </div>
-            <div class="col-2">
-                 <%if current_user.id==@study.user_id %>    
-                  <%= link_to "/studies/edit/#{@study.id}", class: "index_hs" do %><%= image_tag('edit.png', class: "img-fluid button-img") %><%end%> 
-               <%end%>
-            
-            </div>
-        </div>        
     </div>
     
     <!--mobile-->
-    <div class="row no-gutters hidden-md-up">
-        <div class="col-12"><div class="intro_box_m bg-info jua">강 사 소 개</div></div>
+    <div class="row no-gutters d-md-none d-lg-none d-xl-none">
+         <div class="col-12"><div class="intro_box_m jua">강 의 정 보</div></div>
+        <div class="col-12">
+            <div class="row mx-1 teacher_intro">
+                <div class="col-3 px-0"><div class="study_due_m jua"><br>Due:<br><%=@study.study_due %></div></div>
+                <div class="col-9 px-0 for_b text-right">
+                    <div class="col-12 px-0"><div class="study_content2_m ">MAX: <%=@study.study_max %>명<hr></div></div>
+                     <div class="col-12 px-0"><div class="study_content2_m">TIME: <%=@study.study_time %>/회<hr></div></div>
+                      <div class="col-12 px-0"><div class="study_content2_m ">PAY: <%=@study.study_pay%>원/시간<hr></div></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12"><div class="intro_box_m jua">강 사 소 개</div></div>
         <div class="col-12">
             <div class=" row mx-1 teacher_intro">
                 <div class="col-3 px-0">
@@ -212,50 +193,33 @@
             </div> 
         </div>
         
-        <div class="col-12"><div class="intro_box_m bg-info jua">강 의 내 용</div></div>
+        <div class="col-12"><div class="intro_box_m  jua">강 의 내 용</div></div>
         <div class="col-12"><div class="teacher_intro"><%= simple_format(@study.study_content) %></div> </div>
         
-        <div class="col-12"><div class="intro_box_m bg-info jua">강 의 정 보</div></div>
-        <div class="col-12">
-            <div class="row mx-1 teacher_intro">
-                <div class="col-3 px-0"><div class="study_due_m jua"><br>Due:<br><%=@study.study_due %></div></div>
-                <div class="col-9 px-0 for_b text-right">
-                    <div class="col-12 px-0"><div class="study_content_m jua">신청 가능 인원: <%=@study.study_max %>명</div></div>
-                     <div class="col-12 px-0"><div class="study_content_m jua">수업 시간: 1회 당 <%=@study.study_time %></div></div>
-                      <div class="col-12 px-0"><div class="study_content_m jua">수업료: 1회 당 <%=@study.study_pay%>원</div></div>
-                </div>
-            </div>
-        </div>
+       
          <div class="row mx-1">
-             <div class="col-12 px-0"><div class="intro_box_m bg-info jua">신 청 자 목 록</div></div>
-             <div class="col-9 px-0">
-                <div class="student_intro_m jua">
-                        <% @apply.each do |apply| %>
-                            <%=apply.student_name %> 
-                         <%end%>
-                </div>
-            </div>
-                 <div class="col-3 px-0 mt-3">
+           
+                 <div class="col-5 px-0 mt-3 mr-4">
                     <% if flag!=0 %>
-                                 <%= link_to "/studies/apply_d/#{@study.id}/#{flag}" do %><%= image_tag("study_apply_d.png", :class=>"review_write") %> <% end %>
+                                 <%= link_to "/studies/#{@study.id}/#{flag}/apply_d" do %><%= image_tag("study_apply_d.png", :class=>"review_write") %> <% end %>
                          <% else %>
-                                 <%= link_to "/studies/apply/#{@study.id}" do %><%= image_tag("study_apply.png", :class=>"review_write") %> <% end %>
+                                 <%= link_to "/studies/#{@study.id}/apply" do %><%= image_tag("study_apply.png", :class=>"review_write") %> <% end %>
                         <%end %>
                 </div>
-         </div>
-        
-        
-         <div class="row mx-1 mt-3">
-            <div class="col-3 px-0">
-                <%= link_to "/studies/index", class: "index_hs" do %><%= image_tag('index_gray.png', class: "img-fluid button-img") %><%end%> 
+                
+            <div class="col-3 px-0 mt-3">
+                <%= link_to "/studies", class: "index_hs" do %><%= image_tag('index_gray.png', class: "img-fluid button-img") %><%end%> 
             </div>
-            <div class="col-3 px-0">
+            <div class="col-3 px-0 mt-3">
                  <%if current_user.id==@study.user_id %>    
                   <%= link_to "/studies/edit/#{@study.id}", class: "index_hs" do %><%= image_tag('edit.png', class: "img-fluid button-img") %><%end%> 
                <%end%>
             
             </div>
-        </div>
+         </div>
+        
+        
+        
     </div>
 
 </div>
