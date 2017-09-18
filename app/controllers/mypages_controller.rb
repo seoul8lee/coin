@@ -1,12 +1,11 @@
 class MypagesController < ApplicationController
 
     def index
-        @qnas = Qna.where(user_id: current_user)
-        @reviews = Review.where(user_id: current_user)
-        @applies = Apply.where(user_id: current_user)
+        @qnas = Qna.all
+        @reviews = Review.all
+        @applies = Apply.where(user_id: current_user.id)
         @studies = Study.all
-        @offlines = Offline.where(user_id: current_user)
-       @users = User.all
+        @offlines = Offline.all
     end
 
 end
