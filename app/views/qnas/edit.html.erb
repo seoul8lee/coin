@@ -6,7 +6,7 @@
   <h2 class="jua offline_apply_hs center_hs">수정하기</h2>
  
 
-   <%= form_for @qna, url: "/qnas/update/#{@qna.id}" , method: :post do |f| %>
+   <%= form_for @qna, url: "/qnas/#{@qna.id}" , method: :patch do |f| %>
   
    <p class="offline_form">
         <%= f.label :category,"카테고리", class: "control-label"  %>
