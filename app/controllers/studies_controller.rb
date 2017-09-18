@@ -14,20 +14,20 @@ class StudiesController < ApplicationController
     end
     
     def apply
-        @study = Study.find(params[:study_id])
+        @study = Study.find(params[:id])
         @apply=Apply.new
         @apply.user_id=current_user.id
         @apply.study_id=@study.id
         @apply.student_name=current_user.name
         @apply.save
-        redirect_to "/studies/show/#{@study.id}"
+        redirect_to "/studies/#{@study.id}"
     end
     
      def apply_d
         @study = Study.find(params[:study_id])
         @apply = Apply.find(params[:apply_id])
         @apply.destroy
-        redirect_to "/studies/show/#{@study.id}"
+        redirect_to "/studies/#{@study.id}"
     end
     
     def new
@@ -44,8 +44,8 @@ class StudiesController < ApplicationController
     end
     
     def show
-        @study = Study.find(params[:study_id])
-        @apply= Apply.where(study_id: params[:study_id])
+        @study = Study.find(params[:id])
+        @apply= Apply.where(study_id: params[:id])
     end
     
     def edit
