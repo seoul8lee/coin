@@ -3,7 +3,7 @@
   height: 80px;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),  url(<%= asset_path 'qna_intro.png' %>);
   background-size: cover;
-  *{
+ *{
     color: rgba(213,213,213,0.8);
     font-size: 1.1em;
   }
@@ -17,7 +17,7 @@
           <div class="col-md-3 col-12">
             <%= render 'subnav' %>
           </div>
-          <div class="col-md-9 col-12 for_b">
+          <div class="col-md-9 for_b col-12">
             <div class="hidden-sm-down qna_intro text-white d-flex flex-column justify-content-center pr-4 text-right">
                 <div class="p-1">코딩을 하다 막히는 점이 있을 때, 검색을 해도 영어로 된 설명에 머리 아플 때</div>
                 <div class="p-1">쉽고 편하게 질문해보세요  :코인</div>
@@ -32,8 +32,8 @@
                                 <% @qnas.each do |qna| %>
                                
                                 <div class="row">
-                                    <div class="col-md-10 col-8 qna_title_btn_hk"><%= link_to "/qnas/show/#{qna.id}", class:"qna_title" do %><%= qna.title %><%end%></div>
-                                    <div class="col-md-2 col-3 for_b text-uppercase qna_category_hk"><strong><%= qna.category %></strong></div>
+                                    <div class="col-md-10 col-8 qna_title_btn_hk"><%= link_to "/qnas/#{qna.id}", class:"qna_title" do %><%= qna.title %><%end%></div>
+                                    <div class="col-md-2 col-3 text-uppercase qna_category_hk"><strong><%= qna.category %></strong></div>
                                 </div>    
                                 <hr>
                                 
@@ -58,9 +58,10 @@
                                             <% elsif qna.category=='Html/Css' or qna.category=='HTML/CSS' or qna.category=='html/css' %> <pre class="brush: css"><%= qna.code_content %></pre></br>
                                             <% elsif qna.category=='etc' or qna.category=='ETC' %> <pre class="brush: cpp"><%= qna.code_content %></pre></br>
                                             <%end%>
-                                            <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to  "/qnas/edit/#{qna.id}",class: "edit_hs" do %><%end%><%end%><%end%>
-                                            <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to "/qnas/destroy/#{qna.id}",class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%><%end%></br><%end%>
+                                            <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to  "/qnas/#{qna.id}/edit",class: "edit_hs" do %><%end%><%end%><%end%>
+                                            <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to "/qnas/#{qna.id}", method: :delete, data: { confirm: "삭제합니까?" }, class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%><%end%></br><%end%>
                                             </p>
+                                             
                                         </div>
                                     <% else %>
                                         <div class="qna_no_check_hk col-md-12 col-12">
@@ -77,8 +78,8 @@
                                             <% elsif qna.category=='Html/Css' or qna.category=='HTML/CSS' or qna.category=='html/css' %> <pre class="brush: css"><%= qna.code_content %></pre></br>
                                             <% elsif qna.category=='etc' or qna.category=='ETC' %> <pre class="brush: cpp"><%= qna.code_content %></pre></br>
                                             <%end%>
-                                            <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to "/qnas/edit/#{qna.id}", class: "edit_hs" do %><%end%><%end%><%end%>
-                                            <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to "/qnas/destroy/#{qna.id}",class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%><%end%></br><%end%>
+                                            <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to  "/qnas/#{qna.id}/edit",class: "edit_hs" do %><%end%><%end%><%end%>
+                                            <% if current_user %> <%if qna.user_id == current_user.id %> <%= link_to "/qnas/#{qna.id}", method: :delete, data: { confirm: "삭제합니까?" }, class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%><%end%></br><%end%>
                                             </p>
                                         </div>
                                         
