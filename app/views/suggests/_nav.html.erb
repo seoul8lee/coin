@@ -3,16 +3,20 @@
   <div class="container cont-nav-hk px-0 px-md-4">
     <a class="navbar-brand d-inline-block pl-0 m-0" href="/mains/index"><%= image_tag("logo.png", class: "nav_logo") %></a>
     <ul class="nav navbar-nav navbar-right d-flex flex-row justify-content-end m-0">
-        <li><a class="nav-a text-info jua px-2 px-md-4" href="/qnas/index">질문</a></li>
+        <li><a class="nav-a text-info jua px-2 px-md-4" href="/qnas">질문</a></li>
         <li><a class="nav-a text-info jua px-2 px-md-4" href="/offlines/index">특강</a></li>
         <li><a class="nav-a text-info jua px-2 px-md-4" href="/reviews">후기</a></li>
-        <li><a class="nav-a text-danger active jua px-2 px-md-4" href="/studies/index">스터디</a></li>
+        <li><a class="nav-a text-danger active jua px-2 px-md-4" href="/studies">스터디</a></li>
         <li class="dropdown">
-          <a class="dropdown-toggle nav-a text-muted jua px-1 pl-md-4" data-toggle="dropdown"><%= current_user.name %></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to '로그아웃', destroy_user_session_path, method: :delete, class: "text-muted jua"%></li>
-            <li><a class="text-muted jua" href="/mypages/index">마이페이지</a></li>
-          </ul>
+          <% if current_user.present? %>
+            <a class="dropdown-toggle nav-a text-muted jua px-1 pl-md-4" data-toggle="dropdown"><%= current_user.name %></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to '로그아웃', destroy_user_session_path, method: :delete, class: "text-muted jua"%></li>
+              <li><a class="text-muted jua" href="/mypages/index">마이페이지</a></li>
+            </ul>
+          <% else %>
+            <a class="nav-a text-muted jua px-2 px-md-4" href="/users/sign_in">로그인</a>
+          <% end %>
         </li>
       </ul>
       </div><!--row -->
@@ -25,16 +29,20 @@
   <div class="container cont-nav-hk px-0 px-md-4">
     <a class="navbar-brand d-inline-block pl-0 m-0" href="/mains/index"><%= image_tag("logo.png", class: "nav_logo") %></a>
     <ul class="nav navbar-nav navbar-right d-flex flex-row justify-content-end m-0">
-        <li><a class="nav-a text-info jua px-2 px-md-4" href="/qnas/index">질문</a></li>
+        <li><a class="nav-a text-info jua px-2 px-md-4" href="/qnas">질문</a></li>
         <li><a class="nav-a text-info jua px-2 px-md-4" href="/offlines/index">특강</a></li>
         <li><a class="nav-a text-info jua px-2 px-md-4" href="/reviews">후기</a></li>
-        <li><a class="nav-a text-danger active jua px-2 px-md-4" href="/studies/index">스터디</a></li>
+        <li><a class="nav-a text-info jua px-2 px-md-4" href="/studies">스터디</a></li>
         <li>
+          <% if current_user.present? %>
           <a class="dropdown-toggle hamburger nav-a text-muted jua px-1 pl-md-4 text-align-center"><%= current_user.name %></a>
           <ul class="clearfix menu">
             <li class="me-mi"><%= link_to '로그아웃', destroy_user_session_path, method: :delete, class: "text-muted jua me_s"%></li>
             <li class="me-mi"><a class="text-muted jua me_s" href="/mypages/index">마이페이지</a></li>
           </ul>
+          <% else %>
+            <a class="nav-a text-info jua px-2 px-md-4" href="/users/sign_in">로그인</a>
+          <% end %>
         </li>
       </ul>
       </div><!--row -->
