@@ -6,8 +6,7 @@ Rails.application.routes.draw do
     
     get 'mains/index'
     get 'mains/intro'
-    get 'mypages/index/:user_id' => 'mypages#index'
-#   get 'mypages/index'
+    get 'mypages/index'
     
     resources :qnas do
         resources :qna_replies do
