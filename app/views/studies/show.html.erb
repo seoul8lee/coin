@@ -117,7 +117,7 @@
                         </div>
                         <div class="col-2">
                              <%if current_user.id==@study.user_id %>    
-                              <%= link_to "/studies/edit/#{@study.id}", class: "index_hs" do %><%= image_tag('edit.png', class: "img-fluid button-img") %><%end%> 
+                              <%= link_to "/studies/#{@study.id}/edit", class: "index_hs" do %><%= image_tag('edit.png', class: "img-fluid button-img") %><%end%> 
                            <%end%>
                         
                         </div>
@@ -212,7 +212,7 @@
             </div>
             <div class="col-3 px-0 mt-3">
                  <%if current_user.id==@study.user_id %>    
-                  <%= link_to "/studies/edit/#{@study.id}", class: "index_hs" do %><%= image_tag('edit.png', class: "img-fluid button-img") %><%end%> 
+                  <%= link_to "/studies/#{@study.id}/edit", class: "index_hs" do %><%= image_tag('edit.png', class: "img-fluid button-img") %><%end%> 
                <%end%>
             
             </div>
