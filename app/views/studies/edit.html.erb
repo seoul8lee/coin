@@ -2,7 +2,7 @@
 <div class="container minheight">
 
     
-    <%= form_for @study, url: "/studies/update/#{@study.id}" , method: :post do |f| %>
+    <%= form_for @study, url: "/studies/#{@study.id}" , method: :patch do |f| %>
 <div class="row justify-content-center">
   <h1 class="jua offline_apply_hs">스터디 수정하기</h1>
   <div class="form-group  col-md-8 col-sm-10 mb-5">
