@@ -16,7 +16,7 @@ class QnaRepliesController < ApplicationController
 
     def destroy
     @qna = Qna.find(params[:qna_id])
-    @qna_reply = @qna.qna_replies.find(params[:qna_reply_id])
+    @qna_reply = @qna.qna_replies.find(params[:id])
     @qna_reply.destroy
     redirect_to "/qnas/#{@qna.id}"
   end
