@@ -94,15 +94,14 @@
 .study_name {
   font-size: 3em;
   background-color: #e8464e;
-  opacity: 0.8;
-  display: inline-block;
+  
   color: white;
   border-radius: 0 0 10px 0; }
 
 .study_name_m {
   font-size: 1.8em;
   background-color: #e8464e;
-  opacity: 0.8;
+  
   display: inline-block;
   color: white;
   border-radius: 0 0 10px 0; }
@@ -124,18 +123,27 @@
   float: right; }
 
 .intro_box {
-  color: white;
-  font-size: 3em;
+   color:#4C4C4C;
+  font-size: 2.5em;
   padding: 10px;
   text-align: center;
-  margin-top: 10px; }
-
+  margin-top: 10px; 
+  border-bottom:3px solid  #8acbc1;
+  border-top:3px solid  #8acbc1;
+  
+}
+.study_fixed{
+  position: fixed;
+}
 .intro_box_m {
-  color: white;
+  color:#4C4C4C;
   font-size: 1.5em;
   padding: 10px;
   text-align: center;
-  margin-top: 10px; }
+  margin-top: 10px; 
+   border-bottom:3px solid  #8acbc1;
+  border-top:3px solid  #8acbc1;
+}
 
 .apply_box {
   color: white;
@@ -183,7 +191,7 @@
   font-size: 1.1em;
   color: #4C4C4C;
   display: inline-block;
-  border-bottom: 3px solid #8acbc1;
+  
   line-height: 40px; }
 
 .student_intro {
@@ -217,5 +225,18 @@ input[type="file"] {
   border: 0; }
 
 
-
+.study_content2{
+    font-size:1.5em;
+    color:#4C4C4C;
+    display:inline-block;
+    line-height:40px;
+    
+}
+.study_content2_m{
+    font-size:1em;
+    color:#4C4C4C;
+    display:inline-block;
+    line-height:30px;
+    
+}
 /*# sourceMappingURL=studies.css.map */
