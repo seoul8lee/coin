@@ -57,12 +57,12 @@
             <div class="row mypage_content w-100 h-90 pb-3 px-5 m-0">  
                 <div class="col-6 push-3 my-4"><%= image_tag("my_study.png", :class=>"review_write") %></div>
                 <table class="table table-hover">
+                    <% @applies.last(5).each do |apply| %>
                       <% @studies.each do |study| %>
-                        <% @applies.last(5).each do |apply| %>
-                            <% if study.id == apply.study_id %>
+                          <% if study.id == apply.study_id %>
                             
                                         <tr>
-                                            <td class="table_hk"><%= link_to "/studies/show/#{study.id}", class: "my_2" do %><%= study.study_name %><% end %></td>
+                                            <td class="table_hk"><%= link_to "/studies/#{study.id}", class: "my_2" do %><%= study.study_name %><% end %></td>
                                             <!-- 마감될 시 표시 추가 -->
                                         </tr>
                               
@@ -75,7 +75,7 @@
     </div> <!-- 2 end -->
 
     <!-- 3 -->
-    <div class="col-4 for_b">
+    <div class="col-4">
         <div class="d-flex flex-column justify-content-between align-items-center mypage_box">
 
         <!-- 질문 --> 
@@ -85,7 +85,7 @@
                 <table class="table">
                 <% current_user.qnas.last(7).each do |qna| %>
                     <tr>
-                        <th><%= link_to "/qnas/show/#{qna.id}", class:"table_hk" do %><%= qna.title %><% end %></th>
+                        <th><%= link_to "/qnas/#{qna.id}", class:"table_hk" do %><%= qna.title %><% end %></th>
                         <th><span class="badge badge-default badge-pill table_hk"><%= qna.qna_replies.count %></span></th>
                         <th><% if qna.choice == NIL %><i class="fa fa-square-o" aria-hidden="true"></i></i>
                                <% else %><i class="fa fa-check-square-o" aria-hidden="true"></i></i><% end %></th>
@@ -140,12 +140,12 @@
     <div class="mypage_mobile text-align-center justify-content-center align-content-center">  
         <div class="col-6 push-2 m-4"><%= image_tag("my_study.png", :class=>"review_write") %></div>
         <table class="table table-hover">
+            <% @applies.last(5).each do |apply| %>
               <% @studies.each do |study| %>
-                <% @applies.last(5).each do |apply| %>
                     <% if study.id == apply.study_id %>
                     
                                 <tr>
-                                    <td class="table_hk"><%= link_to "/studies/show/#{study.id}", class: "my_2" do %><%= study.study_name %><% end %></td>
+                                    <td class="table_hk"><%= link_to "/studies/#{study.id}", class: "my_2" do %><%= study.study_name %><% end %></td>
                                     <!-- 마감될 시 표시 추가 -->
                                 </tr>
                       
@@ -164,7 +164,7 @@
             <table class="table">
             <% current_user.qnas.last(7).each do |qna| %>
                 <tr>
-                    <th><%= link_to "/qnas/show/#{qna.id}", class:"table_hk" do %><%= qna.title %><% end %></th>
+                    <th><%= link_to "/qnas/#{qna.id}", class:"table_hk" do %><%= qna.title %><% end %></th>
                     <th><span class="badge badge-default badge-pill table_hk"><%= qna.qna_replies.count %></span></th>
                     <th><% if qna.choice == NIL %><i class="fa fa-square-o" aria-hidden="true"></i></i>
                            <% else %><i class="fa fa-check-square-o" aria-hidden="true"></i></i><% end %></th>
