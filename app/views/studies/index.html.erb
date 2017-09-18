@@ -71,7 +71,7 @@
         </div>
 
         <!-- PC Mobile both -->
-		<div class="col-md-9 col-12 for_b">
+		<div class="col-md-9 col-12 for_b ">
 			
 			<!-- Mobile subnav -->	
 			<div class="row hidden-md-up">
@@ -96,7 +96,7 @@
 			    
 			<% @studies.each do |study| %>
             	<% if(study.study_pass == true) %>
-                <%= link_to "/studies/show/#{study.id}", class: "row" do %>
+                <%= link_to "/studies/#{study.id}", class: "row" do %>
                 
                 
 		        <!-- study box -->    
