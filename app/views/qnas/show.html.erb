@@ -230,6 +230,14 @@
                 <div class="col-1 for_b px-0 mx-0">
                     <%= link_to "/qna/#{@qna.id}/qna_replies/#{reply.id}/choose", class: "choice_hs" do %><%end%>
                 </div>
+            <% else %>
+                <div class="col-1 push-1 pull-md-0 px-0 mx-md-0">
+                    <% if current_user %>
+                        <%if reply.user_id == current_user.id %>
+                            <%= link_to "/qnas/#{@qna.id}/qna_replies/#{reply.id}", method: :delete, class: "delete_hs" do %><%end%>
+                        <% end %>
+                    <%end%>
+                </div>
             <% end %>
         <% else %>
                 <div class="col-1"></div>
