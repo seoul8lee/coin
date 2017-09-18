@@ -44,7 +44,7 @@ class QnasController < ApplicationController
   
   
   def edit
-    @qna = Qna.find(params[:qna_id])
+    @qna = Qna.find(params[:id])
   
 end
 
@@ -53,18 +53,18 @@ end
         @qna.user_id= current_user.id
         @qna.qna_user=current_user.nickname
         @qna.save
-        redirect_to "/qnas/show/#{@qna.id}"
+        redirect_to "/qnas/#{@qna.id}"
     end
     
 
   def show
-        @qna = Qna.find(params[:qna_id]) #죠아아
+        @qna = Qna.find(params[:id]) #죠아아
     end
     
    def destroy
-        @qna = Qna.find(params[:qna_id])
+        @qna = Qna.find(params[:id])
         @qna.destroy
-       redirect_to "/qnas/index"
+       redirect_to "/qnas"
     end
     
      
@@ -74,7 +74,7 @@ end
         @qna.user_id= current_user.id
         @qna.qna_user=current_user.nickname
         @qna.save
-        redirect_to "/qnas/show/#{@qna.id}"
+        redirect_to "/qnas/#{@qna.id}"
   
     end
     
