@@ -1,7 +1,7 @@
 class QnasController < ApplicationController
   def index
        
-       @qnas = Qna.none
+       @qnas = Qna.all
  
       if params[:search]    
           query = params[:search].strip
