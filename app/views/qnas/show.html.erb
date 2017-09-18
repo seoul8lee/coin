@@ -11,7 +11,7 @@
         <div class="col-md-10 col-12"> <!--내용col-10-->
             <div class="row qna_title_box_hk mx-2">
                 <div class="col-md-10 col-9 qna_title_btn_hk"><p class="review_title_y mb-0"><%= @qna.title %></p></div>
-                <div class="col-md-2 col-2 for_b text-uppercase qna_category_hk"><strong style="m-0 p-0"><%= @qna.category %></strong></div>
+                <div class="col-md-2 col-2 text-uppercase qna_category_hk"><strong style="m-0 p-0"><%= @qna.category %></strong></div>
             </div>
             <hr>            
             <div class="qna_check_hk col-12 mb-3">
@@ -22,15 +22,14 @@
            
             <!--<div class="col-md-4 push-md-10 hidden-sm-down">-->
              <div class="row justify-content-end">        
-                 <div class="col-2 col-md-1 "><% if current_user %> <%if @qna.user_id == current_user.id %> <%= link_to "/qnas/edit/#{@qna.id}", class: "edit_hs" do %><%end%><%end%><%end%></div>
-                 <div class="col-2 col-md-1"><% if current_user %> <%if @qna.user_id == current_user.id %> <%= link_to "/qnas/destroy/#{@qna.id}",class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%><%end%></br><%end%></div>
-            
+                 <div class="col-2 col-md-1 "><% if current_user %> <%if @qna.user_id == current_user.id %> <%= link_to "/qnas/#{@qna.id}/edit", class: "edit_hs" do %><%end%><%end%><%end%></div>
+                 <div class="col-2 col-md-1"><% if current_user %> <%if @qna.user_id == current_user.id %> <%= link_to "/qnas/#{@qna.id}", method: :delete, class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%><%end%></br><%end%></div>
             </div>
             <!--</div>-->
             
            <!--  <div class="row no-gutters">-->
-           <!--          <% if current_user %> <%if @qna.user_id == current_user.id %>  <div class="col-3 push-6 hidden-md-up"><%= link_to "/qnas/edit/#{@qna.id}", class: "edit_hs" do %><%end%><%end%><%end%> </div>-->
-           <!--         <% if current_user %> <%if @qna.user_id == current_user.id %><div class="col-3 push-6 hidden-md-up"> <%= link_to "/qnas/destroy/#{@qna.id}",class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%><%end%></br><%end%></div>-->
+           <!--          <% if current_user %> <%if @qna.user_id == current_user.id %>  <div class="col-3 push-6 hidden-md-up"><%= link_to "/qnas/#{@qna.id}/edit", class: "edit_hs" do %><%end%><%end%><%end%> </div>-->
+           <!--         <% if current_user %> <%if @qna.user_id == current_user.id %><div class="col-3 push-6 hidden-md-up"> <%= link_to "/qnas/#{@qna.id}", method: :delete, class: "delete_hs", data: { confirm: "삭제합니까?" } do %><%end%><%end%></br><%end%></div>-->
            <!--</div>-->
             
             
@@ -165,7 +164,7 @@
                                     <div class="qna_check_hk col-md-11 col-10">
                                       <span class="qna_reply_choice_hs text-info"><span class="glyphicon glyphicon-user"></span> <%= reply.qna_reply_user %>님의 댓글</span>
                                     </div>
-                                    <div class="col-md-1 for_b col-1">
+                                    <div class="col-md-1 col-1">
                                        <span class="glyphicon glyphicon-bookmark text-danger choice_icon"></span>
                                     </div>
                                     
@@ -196,7 +195,7 @@
                                     <div class="col-md-1 col-2">
                                          <% if current_user %>
                                             <%if reply.user_id == current_user.id %>
-                                                 <%= link_to "/qna_replies/destroy/#{@qna.id}/#{reply.id}", class: "delete_hs" do %><%end%>
+                                                 <%= link_to "/qnas/#{@qna.id}/qna_replies/#{reply.id}", class: "delete_hs" do %><%end%>
                                             <%end%>
                                         <%end%>
                                     </div>
@@ -224,12 +223,12 @@
                 <div class="col-1 pull-1 pull-md-0 px-0 mx-md-0">
                     <% if current_user %>
                         <%if reply.user_id == current_user.id %>
-                            <%= link_to "/qna_replies/destroy/#{@qna.id}/#{reply.id}", class: "delete_hs" do %><%end%>
+                            <%= link_to "/qnas/#{@qna.id}/qna_replies/#{reply.id}", method: :delete, class: "delete_hs" do %><%end%>
                         <% end %>
                     <%end%>
                 </div>
                 <div class="col-1 for_b px-0 mx-0">
-                    <%= link_to "/qna_replies/choose/#{@qna.id}/#{reply.id}", class: "choice_hs" do %><%end%>
+                    <%= link_to "/qna/#{@qna.id}/qna_replies/#{reply.id}/choose", class: "choice_hs" do %><%end%>
                 </div>
             <% end %>
         <% else %>
@@ -237,7 +236,7 @@
                 <div class="col-1 for_b px-0 mx-0">
                     <% if current_user %>
                         <%if reply.user_id == current_user.id %>
-                            <%= link_to "/qna_replies/destroy/#{@qna.id}/#{reply.id}", class: "delete_hs" do %><%end%>
+                            <%= link_to "/qnas/#{@qna.id}/qna_replies/#{reply.id}", method: :delete, class: "delete_hs" do %><%end%>
                         <% end %>
                     <%end%>
                 </div>
