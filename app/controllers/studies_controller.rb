@@ -40,7 +40,7 @@ class StudiesController < ApplicationController
         @study.user_id = current_user.id
         @study.study_pass=false
         @study.save
-        redirect_to "/studies/show/#{@study.id}"
+        redirect_to "/studies/#{@study.id}"
     end
     
     def show
@@ -49,21 +49,21 @@ class StudiesController < ApplicationController
     end
     
     def edit
-        @study = Study.find(params[:study_id])
+        @study = Study.find(params[:id])
     end
     
     def update
-        @study = Study.find(params[:study_id])
+        @study = Study.find(params[:id])
         @study.update(post_params)
         @study.user_id = current_user.id
         @study.save
-        redirect_to "/studies/show/#{@study.id}"
+        redirect_to "/studies/#{@study.id}"
     end
     
     def destroy
         @study = Study.find(params[:study_id])
         @study.destroy
-       redirect_to "/studies/index"
+       redirect_to "/studies"
     end
     
     private
