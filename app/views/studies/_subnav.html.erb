@@ -8,7 +8,7 @@
 		<div class="col-12 px-0 mb-5 pb-5">
         	<ul class="nav navbar-nav list-group no_draggable w-100">
              	<li class="list-group-item depth_0">
-	                <%= form_tag(studies_index_path, :method => "get", :class => "d-block w-100 row justify-content-center") do %>
+	                <%= form_tag(studies_path, :method => "get", :class => "d-block w-100 row justify-content-center") do %>
 		                <%= text_field_tag :search, nil, placeholder: "here", class: "d-inline-block col-8 ml-3" %>
 		                <%= button_tag(type: "submit", class: "btn bt_hk d-inline-block col-2") do %><i class="fa fa-search fa-lg mx-0 i_su_hk" aria-hidden="true"></i><% end %>
 	                <% end %> 
@@ -26,7 +26,7 @@
 				</li>
 					<li class="list-group-item depth_0 text-align-center">
   					<span class="category">
-                    <%= link_to "/studies/index", class: "text-align-center" do %>모든 스터디<%end%>
+                    <%= link_to "/studies", class: "text-align-center" do %>모든 스터디<%end%>
                		</span>
 				</li>
 			</ul>
