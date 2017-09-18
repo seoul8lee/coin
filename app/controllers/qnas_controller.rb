@@ -69,7 +69,7 @@ end
     
      
     def update
-      @qna = Qna.find(params[:qna_id])
+      @qna = Qna.find(params[:id])
       @qna.update(post_params)
         @qna.user_id= current_user.id
         @qna.qna_user=current_user.nickname
