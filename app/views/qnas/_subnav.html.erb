@@ -8,7 +8,7 @@
          <ul class="nav navbar-nav list-group no_draggable w-100 m-0">
              <div class="row mr-auto ml-auto">    
              <li class="list-group-item depth_0 col-md-12 col-6 pr-0 pl-2">
-                <%= form_tag(qnas_index_path, :method => "get", :class => "d-block w-100 h-100") do %>
+                <%= form_tag(qnas_path, :method => "get", :class => "d-block w-100 h-100") do %>
                     <div class="row w-100 h-100 mx-0 justify-content-center align-content-center">
                         <%= select_tag "option", options_for_select(["Title", "Content", "Code", "ALL"], "ALL"), class: "h-100 col-5 col-md-4 ml-0 mr-1 px-1" %>
                         <%= text_field_tag :search, nil, placeholder: "here", class: "h-100 col-5 col-md-6 ml-0 mr-1" %>
@@ -62,7 +62,7 @@
               </li>
               <li class="list-group-item depth_0 col-md-12 col-6 for_b">
                 <span class="category">
-                    <%= link_to "/qnas/index", class: " qnas_hs text_black_hs" do %>ALL<%end%>
+                    <%= link_to "/qnas", class: " qnas_hs text_black_hs" do %>ALL<%end%>
                 </span>     
               </li>
               </div>
