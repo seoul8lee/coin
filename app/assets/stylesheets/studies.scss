@@ -155,21 +155,28 @@
     
 }
 
-.intro_box{
-    color:white;
-    font-size:3em;
-    padding:10px;
-    text-align:center;
-    margin-top:10px;
+.intro_box {
+   color:#4C4C4C;
+  font-size: 2.5em;
+  padding: 10px;
+  text-align: center;
+  margin-top: 10px; 
+  border-bottom:3px solid  #8acbc1;
+  border-top:3px solid  #8acbc1;
+  
 }
-.intro_box_m{
-    color:white;
-    font-size:1.5em;
-    padding:10px;
-    text-align:center;
-    margin-top:10px;
+.study_fixed{
+  position: fixed;
 }
-
+.intro_box_m {
+  color:#4C4C4C;
+  font-size: 1.5em;
+  padding: 10px;
+  text-align: center;
+  margin-top: 10px; 
+   border-bottom:3px solid  #8acbc1;
+  border-top:3px solid  #8acbc1;
+}
 .apply_box{
     color:white;
     font-size:2em;
@@ -200,6 +207,7 @@
     height:200px;
    
 }
+
 .study_due_m{
     border-radius:100%;
     font-size:1.2em;
@@ -250,6 +258,22 @@
     text-align: center;
 }
 
+
+
+.study_content2{
+    font-size:1.5em;
+    color:#4C4C4C;
+    display:inline-block;
+    line-height:40px;
+    
+}
+.study_content2_m{
+    font-size:1em;
+    color:#4C4C4C;
+    display:inline-block;
+    line-height:30px;
+    
+}
 
 input[type="file"]{
     /* 파일 필드 숨기기 */ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0;
