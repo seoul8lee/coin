@@ -58,9 +58,16 @@
                 <div class="col-md-2 pr-md-0 col-3 pr-1 align-content-center">
                     <%= link_to "/qnas", class: "index_hs px-md-5 px-2" do %><%= image_tag('index_gray.png', class: "img-fluid button-img") %><%end%>
                 </div>
+              <%if current_user.nil? %>
+               <div class="col-md-2 push-md-8 col-4 push-5">
+                    <button class="reply_hs px-md-4 py-md-0 pb-2" onclick="myFunction()" ><%= image_tag('reply.png', class: "img-fluid button-img") %></button>
+                </div>
+             <%else %>
+             
                 <div class="col-md-2 push-md-8 col-4 push-5">
                     <button class="reply_hs px-md-4 py-md-0 pb-2" data-target="#layerpop" data-toggle="modal" ><%= image_tag('reply.png', class: "img-fluid button-img") %></button>
                 </div>
+            <%end%>    
             </div>   
             
                         <!--댓글용 모달입니다 -->
@@ -219,6 +226,7 @@
         </div>
         
         <% if @qna.choice == NIL %>
+        <%if current_user %>
             <% if current_user.id == @qna.user_id %>
                 <div class="col-1 pull-1 pull-md-0 px-0 mx-md-0">
                     <% if current_user %>
@@ -239,6 +247,7 @@
                     <%end%>
                 </div>
             <% end %>
+        <%end%>    
         <% else %>
                 <div class="col-1"></div>
                 <div class="col-1 for_b px-0 mx-0">
@@ -289,3 +298,11 @@
 </div> 
 </div> <!--큰 row-->
 </div>
+
+
+
+<script>
+function myFunction() {
+    alert("로그인 해주세요.");
+}
+</script>
