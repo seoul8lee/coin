@@ -68,7 +68,7 @@ class StudiesController < ApplicationController
     
     private
      def post_params
-      params.require(:study).permit(:study_name, :study_time, :study_content, :study_pay, :study_max, :study_due, :teacher_img, :teacher_intro)
+      params.require(:study).permit(:study_name, :study_time, :study_content, :study_pay, :study_max, :study_due, :teacher_img, :teacher_intro, :study_pass)
      end
     
 end
