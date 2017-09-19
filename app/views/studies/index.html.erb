@@ -76,7 +76,12 @@
 			<!-- Mobile subnav -->	
 			<div class="row hidden-md-up">
 				<div class="col-6 px-0 m-0"><%= link_to "/suggests", class: "" do %><%= image_tag("sugg_mob.png", class: "img-fluid") %><% end %></div>
+				
+				<%if current_user.nil?%>
+				<div class="col-6 px-0 for_b"><%= link_to "/studies", class: "" , :onclick => "myFunction()" do %><%= image_tag("studies_mob.png", class: "img-fluid") %><% end %></div>
+				<%else%>
 				<div class="col-6 px-0 for_b"><%= link_to "/studies/new", class: "" do %><%= image_tag("studies_mob.png", class: "img-fluid") %><% end %></div>
+				<%end%>
 			</div>
 		
 			<!-- PC header -->
@@ -148,4 +153,10 @@
 </div> <!-- container end -->
 
 
+
+<script>
+function myFunction() {
+    alert("로그인 해주세요.");
+}
+</script>
 
