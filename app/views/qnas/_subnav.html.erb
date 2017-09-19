@@ -69,10 +69,27 @@
         </ul>
         </div>
         
-        <div class="question_button col-md-12 col-12 pl-0 pr-0 mt-3">
-            <%= link_to "/qnas/new", class: "jua center_hs text-white" do %>질 문 하 기<%end%>
-        </div>
+       
+        <% if current_user.nil? %>
+            <div class="question_button col-md-12 col-12 pl-0 pr-0 mt-3">
+                <%= link_to "/qnas", class: "jua center_hs text-white ", :onclick => "myFunction()" do %>질 문 하 기<%end%>
+            </div>
+            
+        <% else %>
+        
+            <div class="question_button col-md-12 col-12 pl-0 pr-0 mt-3">
+                <%= link_to "/qnas/new", class: "jua center_hs text-white " do %>질 문 하 기<%end%>
+            </div>
+        
+        
+        <% end %>
     
     </div> <!--nav row -->
 </div> <!--container fluid -->
 
+
+<script>
+function myFunction() {
+    alert("로그인 해주세요.");
+}
+</script>
