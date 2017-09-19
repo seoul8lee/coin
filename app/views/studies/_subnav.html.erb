@@ -36,10 +36,23 @@
 			<%= link_to "/suggests", class: "" do %><%= image_tag("sugg_mob.png", class: "img-responsive border_hk d-blcok") %><% end %>	
 		</div> <!-- suggest end -->
 
+
+	<% if current_user.nil? %>
+		<div class="col-12 px-0">
+			<%= link_to "/studies", class: "", :onclick => "myFunction()" do %><%= image_tag("studies_mob.png", class: "img-responsive border_hk d-blcok") %><% end %>
+		</div> <!-- studies new end -->
+	<% else %>
+	
 		<div class="col-12 px-0">
 			<%= link_to "/studies/new", class: "" do %><%= image_tag("studies_mob.png", class: "img-responsive border_hk d-blcok") %><% end %>
 		</div> <!-- studies new end -->
-
+	<%end%>
 
 	</div> <!-- total row end -->
 </div> <!-- container fluid end -->
+
+<script>
+function myFunction() {
+    alert("로그인 해주세요.");
+}
+</script>
