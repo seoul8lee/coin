@@ -35,12 +35,24 @@
     --></div>
     
     <div class="row justify-content-center no-gutters">
-         <div class="col-6 px-0 mx-0">
-            <%= link_to "/offlines/career_new" do %> <%= image_tag("apply_blue.png", :class=>"img-fluid") %><%end%>
-         </div>
-         <div class="col-6 px-0 for_b">
-            <%= link_to "/offlines/coding_new" do %> <%= image_tag("apply_red.png",  :class=>"img-fluid")%> <%end%>
-         </div>
+        
+       <% if current_user.nil? %>  
+             <div class="col-6 px-0 mx-0">
+                <%= link_to "/offlines/index" , :onclick => "myFunction()" do %> <%= image_tag("apply_blue.png", :class=>"img-fluid") %><%end%>
+             </div>
+              <div class="col-6 px-0 for_b">
+                <%= link_to "/offlines/index" , :onclick => "myFunction()" do %> <%= image_tag("apply_red.png",  :class=>"img-fluid")%> <%end%>
+             </div>
+        <%else %>
+            <div class="col-6 px-0 mx-0">
+                <%= link_to "/offlines/career_new" do %> <%= image_tag("apply_blue.png", :class=>"img-fluid") %><%end%>
+             </div>
+              <div class="col-6 px-0 for_b">
+                <%= link_to "/offlines/coding_new" do %> <%= image_tag("apply_red.png",  :class=>"img-fluid")%> <%end%>
+             </div>
+        <%end%>
+        
+        
      </div>
   </div>    
     
@@ -64,3 +76,9 @@
     </div>
 
 </div>
+
+<script>
+function myFunction() {
+    alert("로그인 해주세요.");
+}
+</script>
