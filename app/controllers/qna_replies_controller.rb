@@ -6,7 +6,7 @@ class QnaRepliesController < ApplicationController
     if current_user.nil?     
         @qna_reply.qna_reply_user = current_user.nickname
         @qna_reply.user_id= current_user.id
-    ends    
+    end
         @qna_reply.save
        
         redirect_to "/qnas/#{@qna.id}"
