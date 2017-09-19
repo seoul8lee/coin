@@ -50,8 +50,11 @@ end
 
     def create
          @qna = Qna.new(post_params)
+         
+      if current_user.nil? 
         @qna.user_id= current_user.id
         @qna.qna_user=current_user.nickname
+      end  
         @qna.save
         redirect_to "/qnas/#{@qna.id}"
     end
@@ -71,8 +74,10 @@ end
     def update
       @qna = Qna.find(params[:id])
       @qna.update(post_params)
+      if current_user.nil? 
         @qna.user_id= current_user.id
         @qna.qna_user=current_user.nickname
+      end  
         @qna.save
         redirect_to "/qnas/#{@qna.id}"
   
