@@ -84,6 +84,7 @@
 
 <%=render 'nav'%>
 <div class="container minheight">
+     
      <!--web용 -->
     <div class="row no-gutters d-none d-md-block">
        <div class="col-md-9">
@@ -115,12 +116,17 @@
                         <div class="col-2">
                             <%= link_to "/studies", class: "index_hs" do %><%= image_tag('index_gray.png', class: "img-fluid button-img") %><%end%> 
                         </div>
-                        <div class="col-2">
-                             <%if current_user.id==@study.user_id %>    
+                    <%if current_user.nil? %>
+                    <%else %>
+                         <div class="col-2">
+                             <%if current_user.id==1%>    
                               <%= link_to "/studies/#{@study.id}/edit", class: "index_hs" do %><%= image_tag('edit.png', class: "img-fluid button-img") %><%end%> 
                            <%end%>
                         
                         </div>
+                    <%end%> 
+                    
+                       
                     </div>  
                 </div>    
         </div>
@@ -136,7 +142,13 @@
                           <div class="col-12"><div class="study_content2 ">D-DAY: <%=@study.study_due%></div><hr></div>
                 </div>
              </div>
+        <% if current_user.nil? %>     
              <div class="col-12">
+                             <%= link_to "/studies/#{@study.id}" , :onclick => "myFunction()" do %><%= image_tag("study_apply.png", :class=>"review_write") %> <% end %>
+                 
+             </div>
+        <%else%>
+              <div class="col-12">
                   <!--신청안했으면 신청하기 신청했으면 신청취소하기-->
                     <%flag=0%>
                      <% @apply.each do |apply| %>
@@ -151,6 +163,8 @@
                              <%= link_to "/studies/#{@study.id}/apply" do %><%= image_tag("study_apply.png", :class=>"review_write") %> <% end %>
                     <%end %>
              </div>
+        <%end%>
+        
         </div>
         
     </div>
@@ -200,22 +214,35 @@
          <div class="row mx-1">
            
                  <div class="col-5 px-0 mt-3 mr-4">
-                    <% if flag!=0 %>
+                 <% if current_user.nil? %>     
+                    <%= link_to "/studies/#{@study.id}" , :onclick => "myFunction()" do %><%= image_tag("study_apply.png", :class=>"review_write") %> <% end %>
+                 
+                <%else%>     
+                         <% if flag!=0 %>
                                  <%= link_to "/studies/#{@study.id}/#{flag}/apply_d" do %><%= image_tag("study_apply_d.png", :class=>"review_write") %> <% end %>
                          <% else %>
                                  <%= link_to "/studies/#{@study.id}/apply" do %><%= image_tag("study_apply.png", :class=>"review_write") %> <% end %>
                         <%end %>
+                <%end%>
+                
+                     
+                   
                 </div>
                 
             <div class="col-3 px-0 mt-3">
                 <%= link_to "/studies", class: "index_hs" do %><%= image_tag('index_gray.png', class: "img-fluid button-img") %><%end%> 
             </div>
+        <% if current_user.nil? %>
+        <% else %>
             <div class="col-3 px-0 mt-3">
                  <%if current_user.id==@study.user_id %>    
                   <%= link_to "/studies/#{@study.id}/edit", class: "index_hs" do %><%= image_tag('edit.png', class: "img-fluid button-img") %><%end%> 
                <%end%>
             
             </div>
+        <%end %>
+        
+            
          </div>
         
         
@@ -223,3 +250,10 @@
     </div>
 
 </div>
+
+
+<script>
+function myFunction() {
+    alert("로그인 해주세요.");
+}
+</script>
