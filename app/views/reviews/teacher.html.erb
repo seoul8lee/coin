@@ -39,9 +39,16 @@
      </div>
                  
         <div class="row">
+                
+         <% if current_user.nil? %>    
+             <div class="col-md-3 hidden-sm-down">
+                  <%= link_to "/reviews" , :onclick => "myFunction()" do %> <%= image_tag("review_write.png", :class=>"review_write") %> <% end %>
+             </div>     
+         <% else %>
              <div class="col-md-3 hidden-sm-down">
                   <%= link_to "/reviews/new" do %> <%= image_tag("review_write.png", :class=>"review_write") %> <% end %>
-             </div>     
+             </div> 
+         <%end%>    
              
              <div class="col-md-9 for_b col-12">
                   <ul class="nav nav-tabs">
@@ -64,12 +71,24 @@
                         <td class="table_hk" width="70%">
                             <% if review.secret == true %>
                                 <span><%= image_tag("lock.png", size: "10") %></span>
+                                <%if current_user.nil? %>
+                                <%= link_to "/reviews", class: "review_table_hk" , :onclick => "myFunction()" do%><%= review.title %><%end%>
+                                <% else %>
                                 <%= link_to "/reviews/#{review.id}", class: "review_table_hk" do%><%= review.title %><%end%>
+                                <%end%>
                             <% elsif review.user_id == 1 %>
                                 <span><%= image_tag("teacher_icon.png", size: "12") %></span>
+                                <% if current_user.nil?%>
+                                <%= link_to "/reviews", class: "review_table_hk", :onclick => "myFunction()" do%><%= review.title %><%end%>
+                                <%else%>
                                 <%= link_to "/reviews/#{review.id}", class: "review_table_hk" do%><%= review.title %><%end%>
+                                <%end%>
                             <% else %>
-                                <%= link_to "/reviews/#{review.id}", class: "review_table_hk" do%><%= review.title %><%end%>   
+                                <%if current_user.nil?%>
+                                 <%= link_to "/reviews", class: "review_table_hk"  , :onclick => "myFunction()" do%><%= review.title %><%end%> 
+                                <%else%>
+                                <%= link_to "/reviews/#{review.id}", class: "review_table_hk" do%><%= review.title %><%end%>  
+                                <%end%>
                             <% end %>
                         </td>
                         <td class="text-right hidden-sm-down" width="30%">
@@ -88,9 +107,22 @@
             </div>    
     
              
-             <div class="col-6 push-3 hidden-md-up mb-2">
+            <% if current_user.nil? %>    
+            <div class="col-6 push-3 hidden-md-up mb-2">
+                  <%= link_to "/reviews/new" , :onclick => "myFunction()" do %> <%= image_tag("review_write.png", :class=>"review_write") %> <% end %>
+             </div>     
+         <% else %>
+           <div class="col-6 push-3 hidden-md-up mb-2">
                   <%= link_to "/reviews/new" do %> <%= image_tag("review_write.png", :class=>"review_write") %> <% end %>
              </div>   
+         <%end%>   
         </div>    
    
 </div> <!-- 컨테이너 디브 -->
+
+
+<script>
+function myFunction() {
+    alert("로그인 해주세요.");
+}
+</script>
