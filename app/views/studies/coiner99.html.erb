@@ -1,0 +1,91 @@
+<%=render 'nav'%>
+<div class="container minheight">
+
+<% if current_user!=NIL %>
+<% if current_user.id==1 %>
+<h2>코인하는사람들</h2>
+<table class="table table-hover">
+
+     <tr>
+         <th>아이디</th>
+         <th>이메일</th>
+         <th>이  름</th>
+         <th>생  일</th>
+         <th>연락처</th>
+         <th>닉네임</th>
+         <th>소  속</th>
+     </tr>
+     
+     <% @users.each do |user| %>
+       <tr>
+        <td class="table_info"><%= user.id %></td>
+        <td class="table_info"><%= user.email %></td>
+        <td class="table_info"><%= user.name %></td>
+        <td class="table_info"><%= user.birthday %></td>
+        <td class="table_info"><%= user.phone %></td>
+        <td class="table_info"><%= user.nickname %></td>
+        <td class="table_info"><%= user.part %></td>
+        
+        </tr>
+     <% end %>
+   
+     
+ </table>
+</br></br>
+<h2>스터디개설신청목록</h2>     
+<table>
+    
+     <tr>
+         <th>스터디 제목</th>
+         <th>스터디 시간</th>
+         <th>스터디 내용</th>
+         <th>스터디 비용</th>
+         <th>스터디 정원</th>
+         <th>스터디 날짜</th>
+         <th>선생님 사진</th>
+         <th>선생님 소개</th>
+         <th>승인여부</th>
+         <th>스터디 패스체크</th>
+         <th>선생님 id </th> 
+         <th>신청자 목록
+     </tr>
+     
+    <% @studies.each do |study| %>
+        <tr> 
+            
+        <td class="table_info"><%= study.study_name %></td>
+         <td class="table_info"><%= study.study_time %></td>
+         <td class="table_info"><%= study.study_content %></td>
+         <td class="table_info"><%= study.study_pay %></td>
+         <td class="table_info"><%= study.study_max %></td>
+         <td class="table_info"><%= study.study_due %></td>
+         <td class="table_info" ><img src="<%= study.teacher_img.url %>" class=" imghyosize"></td>
+         <td class="table_info"><%= study.teacher_intro %></td>
+         <td class="table_info"><%= study.study_pass %></td>
+             <td>  <%= form_for study, url: "/studies/#{study.id}" , method: :patch do |f| %>
+             
+    
+                  <%= f.check_box :study_pass , class: "form-control" %>
+                  <%= f.submit %>
+                  <% end %>
+             </td>
+         <td class="table_info"><%= study.user_id %></td>
+                
+        <td>
+              <% @applies.each do |apply| %>
+                 <% if apply.study_id == study.id %>
+                        <%=apply.student_name %> </br>
+                 <%end%>
+              <% end %>
+        </td>
+        
+     
+                       
+        </tr>
+    <% end %>
+ </table>
+<% end %>
+
+<% end %>
+
+</div>
