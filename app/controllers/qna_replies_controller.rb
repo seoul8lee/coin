@@ -3,7 +3,7 @@ class QnaRepliesController < ApplicationController
     def create
         @qna = Qna.find(params[:qna_id])
         @qna_reply = @qna.qna_replies.create(reply_params)
-    if current_user.nil?     
+    if current_user
         @qna_reply.qna_reply_user = current_user.nickname
         @qna_reply.user_id= current_user.id
     end
