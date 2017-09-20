@@ -51,7 +51,7 @@ end
     def create
          @qna = Qna.new(post_params)
          
-      if current_user.nil? 
+      if current_user
         @qna.user_id= current_user.id
         @qna.qna_user=current_user.nickname
       end  
@@ -74,7 +74,7 @@ end
     def update
       @qna = Qna.find(params[:id])
       @qna.update(post_params)
-      if current_user.nil? 
+      if current_user
         @qna.user_id= current_user.id
         @qna.qna_user=current_user.nickname
       end  
