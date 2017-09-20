@@ -88,7 +88,8 @@
                                 <%if current_user.nil?%>
                                  <%= link_to "/reviews", class: "review_table_hk"  , :onclick => "myFunction()" do%><%= review.title %><%end%> 
                                 <%else%>
-                                <%= link_to "/reviews/#{review.id}", class: "review_table_hk" do%><%= review.title %><%end%>  
+                                <%= link_to "/reviews/#{review.id}", class: "review_table_hk" do%><%= review.title %><%end%> 
+                             <%= link_to "/reviews/#{review.id}", method: :delete, data: { confirm: "삭제합니까?" } do %> <%= image_tag("delete.png", :class=>"button_y") %><%end%>
                                 <%end%>
                             <% end %>
                         </td>
