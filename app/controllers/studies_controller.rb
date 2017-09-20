@@ -66,6 +66,14 @@ class StudiesController < ApplicationController
        redirect_to "/studies"
     end
     
+    
+    def coiner99
+       @users = User.all
+       @studies=Study.all
+       @applies = Apply.all
+        
+      end
+    
     private
      def post_params
       params.require(:study).permit(:study_name, :study_time, :study_content, :study_pay, :study_max, :study_due, :teacher_img, :teacher_intro, :study_pass)
