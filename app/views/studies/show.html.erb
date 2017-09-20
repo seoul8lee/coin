@@ -219,7 +219,7 @@
                  
                 <%else%>     
                          <% if flag!=0 %>
-                                 <%= link_to "/studies/#{@study.id}/#{flag}/apply_d" do %><%= image_tag("study_apply_d.png", :class=>"review_write") %> <% end %>
+                                 <%= link_to "/studies/#{@study.id}/apply_d/#{flag}" do %><%= image_tag("study_apply_d.png", :class=>"review_write") %> <% end %>
                          <% else %>
                                  <%= link_to "/studies/#{@study.id}/apply" do %><%= image_tag("study_apply.png", :class=>"review_write") %> <% end %>
                         <%end %>
