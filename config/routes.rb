@@ -55,6 +55,8 @@ Rails.application.routes.draw do
         collection do
             get :index_hot
             get :index_last
+            get :coiner99
+
         end
     end
     
@@ -65,6 +67,5 @@ Rails.application.routes.draw do
     
     #   mount RailsDb::Engine => '/coinkiyom', :as => 'rails_db'
     
-    get 'studies/coiner99' =>'studies#coiner99'
     
 end
