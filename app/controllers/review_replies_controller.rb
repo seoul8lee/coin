@@ -3,7 +3,7 @@ class ReviewRepliesController < ApplicationController
         @review = Review.find(params[:review_id])
         @review_reply = @review.review_replies.build
         @review_reply.body = params[:body]
-    if current_user.nil?     
+    if current_user 
         @review_reply.user = current_user
     end    
         @review_reply.save
