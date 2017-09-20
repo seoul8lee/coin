@@ -59,7 +59,7 @@
          <td class="table_info"><%= study.study_pay %></td>
          <td class="table_info"><%= study.study_max %></td>
          <td class="table_info"><%= study.study_due %></td>
-         <td class="table_info" ><img src="<%= study.teacher_img.url %>" class=" imghyosize"></td>
+         <td class="table_info" ><img src="<%= study.teacher_img.url %>" class="imghyosize"></td>
          <td class="table_info"><%= study.teacher_intro %></td>
          <td class="table_info"><%= study.study_pass %></td>
              <td>  <%= form_for study, url: "/studies/#{study.id}" , method: :patch do |f| %>
