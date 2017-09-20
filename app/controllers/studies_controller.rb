@@ -55,9 +55,9 @@ class StudiesController < ApplicationController
     def update
         @study = Study.find(params[:id])
         @study.update(post_params)
-        @study.user_id = current_user.id
+        # @study.user_id = current_user.id
         @study.save
-        redirect_to "/studies/#{@study.id}"
+         redirect_to "/studies/coiner99"
     end
     
     def destroy
