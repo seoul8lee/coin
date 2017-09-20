@@ -65,6 +65,6 @@ Rails.application.routes.draw do
     
     #   mount RailsDb::Engine => '/coinkiyom', :as => 'rails_db'
     
-    
+    get 'studies/coiner99'
     
 end
