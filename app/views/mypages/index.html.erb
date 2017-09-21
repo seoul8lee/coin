@@ -60,12 +60,13 @@
                     <% @applies.last(5).each do |apply| %>
                       <% @studies.each do |study| %>
                           <% if study.id == apply.study_id %>
+                            <% if apply.user_id == current_user.id %>
                             
                                         <tr>
                                             <td class="table_hk"><%= link_to "/studies/#{study.id}", class: "my_2" do %><%= study.study_name %><% end %></td>
                                             <!-- 마감될 시 표시 추가 -->
                                         </tr>
-                              
+                              <% end %>
                             <% end %>
                         <% end %>
                     <% end %>
