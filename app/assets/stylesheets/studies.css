@@ -242,7 +242,9 @@ input[type="file"] {
     line-height:30px;
     
 }
-
+.tables{
+    table-layout: fixed;
+}
 
 .colhyo{
     width: 15em;
