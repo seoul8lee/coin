@@ -55,12 +55,12 @@
             
         <td class="table_info"><%= study.study_name %></td>
          <td class="table_info"><%= study.study_time %></td>
-         <td class="table_info"><%= study.study_content %></td>
+         <td class="table_info  colhyo"><%= study.study_content %></td>
          <td class="table_info"><%= study.study_pay %></td>
          <td class="table_info"><%= study.study_max %></td>
          <td class="table_info"><%= study.study_due %></td>
          <td class="table_info" ><img src="<%= study.teacher_img.url %>" id="imghyosize"></td>
-         <td class="table_info"><%= study.teacher_intro %></td>
+         <td class="table_info colhyo"><%= study.teacher_intro %></td>
          <td class="table_info"><%= study.study_pass %></td>
              <td>  <%= form_for study, url: "/studies/#{study.id}" , method: :patch do |f| %>
              
@@ -69,9 +69,9 @@
                   <%= f.submit %>
                   <% end %>
              </td>
-         <td class="table_info"><%= study.user_id %></td>
+         <td class="table_info colhyo2"><%= study.user_id %></td>
                 
-        <td>
+        <td class="table_info colhyo1">
               <% @applies.each do |apply| %>
                  <% if apply.study_id == study.id %>
                         <%=apply.student_name %> </br>
