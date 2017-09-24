@@ -152,7 +152,9 @@
                   <!--신청안했으면 신청하기 신청했으면 신청취소하기-->
                     <%flag=0%>
                      <% @apply.each do |apply| %>
-                        <% if apply.user_id == current_user.id %><% flag=apply.id%>
+                        <% if apply.user_id == current_user.id %>
+                                <% flag=apply.id%>
+                                <% break%>
                         <%else%> <% flag=0%>       
                         <%end%>     
                     <%end%>
