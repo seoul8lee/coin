@@ -10,6 +10,13 @@
             <div class="col-12 hidden-md-up qna_title_btn_hk"><p class="review_title_y_m">| "<%= @review.title %> "</p></div> 
      </div> 
      <hr>
+    
+    <% if current_user.id == 1%>
+     <div class="row">
+         <div class="col-md-12 col-12"><span class=" text-info"><span class="glyphicon glyphicon-user"></span><%= @review.user.name %>님의 후기</span></div>
+     </div>
+     <% end %>
+    
 <% if current_user.nil?%>
     
 <%else %>
