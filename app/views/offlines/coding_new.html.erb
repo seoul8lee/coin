@@ -9,28 +9,28 @@
  <div class="qna_form center_hs">    
     <%= form_tag('/offlines/create', multipart: true, :id => 'contactform') do %>
         <p  class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
-            <label for="team_name"><span class="offline_new_title">단 체 명</span></label>
-            <%= text_field_tag('team_name',nil, size: 70, placeholder: "학교이름 또는 단체이름",class:'form-control', :id => "contactteam") %>   
+            <label for="team_name"><span class="offline_new_title">학 교 명</span></label>
+            <%= text_field_tag('team_name',nil, size: 70, placeholder: "진로특강에 참여한 학교 재학생만 선발합니다.",class:'form-control', :id => "contactteam") %>   
         </p>
         <p  class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
-            <label for="address"><span class="offline_new_title">주 소</span></label>
-            <%= text_field_tag('address',nil, size: 70,class: 'form-control', :id => "contactaddress") %>
+            <label for="address"><span class="offline_new_title">학 년</span></label>
+            <%= text_field_tag('address',nil, size: 70, placeholder: "2018년 1학기 기준 학년을 적어주세요.", class: 'form-control', :id => "contactaddress") %>
         </p>
         <p  class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
-            <label for="name"><span class="offline_new_title">대표자 이름</span></label>
+            <label for="name"><span class="offline_new_title">이 름</span></label>
             <%= text_field_tag('name',nil, size: 70, class:'form-control', :id => "contactname") %>
         </p>
         <p  class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
-            <label for="phone"><span class="offline_new_title">대표자 연락처</span></label>
+            <label for="phone"><span class="offline_new_title">핸 드 폰 번 호</span></label>
             <%= text_field_tag('phone',nil, size: 70, class:'form-control', :id => "contactphone") %>
         </p>
         <p  class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
-            <label for="date"><span class="offline_new_title">희 망 일 시</span></label>
-            <%= text_area_tag('date',nil, cols: 70, rows: 10, placeholder: "최대한 구체적으로 작성해주세요", class:'form-control', :id => "contactdate") %>
+            <label for="date"><span class="offline_new_title">희 망 학 과</span></label>
+            <%= text_area_tag('date',nil, cols: 70, rows: 5, placeholder: "코인의 세 가지 학과의 희망 순위를 적어주세요. 예시) 1순위 : 컴퓨터학과 / 2순위 : 산업경영공학부 / 3순위 : 전기전자공학부", class:'form-control', :id => "contactdate") %>
         </p>
         <p  class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
-            <label for="content"><span class="offline_new_title">신 청 계 기</span></label>
-            <%= text_area_tag('content',nil, cols: 70, rows: 10, class:'form-control', :id => "contactcontent")  %>
+            <label for="content"><span class="offline_new_title">지 원 동 기</span></label>
+            <%= text_area_tag('content',nil, cols: 70, rows: 10, placeholder: "코딩 특강에 성실히 참여할 수 있음을 보여주세요 :) 선발의 기준으로 사용할 예정입니다. 감사합니다.", class:'form-control', :id => "contactcontent")  %>
         </p>
         <p  class="form-group col-md-8 push-md-2 col-sm-10 push-sm-1 mb-5 ">
             <span class="offline_new_title"></span>
