@@ -41,28 +41,28 @@
     
     <%= form_tag('/offlines/create', multipart: true) do %>
         <p class="offline_form">
-            <label for="team_name"><span class="offline_new_title">단 체 명</span></label>
-            <%= text_field_tag('team_name',nil, size: 70, placeholder: "학교이름 또는 단체이름", class: "offline_form_hs") %>   
+            <label for="team_name"><span class="offline_new_title">학 교</span></label>
+            <%= text_field_tag('team_name',nil, size: 70, placeholder: "재학 중인 학교 명을 적어주세요.", class: "offline_form_hs") %>   
         </p>
         <p class="offline_form">
-            <label for="address"><span class="offline_new_title">주 소</span></label>
-            <%= text_field_tag('address',nil, size: 70,class: "offline_form_hs") %>
+            <label for="address"><span class="offline_new_title">학 년</span></label>
+            <%= text_field_tag('address',nil, size: 70, placeholder: "2018년 3월 기준" ,class: "offline_form_hs") %>
         </p>
         <p class="offline_form">
-            <label for="name"><span class="offline_new_title">대표자 이름</span></label>
+            <label for="name"><span class="offline_new_title">이 름</span></label>
             <%= text_field_tag('name',nil, size: 70,class: "offline_form_hs") %>
         </p>
         <p class="offline_form">
-            <label for="phone"><span class="offline_new_title">대표자 연락처</span></label>
+            <label for="phone"><span class="offline_new_title">핸 드 폰 번 호</span></label>
             <%= text_field_tag('phone',nil, size: 70,class: "offline_form_hs") %>
         </p>
         <p class="offline_form">
-            <label for="date"><span class="offline_new_title">희 망 일 시</span></label>
-            <%= text_area_tag('date',nil, cols: 70, rows: 10, placeholder: "최대한 구체적으로 작성해주세요", class: "offline_form_hs")  %>
+            <label for="date"><span class="offline_new_title">희 망 학 과</span></label>
+            <%= text_area_tag('date',nil, cols: 70, rows: 10, placeholder: "예시) 1지망 : 컴퓨터학과 / 2지망 : 전기전자공학부 / 3지망 : 산업경영공학부", class: "offline_form_hs")  %>
         </p>
         <p class="offline_form">
-            <label for="content"><span class="offline_new_title">신 청 계 기</span></label>
-            <%= text_area_tag('content',nil, cols: 70, rows: 10, class: "offline_form_hs") %>
+            <label for="content"><span class="offline_new_title">지 원 동 기</span></label>
+            <%= text_area_tag('content',nil, cols: 70, rows: 10, placeholder: "지원동기를 기반으로 특강에 참여할 수 있는 기회를 제공할 예정입니다. 감사합니다.",class: "offline_form_hs") %>
         </p>
         <p class="offline_form">
             <span class="offline_new_title"></span>
